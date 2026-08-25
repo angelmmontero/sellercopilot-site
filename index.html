@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SellerCopilot AI — Analytics &amp; AI Recommendations for Amazon Sellers</title>
   <meta name="description" content="SellerCopilot AI (SCAI) turns your Amazon seller data into a daily action plan: sales and traffic analytics, AI-powered recommendations, inventory forecasting, and profit analysis.">
-  <link rel="preload" href="fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#0a0b11">
+  <link rel="preload" href="fonts/poppins-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -19,7 +20,7 @@
 <header class="site-header">
   <div class="container">
     <a class="brand" href="/">
-      <svg width="30" height="30" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <rect width="32" height="32" rx="7" fill="#4f46e5"/>
         <rect x="7" y="17" width="4" height="8" rx="1.5" fill="#c7d2fe"/>
         <rect x="14" y="12" width="4" height="13" rx="1.5" fill="#e0e7ff"/>
@@ -40,20 +41,33 @@
 
 <section class="hero">
   <div class="container">
-    <div>
-      <h1>Your Amazon business, <em>explained and prioritized</em> — every morning.</h1>
-      <p class="lead">
-        SellerCopilot AI (SCAI) connects to your Amazon seller account, analyzes your sales,
-        traffic, advertising, inventory, and financial data daily, and delivers a prioritized
-        action plan with the evidence behind every recommendation.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">Request a demo</a>
-        <a class="btn btn-ghost" href="#features">Explore features</a>
-      </div>
+    <div class="hero-badge">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/></svg>
+      Built on the official Amazon Selling Partner API
     </div>
-    <div class="mockup-wrap">
-      <div class="mockup" role="img" aria-label="Illustration of a SellerCopilot AI daily recommendation card with sample data">
+    <h1>Your Amazon business, <em>explained and prioritized</em> — every morning.</h1>
+    <p class="lead">
+      SellerCopilot AI (SCAI) connects to your Amazon seller account, analyzes your sales,
+      traffic, advertising, inventory, and financial data daily, and delivers a prioritized
+      action plan with the evidence behind every recommendation.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact">Request a demo</a>
+      <a class="btn btn-ghost" href="#features">Explore features</a>
+    </div>
+    <div class="hero-marks">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>Automated daily ingestion</span>
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Credentials encrypted at rest</span>
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M3 3v6h6"/></svg>Revoke access anytime</span>
+    </div>
+  </div>
+</section>
+
+<div class="mock-section">
+  <div class="container">
+    <div class="mock-window" role="img" aria-label="Illustration of a SellerCopilot AI daily recommendation card with sample data">
+      <div class="mock-chrome"><i></i><i></i><i></i><span class="label">Daily Brief</span></div>
+      <div class="mockup">
         <div class="mockup-head">
           <span class="badge badge-red">Stop Ads</span>
           <span class="mockup-asin">B0XXXXXXXX</span>
@@ -78,25 +92,28 @@
             <div class="metric-row"><span>ROAS</span><span class="val">0.7×</span></div>
           </div>
         </div>
-        <p class="mockup-caption">Daily Brief recommendation card — illustrative sample data</p>
       </div>
+      <p class="mockup-caption">Daily Brief recommendation card — illustrative sample data</p>
     </div>
   </div>
-</section>
+</div>
 
 <section id="features">
   <div class="container">
-    <h2>Everything a data-driven seller needs, in one place</h2>
-    <p class="section-intro">
-      SCAI ingests your Amazon selling data automatically every day and turns it into
-      dashboards, forecasts, and concrete recommendations — no spreadsheets required.
-    </p>
+    <div class="section-head">
+      <p class="kicker">Features</p>
+      <h2>Everything a data-driven seller needs, in one place</h2>
+      <p class="section-intro">
+        SCAI ingests your Amazon selling data automatically every day and turns it into
+        dashboards, forecasts, and concrete recommendations — no spreadsheets required.
+      </p>
+    </div>
     <div class="feature-grid">
 
       <div class="feature">
         <div class="feature-head">
           <div class="icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-6 3 4 5-8"/></svg>
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-6 3 4 5-8"/></svg>
           </div>
           <h3>Sales &amp; Traffic Analytics</h3>
         </div>
@@ -112,7 +129,7 @@
       <div class="feature">
         <div class="feature-head">
           <div class="icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7c0 2.4-1.2 4.2-2.6 5.6-.6.6-.9 1.4-.9 2.2V18a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-1.2c0-.8-.3-1.6-.9-2.2C6.2 13.2 5 11.4 5 9a7 7 0 0 1 7-7z"/><path d="M9 22h6"/></svg>
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7c0 2.4-1.2 4.2-2.6 5.6-.6.6-.9 1.4-.9 2.2V18a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-1.2c0-.8-.3-1.6-.9-2.2C6.2 13.2 5 11.4 5 9a7 7 0 0 1 7-7z"/><path d="M9 22h6"/></svg>
           </div>
           <h3>Daily Brief &amp; AI Recommendations</h3>
         </div>
@@ -129,7 +146,7 @@
       <div class="feature">
         <div class="feature-head">
           <div class="icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg>
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5"/><path d="M12 13v8"/></svg>
           </div>
           <h3>Inventory Forecasting &amp; Order Insights</h3>
         </div>
@@ -145,7 +162,7 @@
       <div class="feature">
         <div class="feature-head">
           <div class="icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M15 9.5c0-1.4-1.3-2.5-3-2.5s-3 1.1-3 2.5 1.3 2.5 3 2.5 3 1.1 3 2.5-1.3 2.5-3 2.5-3-1.1-3-2.5"/></svg>
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M15 9.5c0-1.4-1.3-2.5-3-2.5s-3 1.1-3 2.5 1.3 2.5 3 2.5 3 1.1 3 2.5-1.3 2.5-3 2.5-3-1.1-3-2.5"/></svg>
           </div>
           <h3>Profit &amp; Financial Analytics</h3>
         </div>
@@ -164,7 +181,10 @@
 
 <section id="how-it-works" class="alt">
   <div class="container">
-    <h2>From connection to daily insights in three steps</h2>
+    <div class="section-head">
+      <p class="kicker">How it works</p>
+      <h2>From connection to daily insights in three steps</h2>
+    </div>
     <div class="steps">
       <div class="step">
         <div class="num">1</div>
@@ -187,7 +207,10 @@
 
 <section id="security">
   <div class="container">
-    <h2>Your data is yours. We treat it that way.</h2>
+    <div class="section-head">
+      <p class="kicker">Security</p>
+      <h2>Your data is yours. We treat it that way.</h2>
+    </div>
     <div class="security-grid">
       <div class="security-item">
         <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
@@ -223,7 +246,10 @@
 
 <section id="pricing" class="alt">
   <div class="container">
-    <h2 style="text-align:center;">Simple, tailored pricing</h2>
+    <div class="section-head">
+      <p class="kicker">Pricing</p>
+      <h2>Simple, tailored pricing</h2>
+    </div>
     <div class="pricing-card">
       <h3>Quote-based subscription</h3>
       <p>
@@ -240,6 +266,7 @@
 <section id="contact">
   <div class="container">
     <div class="contact-box">
+      <p class="kicker">Contact</p>
       <h2>Talk to us</h2>
       <p>Questions, demos, or a pricing quote — we'd love to hear from you.</p>
       <a class="email" href="mailto:hello@sellercopilot.ai">hello@sellercopilot.ai</a>
