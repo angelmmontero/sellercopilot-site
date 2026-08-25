@@ -197,6 +197,7 @@ h1, h2, h3 {
   font-size: 1.13rem; line-height: 1.75;
   color: var(--body-c);
   margin: 0 auto 36px; max-width: 40rem;
+  text-wrap: pretty;
 }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 .btn {
@@ -351,6 +352,7 @@ h2 {
 .section-intro {
   color: var(--muted); font-size: 1.06rem; line-height: 1.7;
   max-width: 42rem; margin: 0 auto;
+  text-wrap: pretty;
 }
 
 /* Features — bordered dark tiles with glow hover */
