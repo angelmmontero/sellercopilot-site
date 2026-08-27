@@ -129,6 +129,7 @@ h1, h2, h3 {
   transition: color 160ms var(--ease-out);
 }
 .main-nav a:hover { color: var(--heading); }
+.main-nav a[aria-current="page"] { color: var(--heading); }
 .main-nav a.cta {
   font-family: var(--display);
   background: var(--accent); color: var(--accent-ink);
