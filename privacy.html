@@ -28,8 +28,8 @@
     <nav class="main-nav">
       <a href="/#features">Features</a>
       <a href="/#how-it-works">How it works</a>
-      <a href="/security">Security</a>
       <a href="/#pricing">Pricing</a>
+      <a href="/security">Security</a>
       <a href="/privacy" aria-current="page">Privacy</a>
       <a class="cta" href="/#contact">Contact us</a>
     </nav>
@@ -88,15 +88,18 @@
   <p>We do not use your data to train machine-learning models, and we never use one customer's data to provide services to another customer.</p>
 
   <h2>3. How we store and protect information</h2>
-  <ul>
-    <li>All data is transmitted over encrypted connections (HTTPS/TLS).</li>
-    <li>Data is stored in access-controlled PostgreSQL databases hosted by our cloud infrastructure providers.</li>
-    <li>Amazon API credentials (such as refresh tokens) are encrypted at rest using AES-256-GCM.</li>
-    <li>Passwords are stored as salted bcrypt hashes and are never retrievable in plain text.</li>
-    <li>Each customer's data is strictly scoped to their own company account; application-level controls enforce this isolation on every query.</li>
-    <li>Administrative access is limited to authorized personnel, protected by authentication controls including rate-limited login and session expiry.</li>
-    <li>Information received through Amazon's APIs is handled in accordance with Amazon's Acceptable Use Policy and Data Protection Policy.</li>
-  </ul>
+  <p>
+    Data is transmitted over encrypted connections and held in access-controlled PostgreSQL
+    databases in the United States. Amazon API credentials are encrypted at rest, passwords are
+    stored only as salted hashes, and every query is scoped to your own company account so your
+    data is never visible to another customer. Information received through Amazon's APIs is
+    handled in accordance with Amazon's Acceptable Use Policy and Data Protection Policy.
+  </p>
+  <p>
+    Our <a href="/security">Security page</a> describes these controls in full, including the
+    specific algorithms used, how account isolation is enforced, how our AI features handle your
+    data, and the buyer data we deliberately do not store.
+  </p>
 
   <h2>4. How we share information</h2>
   <p>
@@ -160,7 +163,6 @@
   <div class="container">
     <p>© 2026 SellerCopilot AI · An Intelecommerce product</p>
     <div class="footer-links">
-      <a href="/security">Security</a>
       <a href="/privacy">Privacy Policy</a>
       <a href="mailto:hello@sellercopilot.ai">Contact</a>
     </div>
