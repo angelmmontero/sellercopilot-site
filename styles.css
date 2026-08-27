@@ -435,6 +435,12 @@ h2 {
 .security-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
 .security-item p { color: var(--muted); font-size: 0.92rem; }
 .security-item a { color: var(--accent); }
+.section-note {
+  color: var(--faint); font-size: 0.92rem; line-height: 1.65;
+  max-width: 42rem; margin: 30px auto 0;
+  text-align: center; text-wrap: pretty;
+}
+.section-note a { color: var(--accent); }
 
 /* Pricing */
 .pricing-card {
