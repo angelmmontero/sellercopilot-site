@@ -361,6 +361,14 @@ h2 {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 22px;
 }
+/* Spans the full row: with an odd number of cards the grid would otherwise
+   leave one orphaned next to a gap. Its list goes two-up so the card does
+   not read as a stretched, half-empty band. */
+.feature-wide { grid-column: 1 / -1; }
+@media (min-width: 721px) {
+  .feature-wide ul { columns: 2; column-gap: 30px; }
+  .feature-wide li { break-inside: avoid; }
+}
 .feature {
   background: var(--surface);
   border: 1px solid var(--line);
