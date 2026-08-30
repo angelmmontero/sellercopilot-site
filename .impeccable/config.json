@@ -38,6 +38,24 @@
         "value": "40px",
         "createdAt": "2026-08-30T22:13:21.315Z",
         "reason": "model: SVG user-unit lettering inside the hero plot and timeline (axis ticks, target label, call-out); scales with the viewBox, not the page type ramp"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "13px",
+        "createdAt": "2026-08-30T22:46:55.304Z",
+        "reason": "model: SVG user-unit lettering inside the hero plot (axis, target label, call-out); scales with the viewBox, not the page type ramp"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "15px",
+        "createdAt": "2026-08-30T22:46:55.473Z",
+        "reason": "model: SVG user-unit lettering inside the hero plot (axis, target label, call-out); scales with the viewBox, not the page type ramp"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "27px",
+        "createdAt": "2026-08-30T22:46:55.647Z",
+        "reason": "model: SVG user-unit lettering inside the hero plot (axis, target label, call-out); scales with the viewBox, not the page type ramp"
       }
     ]
   }
