@@ -906,7 +906,7 @@ section { padding: calc(var(--u) * 4) 0; }
   .round .triage { grid-row: 1 / span 4; min-height: 0; }
   .round .sticker { grid-column: 2; margin-bottom: var(--u); }
   .round-body { grid-column: 2; }
-  .receipt { grid-column: 2; border-left: 0; padding-left: 8px; margin: var(--u) -8px 0; border-top: 1px solid var(--rule-major); padding-top: calc(var(--u) - 1px); }
+  .receipt { grid-column: 2; border-left: 0; padding-left: 0; padding-right: 0; margin: var(--u) 0 0; border-top: 1px solid var(--rule-major); padding-top: calc(var(--u) - 1px); }
   .round-settled .done {
     position: static; grid-column: 2; justify-self: start; transform: none;
     height: var(--u); box-sizing: border-box; padding: 0 8px; line-height: 21px; margin-top: var(--u);
