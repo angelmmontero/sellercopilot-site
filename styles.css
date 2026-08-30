@@ -501,7 +501,12 @@ section { padding: calc(var(--u) * 4) 0; }
   margin-bottom: 8px;
 }
 .round-body p { color: var(--ink-2); font-size: 0.98rem; max-width: 52ch; text-wrap: pretty; }
+/* Label and value share one grid row, so a wrapping label can never desync the pairs */
 .receipt {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 12px;
+  align-items: end;
   font-family: var(--mono);
   font-size: 0.8rem;
   border-left: 1px solid var(--ink);
@@ -509,32 +514,38 @@ section { padding: calc(var(--u) * 4) 0; }
 }
 .receipt dt {
   color: var(--ink-soft);
-  float: left; clear: left;
-  width: 52%;
   padding: 3px 0;
+  border-bottom: 1px dotted var(--rule-major);
 }
 .receipt dd {
   color: var(--ink);
   text-align: right;
+  white-space: nowrap;
   padding: 3px 0;
   border-bottom: 1px dotted var(--rule-major);
 }
-.receipt dd:last-child { border-bottom: 0; }
+.receipt dt:nth-last-of-type(1), .receipt dd:last-child { border-bottom: 0; }
 .receipt .neg { color: var(--red); }
 .receipt .pos { color: var(--green-ink); }
 .receipt .receipt-title {
   display: block;
+  grid-column: 1 / -1;
   margin-bottom: 8px;
   font-family: var(--sans);
   font-stretch: 78%; font-weight: 600; font-size: 0.7rem;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft);
 }
 
-/* Recency is drawn: settled items fade out of the chart */
-.round-settled { opacity: 0.62; }
-.round-settled:hover { opacity: 0.9; }
-.round-settled .receipt dt { color: var(--ink-2); }
-.round-settled .round-body h3 { text-decoration: line-through; text-decoration-thickness: 1.5px; text-decoration-color: var(--ink-faint); }
+/* Recency is drawn: the settled item recedes in ink weight and band colour, never below the contrast floor */
+.round-settled .triage-ink { background: var(--ink-soft); }
+.round-settled .round-body h3 {
+  color: var(--ink-soft);
+  text-decoration: line-through; text-decoration-thickness: 1.5px; text-decoration-color: var(--ink-faint);
+}
+.round-settled .round-body p { color: var(--ink-soft); }
+.round-settled .sticker { box-shadow: none; border-color: var(--ink-soft); color: var(--ink-soft); }
+.round-settled .receipt { border-left-color: var(--ink-soft); }
+.round-settled .receipt dd { color: var(--ink-2); }
 .round-settled .done {
   position: absolute; right: 0; top: calc(var(--u) * 0.7);
   font-stretch: 78%; font-weight: 700; font-size: 0.72rem;
@@ -637,6 +648,7 @@ section { padding: calc(var(--u) * 4) 0; }
 .timeline-track { display: block; width: 100%; height: auto; overflow: visible; margin-bottom: var(--u); }
 .timeline-track .rail { stroke: var(--ink); stroke-width: 1.25; }
 .timeline-track .rail-tick { stroke: var(--ink); stroke-width: 1; }
+.timeline-track .rail-gap { fill: var(--paper); }
 .timeline-track .node { fill: var(--paper); stroke: var(--ink); stroke-width: 2; }
 .timeline-track .node-live { fill: var(--red); stroke: var(--red); }
 .timeline-track text {
