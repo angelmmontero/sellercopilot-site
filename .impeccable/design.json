@@ -1,257 +1,172 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-30T23:40:00Z",
+  "generatedAt": "2026-08-30T19:10:00Z",
   "title": "Design System: SellerCopilot AI",
   "source": {
     "stylesheet": "styles.css",
     "artifact": "index.html",
+    "script": "script.js",
+    "slots": "img/README.md",
     "fonts": [
       "fonts/archivo.woff2",
       "fonts/archivo-italic.woff2",
       "fonts/fragment-mono.woff2"
     ],
-    "note": "Tonal ramps are synthesized in OKLCH from each token (lightness 15-95%, chroma capped at 0.12); the project defines no tonal scale of its own. rule, rule-major, grid-minor, grid-major and target-band are alpha tokens and carry their resolved-on-paper value instead of a ramp. Refreshed after the baseline correction round: ruling moved to body::before with grid tokens, .ruled sections, paper plates, the 24px line, and the Security ink section."
+    "note": "Tonal ramps are synthesized in OKLCH from each token (lightness 15-95%, chroma capped at 0.12); the project defines no tonal scale of its own. rule, rule-major, grid-minor, grid-major, plate and band are alpha tokens and carry their resolved-on-paper value instead of a ramp. Refreshed after the second correction round: warm near-white paper, green demoted to accent-only, .ruling per block, the .shot screenshot slot, callouts and spec lists, the hero strip, the full-bleed read-only band, the .note voice with the mono restricted to readings, and script-driven motion (rise, count-up, typing) gated by the js class and reduced motion."
   },
   "extensions": {
     "colorMeta": {
       "paper": {
         "role": "neutral",
-        "displayName": "Chart Paper",
-        "canonical": "oklch(93.6% 0.013 141.8)",
-        "tonalRamp": [
-          "#080d08",
-          "#222721",
-          "#3e443d",
-          "#5d635c",
-          "#7e847d",
-          "#a1a7a0",
-          "#c5cbc4",
-          "#eaf1e9"
-        ]
+        "displayName": "Paper (warm near-white stock)",
+        "canonical": "oklch(97.1% 0.005 78.3)",
+        "tonalRamp": ["#0c0b09", "#262523", "#444240", "#63615f", "#858380", "#a8a6a3", "#cccac7", "#f0eeeb"]
       },
       "paper-deep": {
         "role": "neutral",
-        "displayName": "Paper Deep",
-        "canonical": "oklch(90.3% 0.017 142.6)",
-        "tonalRamp": [
-          "#070d07",
-          "#212720",
-          "#3d443c",
-          "#5c645b",
-          "#7d857c",
-          "#9fa89e",
-          "#c3ccc2",
-          "#e8f2e7"
-        ]
+        "displayName": "Paper Deep (rest band, shot frames)",
+        "canonical": "oklch(93.8% 0.007 80.7)",
+        "tonalRamp": ["#0d0b08", "#272521", "#44423e", "#64615d", "#85837e", "#a8a6a1", "#cdcac5", "#f1eee9"]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White (stuck-on objects)",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": ["#0b0b0b", "#252525", "#424242", "#626262", "#838383", "#a6a6a6", "#cacaca", "#eeeeee"]
+      },
+      "plate": {
+        "role": "neutral",
+        "displayName": "Plate (paper at 95%, under row copy and receipts)",
+        "canonical": "rgba(247, 245, 242, 0.95)",
+        "resolvedOnPaper": "#f7f5f2",
+        "tonalRamp": []
       },
       "paper-dim": {
         "role": "neutral",
         "displayName": "Paper Dim (text on ink)",
-        "canonical": "oklch(80.6% 0.014 157.0)",
-        "contrastOnInk": "9.81:1",
-        "tonalRamp": [
-          "#040e08",
-          "#1c2821",
-          "#38463e",
-          "#57655d",
-          "#77877e",
-          "#9aaaa0",
-          "#becec4",
-          "#e3f3e9"
-        ]
-      },
-      "sticker-white": {
-        "role": "neutral",
-        "displayName": "Sticker White",
-        "canonical": "oklch(98.5% 0.006 128.5)",
-        "tonalRamp": [
-          "#0a0c09",
-          "#242623",
-          "#41433f",
-          "#60625e",
-          "#81837f",
-          "#a4a6a2",
-          "#c8cac6",
-          "#edefeb"
-        ]
+        "canonical": "oklch(82.2% 0.012 79.8)",
+        "contrastOnInk": "10.20:1",
+        "tonalRamp": ["#0e0b06", "#28251f", "#46423b", "#66615a", "#87827b", "#aaa59e", "#cfcac2", "#f3eee5"]
       },
       "ink": {
         "role": "neutral",
         "displayName": "Ink",
         "canonical": "oklch(20.9% 0.013 160.0)",
-        "tonalRamp": [
-          "#070d09",
-          "#202723",
-          "#3c4440",
-          "#5b645f",
-          "#7c8580",
-          "#9ea8a2",
-          "#c2ccc6",
-          "#e7f1eb"
-        ]
+        "tonalRamp": ["#070d09", "#202723", "#3d4540", "#5c645f", "#7d8680", "#a0a9a3", "#c4cdc8", "#e7f1eb"]
       },
       "ink-2": {
         "role": "neutral",
         "displayName": "Ink 2",
         "canonical": "oklch(32.0% 0.019 163.4)",
-        "tonalRamp": [
-          "#040e09",
-          "#1d2822",
-          "#39453f",
-          "#58655e",
-          "#78867f",
-          "#9ba9a2",
-          "#becdc6",
-          "#e4f3eb"
-        ]
+        "tonalRamp": ["#040e09", "#1d2823", "#39463f", "#58655f", "#798780", "#9caaa3", "#c0cfc7", "#e4f3eb"]
       },
       "ink-soft": {
         "role": "neutral",
         "displayName": "Ink Soft",
         "canonical": "oklch(44.9% 0.023 162.1)",
-        "tonalRamp": [
-          "#030e08",
-          "#1b2922",
-          "#37463e",
-          "#56655d",
-          "#77877e",
-          "#99aaa1",
-          "#bdcec5",
-          "#e2f4ea"
-        ]
+        "tonalRamp": ["#030e08", "#1b2922", "#38463f", "#57665e", "#78887f", "#9aaba2", "#becfc6", "#e2f4ea"]
       },
       "ink-faint": {
         "role": "neutral",
-        "displayName": "Ink Faint",
+        "displayName": "Ink Faint (never text)",
         "canonical": "oklch(57.8% 0.022 159.3)",
-        "tonalRamp": [
-          "#040e08",
-          "#1c2821",
-          "#38463e",
-          "#57655d",
-          "#77877e",
-          "#9aaaa0",
-          "#becec4",
-          "#e3f3e9"
-        ]
+        "tonalRamp": ["#040e08", "#1c2921", "#38463e", "#57665d", "#78887e", "#9baba1", "#bfcfc5", "#e3f3e9"]
       },
-      "breach-red": {
+      "red": {
         "role": "primary",
-        "displayName": "Breach Red",
+        "displayName": "Red (the one accent)",
         "canonical": "oklch(53.3% 0.184 31.2)",
-        "tonalRamp": [
-          "#2d0000",
-          "#510000",
-          "#752014",
-          "#9a4234",
-          "#bf6454",
-          "#e68776",
-          "#ffab99",
-          "#ffd0bd"
-        ]
+        "tonalRamp": ["#2d0000", "#510000", "#752115", "#9a4335", "#c06555", "#e78877", "#ffad9a", "#ffd0bd"]
       },
       "amber-fill": {
         "role": "secondary",
-        "displayName": "Amber Fill",
+        "displayName": "Amber Fill (REORDER band)",
         "canonical": "oklch(72.4% 0.153 71.7)",
-        "tonalRamp": [
-          "#250000",
-          "#461200",
-          "#673300",
-          "#8a5300",
-          "#ae751d",
-          "#d39848",
-          "#fabc6d",
-          "#ffe192"
-        ]
+        "tonalRamp": ["#250000", "#461300", "#683300", "#8b5400", "#af751f", "#d59949", "#fbbd6e", "#ffe192"]
       },
-      "triage-green": {
+      "green": {
         "role": "secondary",
-        "displayName": "Triage Green",
+        "displayName": "Green (fills and strokes only)",
         "canonical": "oklch(52.1% 0.101 155.2)",
-        "tonalRamp": [
-          "#001500",
-          "#00320c",
-          "#005129",
-          "#267247",
-          "#4b9468",
-          "#6eb889",
-          "#92ddad",
-          "#b7ffd1"
-        ]
+        "tonalRamp": ["#001500", "#00320c", "#005129", "#267248", "#4b9568", "#6fb98a", "#94dfae", "#b7ffd1"]
       },
       "green-ink": {
         "role": "secondary",
-        "displayName": "Green Ink",
+        "displayName": "Green Ink (positive figures)",
         "canonical": "oklch(47.0% 0.095 154.6)",
-        "tonalRamp": [
-          "#001400",
-          "#00310d",
-          "#00502a",
-          "#2d7148",
-          "#509369",
-          "#73b78a",
-          "#97dcae",
-          "#bcffd2"
-        ]
+        "tonalRamp": ["#001400", "#00310d", "#00502a", "#2d7149", "#519469", "#74b88c", "#98ddaf", "#bcffd2"]
+      },
+      "band": {
+        "role": "secondary",
+        "displayName": "Band (target range wash)",
+        "canonical": "rgba(47, 122, 79, 0.14)",
+        "resolvedOnPaper": "#dbe4db",
+        "tonalRamp": []
       },
       "rule": {
         "role": "neutral",
         "displayName": "Rule (structural hairline; declared, currently unused)",
-        "canonical": "rgba(19, 26, 22, 0.11)",
-        "resolvedOnPaper": "#ced5cd",
+        "canonical": "rgba(19, 26, 22, 0.12)",
+        "resolvedOnPaper": "#dcdbd8",
         "tonalRamp": []
       },
       "rule-major": {
         "role": "neutral",
-        "displayName": "Rule Major (row dividers, painted dotted hairlines)",
-        "canonical": "rgba(19, 26, 22, 0.2)",
-        "resolvedOnPaper": "#bbc2bb",
+        "displayName": "Rule Major (row dividers, callout/spec rules, dotted hairlines)",
+        "canonical": "rgba(19, 26, 22, 0.22)",
+        "resolvedOnPaper": "#c5c5c2",
         "tonalRamp": []
       },
       "grid-minor": {
         "role": "neutral",
         "displayName": "Grid Minor (paper texture, 24px ruling)",
-        "canonical": "rgba(19, 26, 22, 0.04)",
-        "resolvedOnPaper": "#dde4dc",
+        "canonical": "rgba(19, 26, 22, 0.045)",
+        "resolvedOnPaper": "#edebe8",
         "tonalRamp": []
       },
       "grid-major": {
         "role": "neutral",
         "displayName": "Grid Major (paper texture, every fifth rule)",
-        "canonical": "rgba(19, 26, 22, 0.09)",
-        "resolvedOnPaper": "#d2d9d1",
-        "tonalRamp": []
-      },
-      "target-band": {
-        "role": "secondary",
-        "displayName": "Target Band",
-        "canonical": "rgba(47, 122, 79, 0.16)",
-        "resolvedOnPaper": "#c8dacc",
+        "canonical": "rgba(19, 26, 22, 0.10)",
+        "resolvedOnPaper": "#e0dfdc",
         "tonalRamp": []
       }
     },
     "contrastPairs": {
       "onPaper": {
-        "ink": "14.70:1",
-        "ink-2": "10.46:1",
-        "ink-soft": "6.15:1",
-        "ink-faint": "3.55:1 (never text)",
-        "breach-red": "4.74:1",
-        "green-ink": "5.42:1",
-        "triage-green": "4.34:1 (fills and strokes only)"
+        "ink": "16.26:1",
+        "ink-2": "11.56:1",
+        "ink-soft": "6.80:1",
+        "ink-faint": "3.92:1 (never text; the shot caption's right span violates this)",
+        "red": "5.24:1",
+        "green-ink": "6.00:1",
+        "green": "4.80:1 (fills and strokes only)"
+      },
+      "onPaperDeep": {
+        "ink": "14.74:1 (never-row text)",
+        "ink-2": "10.49:1",
+        "ink-soft": "6.16:1 (section meta, intro, shot caption)",
+        "red": "4.75:1 (never-row tick, stamp hover)"
+      },
+      "onWhite": {
+        "ink": "17.69:1 (sticker, quote card)",
+        "ink-2": "12.58:1 (quote copy)",
+        "ink-soft": "7.40:1 (sticker marketplace, quote note, call-out sub-line)",
+        "red": "5.71:1 (call-out value, stamp hover text on red reversed)",
+        "green-ink": "6.52:1"
       },
       "onInk": {
-        "paper": "14.70:1 (headings, icons, links, top rule)",
-        "paper-dim": "9.81:1 (running text, meta, section note)",
-        "paper at 40%": "link underline at rest, resolves to about #676e68",
-        "paper at 22%": "control divider, resolves to about #414843",
-        "paper at 5%": "the 24px ruling, resolves to about #1e2520"
+        "paper": "16.26:1 (headings, icons, links, top rule)",
+        "paper-dim": "10.20:1 (running text, meta, section note)",
+        "paper at 40%": "link underline at rest, resolves to about #6e726e",
+        "paper at 22%": "control divider, resolves to about #454a46",
+        "paper at 5%": "the 24px ruling, resolves to about #1e2521"
       },
       "onBands": {
-        "sticker-white on breach-red": "5.48:1",
-        "sticker-white on triage-green": "5.02:1",
-        "ink on amber-fill": "7.03:1"
+        "white on red": "5.71:1",
+        "white on green": "5.23:1",
+        "ink on amber-fill": "7.03:1",
+        "white on ink-soft (settled band)": "7.40:1"
       }
     },
     "typographyMeta": {
@@ -261,11 +176,11 @@
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section h2s, contact h2, legal h1 (2-2.6rem, -0.03em). Archivo wide 110%. 48px line at >=901px, 1.1 below."
+        "purpose": "Section h2s, contact h2, legal h1 (2-2.6rem). Archivo wide 110%, -0.035em. 48px line at >=901px, 1.1 below."
       },
       "figure": {
         "displayName": "Figure",
-        "purpose": "The net-profit reading; condensed 68% at 6rem / 0.86, red, larger than any heading and the one text size not on the ruling. clamp(3.6rem,15vw,5.5rem) below 900px."
+        "purpose": "The net-profit reading in the hero strip; condensed 68% at 6rem / 0.86, red, 10px 0 14px padding, counted up by script from data-count. Larger than any heading and the one text size not on the ruling. clamp(3.6rem,15vw,5.5rem) below 900px."
       },
       "title": {
         "displayName": "Title",
@@ -273,19 +188,31 @@
       },
       "body": {
         "displayName": "Body",
-        "purpose": "1.0625rem on a 24px line (1rem below 900px); every paragraph, list item and caption shares the 24px line. Lead 1.125rem ink-soft; intros 1.1rem ink-soft; row paragraphs 0.95-1.05rem ink-2; legal 1rem ink-2 with a 24px paragraph margin."
+        "purpose": "1.0625rem on a 24px line (1rem below 900px); every paragraph, list item and caption shares the 24px line. Lead 1.125rem ink-soft; intros 1.1rem ink-soft; row paragraphs 0.95-1rem ink-2 (callout, spec, reading-note 0.95; control 0.96; round, step, never 0.98; measure 1); legal 1rem ink-2 with a 24px paragraph margin."
+      },
+      "note": {
+        "displayName": "Note (prose caption voice)",
+        "purpose": "Archivo 0.85rem ink-soft on a 24px line for prose captions, sub-lines and footnotes: section-head meta, chart caption, rounds note, measure unit line, quote and talk notes, legal 'last updated', footer. paper-dim on the ink section. The brand tagline is 0.72rem on a 1.2 line."
       },
       "label": {
         "displayName": "Label (form-label voice)",
-        "purpose": "Condensed 78% caps at 0.75rem, ink-soft, on a 24px line. Also 0.7rem (receipt title), 0.72rem (RESOLVED), 0.78rem (band), 10.5px in SVG."
+        "purpose": "Condensed 78% caps at 0.75rem, ink-soft, 0.12em, on a 24px line; used above the figure. Same voice at 13px / 1.4px in the plot (.t-label green-ink, .t-unit ink-soft) and 10.5px / 1.2px in the timeline SVG."
       },
       "action": {
         "displayName": "Action (stamp voice)",
-        "purpose": "Condensed 85% caps at 0.86rem, line-height 1, inside a 48px stamp; 0.78rem in the 40px header stamp; 0.8rem for nav links and hero facts (facts on a 24px line)."
+        "purpose": "Condensed 85% caps at 0.86rem, 0.08em, line-height 1, inside a 48px stamp; 0.78rem in the 40px header stamp (0.74rem below 900px); 0.8rem for nav links (0.08em) and hero facts (0.06em, on a 24px line)."
+      },
+      "band": {
+        "displayName": "Band (triage word)",
+        "purpose": "Condensed 78% at 700, 0.78rem, 0.16em, uppercase, vertical-rl rotated 180deg. The RESOLVED stamp is the same voice at 0.72rem, 0.14em, rotated -6deg."
+      },
+      "eyebrow": {
+        "displayName": "Eyebrow (mono caption)",
+        "purpose": "Fragment Mono 0.7rem, 0.1em, uppercase, ink-soft, on a 24px line: receipt title, callout heading, the 'Included' heading over a spec list. The shot caption is the same voice at 0.06em with its right span in ink-faint."
       },
       "reading": {
         "displayName": "Reading (mono)",
-        "purpose": "Fragment Mono 400 on a 24px line: receipts, .mono and the sticker's first row at 0.78-0.8rem; captions 0.74rem; footer, notes and datelines 0.76-0.78rem; brand tagline 0.66rem; plot axes 11px."
+        "purpose": "Fragment Mono 400 on a 24px line: receipt keys/values and the gain line at 0.8rem; the sticker's first row at 0.78rem; the shot placeholder at 0.78rem / 0.02em; plot axis text 15px in the 720-unit viewBox (about 11px effective at 1440), call-out value condensed 700 27px, call-out sub-line mono. Restricted to these uses; prose captions use .note."
       }
     },
     "fontAxes": {
@@ -298,41 +225,51 @@
         "wght": "400 only"
       }
     },
+    "monoRestriction": {
+      "allowed": [".receipt", ".sticker b and .sticker .dim (identifier, marketplace)", ".plot text (axis, call-out sub-line)", ".reading-note .gain", ".shot-caption", ".shot-placeholder", ".eyebrow"],
+      "prose": [".brand small", ".section-head .meta", ".chart-caption", ".rounds-note", ".measure-unit", ".quote .note", ".talk .note", ".legal .updated", ".site-footer p/a"],
+      "rule": "If an instrument could print it, it is mono; if a person wrote it, it is Archivo (.note at 0.85rem for small prose)."
+    },
     "shadows": [
       {
         "name": "mounted",
-        "value": "0 10px 28px -12px rgba(19,26,22,.35), 0 2px 6px -2px rgba(19,26,22,.18)",
-        "purpose": "Plate frames and the quote card at rest; a stamp on hover. Token --shadow."
+        "value": "0 10px 28px -12px rgba(19,26,22,.28), 0 2px 6px -2px rgba(19,26,22,.14)",
+        "purpose": "Shot frames and the quote card at rest; a stamp on hover. Token --shadow."
       },
       {
         "name": "stuck-on",
-        "value": "0 1px 0 var(--ink), 0 6px 14px -8px rgba(19, 26, 22, 0.4)",
+        "value": "0 1px 0 var(--ink), 0 6px 14px -8px rgba(19, 26, 22, 0.35)",
         "purpose": "The sticker: a hard 1px ink edge plus a grounded shadow. Removed on the settled round."
       },
       {
         "name": "callout",
-        "value": "filter: drop-shadow(0 6px 10px rgba(19, 26, 22, 0.18))",
+        "value": "filter: drop-shadow(0 6px 10px rgba(19, 26, 22, 0.16))",
         "purpose": "The plot's SVG call-out box."
       },
       {
         "name": "row-wash",
-        "value": "background: rgba(249, 251, 247, 0.55)",
-        "purpose": "A hovered round; resolves to about #f0f4ee on paper."
+        "value": "background: rgba(255, 255, 255, 0.5)",
+        "purpose": "A hovered round; resolves to about #fbfaf9 on paper."
       },
       {
         "name": "paper-plate",
-        "value": "background: rgba(229, 236, 228, 0.95); padding-left: 8px; padding-right: 8px; margin-left: -8px; margin-right: -8px",
-        "purpose": ".round-body, .receipt (0 side margins), .measure > div, .measure ul: near-opaque paper under copy and figures so no rule sits behind a numeral."
+        "value": "background: var(--plate); padding-left: 8px; padding-right: 8px; margin-left: -8px; margin-right: -8px",
+        "purpose": ".round-body, .receipt (0 side margins), .measure-body, .measure-list: paper at 95% under copy and figures so no rule sits behind a numeral."
+      },
+      {
+        "name": "hatch",
+        "value": "background-color: var(--paper-deep); background-image: repeating-linear-gradient(-45deg, transparent 0 14px, rgba(19,26,22,.045) 14px 15px)",
+        "purpose": "The empty shot frame: a 1px 4.5% ink hatch every 15px over deeper paper, 'no print here yet'."
       },
       {
         "name": "structural-rule",
         "value": "box-shadow: inset 0 1px 0 <colour> | inset 0 -1px 0 <colour>",
-        "purpose": "How a 1px top or bottom rule is painted without taking layout height. Ink for the top of .rounds/.measures/.never-list, rule-major under .round/.measure/.never-list li, paper for the top of .controls, rgba(229,236,228,0.22) under .control."
+        "purpose": "How a 1px top or bottom rule is painted without taking layout height. Ink for the top of .strip/.rounds/.measures/.never-row; rule-major under .round/.measure, above .callout/.spec, under .never-row and (mobile) .never-item; paper for the top of .controls; rgba(247,245,242,.22) under .control."
       },
       {
         "name": "dotted-hairline",
         "value": "background-image: linear-gradient(90deg, var(--rule-major) 50%, transparent 50%); background-size: 4px 1px; background-repeat: repeat-x; background-position: 0 100%",
-        "purpose": "Receipt dt/dd and .measure li foot rules: 2px on, 2px off, painted at the bottom edge; the last pair/item drops it."
+        "purpose": "Receipt dt/dd and .spec li foot rules: 2px on, 2px off, painted at the bottom edge; the last pair/item drops it."
       }
     ],
     "motion": [
@@ -357,102 +294,164 @@
         "purpose": "Round hover wash and the triage band's scaleX extension."
       },
       {
+        "name": "rise",
+        "value": "html.js [data-rise] { opacity: 0; transform: translateY(8px); transition: opacity 300ms, transform 300ms; transition-delay: calc(var(--i, 0) * 70ms) } .is-in { opacity: 1; transform: none }",
+        "purpose": "Section content enters 8px up on scroll-in via IntersectionObserver (rootMargin 0 0 -8% 0, unobserve after entry), staggered by the data-rise index 0-3; elements in view 50ms after load show at once; without IntersectionObserver or under reduced motion everything is shown at once."
+      },
+      {
         "name": "sequence-plot",
-        "value": "vital: stroke-dasharray/dashoffset 1200, 1100ms from 200ms; .over dots: 300ms appear from 600ms in 80ms steps to 1300ms; .breach at 1350ms; .callout: settle 500ms at 1400ms (translateY 6px to 0); .figure: settle 600ms at 1500ms; .reading-note at 1650ms",
-        "purpose": "The page's one authored motion moment. Gated behind prefers-reduced-motion: no-preference; under reduced motion everything is drawn at once and scroll-behavior is auto."
+        "value": "vital: stroke-dasharray/dashoffset 1200, 700ms from 150ms; .over dots: 240ms appear from 380ms in 40ms steps to 740ms; .breach at 800ms; .callout: settle 400ms at 860ms (translateY 6px to 0)",
+        "purpose": "The vital plots itself once on load, then the breach reports. CSS only, gated behind prefers-reduced-motion: no-preference; under reduced motion everything is drawn at once."
+      },
+      {
+        "name": "count-up",
+        "value": "[data-count] with data-prefix: 900ms, cubic ease-out 1-(1-p)^3, requestAnimationFrame, en-US formatting; min-width pinned to the rendered width first; threshold 0.5; runs once",
+        "purpose": "The -$398 figure counts up when half in view, without reflowing the strip. Skipped under reduced motion (script exits after showing everything)."
+      },
+      {
+        "name": "typing",
+        "value": "[data-typed]: min-height reserved; full copy kept in an .sr-only span; aria-hidden .typed span receives characters at clamp(9, 20, round(1500 / length)) ms each after a 250ms pause; caret via .is-typing .typed::after (2px x 0.9em ink), removed 400ms after the last character; threshold 0.6; runs once",
+        "purpose": "The first round's note types itself on first scroll into view, then stops. Skipped under reduced motion."
+      },
+      {
+        "name": "slot-fallback",
+        "value": ".shot img: removed on error, or immediately if already complete with naturalWidth 0",
+        "purpose": "A missing screenshot leaves the mono [ SCREENSHOT: ... ] label visible. Without script the label sits under the transparent broken image."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media (prefers-reduced-motion: reduce): html.js [data-rise] visible with no transition; plot animations off and drawn; .triage::after, .stamp, .main-nav a transitions none; scroll-behavior auto",
+        "purpose": "The static page is the baseline. Measured CLS in the finish review: 0."
       }
     ],
     "breakpoints": [
       {
         "name": "rows-tighten",
         "value": "1040px",
-        "purpose": "max-width: round columns 24/170/1fr/240; measure first column 160px."
+        "purpose": "max-width: round columns 24/170/1fr/240; measure first column 160px; measure-shot 160 / 1fr / 1.2fr."
       },
       {
         "name": "display-line",
         "value": "901px",
-        "purpose": "min-width: h1, .section-head h2, .talk h2 and .legal h1 take a 48px line; below it they fall back to 1.06 / 1.1."
+        "purpose": "min-width: the hero h1, .section-head h2, .talk h2 and .legal h1 take a 48px line; below it they fall back to 1.1."
       },
       {
         "name": "single-column",
         "value": "900px",
-        "purpose": "max-width: body 1rem; header static and two-row with scrolling nav; hero one column with display:contents reorder (h1, chart, actions, lead, facts); .ruled paints no ruling and .ruled .rounds/.measures/.never-copy/.never-list paint the horizontal ruling from their own top; rounds 24px/1fr with row-gap 0 and 24px steps (sticker margin-bottom 24, receipt margin-top 24 + padding-top 23 + 1px rule-major top rule, .done static 24px tall with 24px margin-top); measures stack with row-gap 24 and the unit line as footnote; timeline SVG replaced by ::before nodes; plates, never, controls, close band one column."
+        "purpose": "max-width: body 1rem; header static and two-row with scrolling nav; hero one column with display:contents reorder (h1, shot, actions, lead, facts, strip); strip 24px/1fr with 16px gap, reading one column 1u below; split stacks; rounds 24px/1fr with row-gap 0 and 24px steps (sticker margin-bottom 24, receipt margin-top 24 + padding-top 23 + 1px rule-major top rule, .done static 24px tall); measures stack body -> list/shot -> unit footnote; timeline SVG replaced by ::before nodes; never row one column with inset rules; controls and close band one column."
       },
       {
         "name": "phone",
         "value": "520px",
-        "purpose": "max-width: 16px gutters; full-width hero stamps; plot lettering enlarged (22/20/40px) and call-out repositioned, leader hidden; sticker one column (96px tall); plate captions stack."
+        "purpose": "max-width: 16px gutters; full-width hero stamps; facts top-aligned; sticker one column (96px tall); shot caption drops its right span and truncates; plot lettering enlarged (22/20/40/20px), call-out box x150 y0 w340 h96 with text shifted -120px, leader hidden."
       }
     ],
     "rulingGrid": {
       "unit": "24px",
       "texture": {
         "layer": "body::before, position absolute inset 0, z-index -1, pointer-events none",
-        "minor": "1px var(--grid-minor) rgba(19,26,22,0.04) every 24px, both axes",
-        "major": "1px var(--grid-major) rgba(19,26,22,0.09) every 120px, both axes",
+        "minor": "1px var(--grid-minor) rgba(19,26,22,0.045) every 24px, both axes",
+        "major": "1px var(--grid-major) rgba(19,26,22,0.10) every 120px, both axes",
         "offset": "-1px -1px",
         "mask": "linear-gradient(90deg, #000, transparent 30%, transparent 70%, #000): full in the outer 30% of the viewport each side, absent behind the centre column",
-        "highContrast": "@media (prefers-contrast: more) removes body::before and the .ruled ruling"
+        "highContrast": "@media (prefers-contrast: more) removes body::before and the .ruling"
       },
-      "ruledSections": {
-        "selector": ".ruled (#brief, #features, #read-only, #pricing)",
-        "ground": "background-color var(--paper), opaque",
-        "rules": "horizontal only: background-size 100% 120px (grid-major), 100% 24px (grid-minor), position 0 -1px",
-        "mobile": "<=900px: .ruled paints nothing; .ruled .rounds, .ruled .measures, .ruled .never-copy, .ruled .never-list paint the same horizontal ruling from their own top edge"
+      "paperSections": {
+        "selector": ".ruled (#brief, #features, #pricing)",
+        "ground": "background-color var(--paper), opaque; covers the margin texture; paints no ruling of its own"
       },
-      "plainSections": "hero (.chart-hero), #product plates, #how-it-works: the masked margin texture only",
+      "rulingBlocks": {
+        "selector": ".ruling (.rounds, every .measure)",
+        "rules": "horizontal only: background-size 100% 120px (grid-major), 100% 24px (grid-minor), position 0 -1px, painted from the block's own top edge at every width",
+        "why": "the pitch restarts where the rows start, so every row lands on a rule whatever the height of the head and intro above it"
+      },
+      "plainSections": "hero (.strip and the shot on the masked margin texture), #how-it-works",
+      "bandSection": {
+        "selector": ".band-section (#read-only)",
+        "ground": "var(--paper-deep), full bleed, no ruling; section-head rule stays ink"
+      },
       "inkSection": {
         "selector": "#security",
         "ground": "var(--ink)",
-        "rules": "linear-gradient(rgba(229,236,228,0.05) 1px, transparent 1px), 100% 24px, position 0 -1px",
-        "text": "headings/icons/links/top rule var(--paper); running text and meta var(--paper-dim); control dividers rgba(229,236,228,0.22); selection paper on ink"
+        "rules": "linear-gradient(rgba(247,245,242,0.05) 1px, transparent 1px), 100% 24px, position 0 -1px",
+        "text": "headings/icons/links/top rule var(--paper); running text, meta and .note var(--paper-dim); control dividers rgba(247,245,242,0.22); link underline rgba(247,245,242,0.4); selection paper on ink"
       },
       "baseline": {
-        "bodyLine": "24px (line-height: var(--u)) on body; paragraphs, li, receipt dt/dd, .label, captions, sticker rows and h3 all on 24px",
-        "displayLine": "48px at >=901px for h1, .section-head h2, .talk h2, .legal h1; .talk .email 48px at all widths",
-        "structuralRules": "painted: box-shadow inset 0 +/-1px 0, or 4px x 1px repeating hairline; bordered rules are paid for in padding (header container 3u - 2px; .section-head/.legal-head padding-bottom 24px - 2px; .site-footer padding-top 24px - 2px; .legal h2 padding-top 24px - 1px; .quote padding 2u - 1px / 1.5u / 1.5u - 1px)",
-        "rowPadding": ".round 24/24; .measure 48/24 (72px per row); .never-list li 24/0; .control 24/24; h3 margin-bottom 24px",
-        "objects": ".stamp 48px tall (40px in header); .sticker 72px (11px 12px padding, 1px border, two 24px lines; 96px at <=520px); .timeline-track viewBox 1152x48",
+        "bodyLine": "24px (line-height: var(--u)) on body; paragraphs, li, receipt dt/dd, .label, .eyebrow, .note, captions, sticker rows and h3 all on 24px",
+        "displayLine": "48px at >=901px for the hero h1, .section-head h2, .talk h2, .legal h1; .talk .email 48px at all widths",
+        "structuralRules": "painted: box-shadow inset 0 +/-1px 0, or 4px x 1px repeating hairline; bordered rules are paid for in padding (header container 3u - 2px; .section-head/.legal-head padding-bottom 24px - 2px; .site-footer padding-top 24px - 2px; .legal h2 padding-top 24px - 1px; mobile .receipt padding-top 24px - 1px; .quote padding 2u - 1px / 1.5u / 1.5u - 1px)",
+        "rowPadding": ".round 24/24; .measure 48/24; .never-item 24/24; .control 24/24; .callout 24 above + 24 under its p; .strip 24/24 with margin-top 24; h3 margin-bottom 24px",
+        "objects": ".stamp 48px tall (40px in header); .sticker 72px (11px 12px padding, 1px border, two 24px lines; 96px at <=520px), margin-bottom 24 in the strip; .shot-caption 24px; .timeline-track viewBox 1152x48",
         "legal": "p and li on 24px with a 24px margin; ul margin-bottom 24; h2 24px line, margin 24 0 24, padding-top 24px - 1px"
       },
-      "paperPlate": ".round-body, .receipt, .measure > div, .measure ul: rgba(229,236,228,0.95), padding 0 8px, margin 0 -8px (.receipt margin 0)",
-      "container": "1200px (50u), 24px gutters",
+      "paperPlate": ".round-body, .receipt, .measure-body, .measure-list: var(--plate) rgba(247,245,242,0.95), padding 0 8px, margin 0 -8px (.receipt margin 0)",
+      "slots": {
+        "component": ".shot > .shot-caption + .shot-frame > (.shot-placeholder, img)",
+        "aspect": ".shot-16x10 (hero-app, brief-daily; img 1600x1000) and .shot-4x3 (chart-product, inventory-view; img 1600x1200)",
+        "files": "/img/placeholder-<slot>.png per img/README.md; object-fit cover, object-position top left",
+        "loading": "hero eager, the rest loading=lazy; all decoding=async; width/height attributes reserve the box"
+      },
+      "container": "1200px (50u), 24px gutters (16px at <=520px)",
       "header": "72px (3u) including the 2px rule",
-      "section": "96px (4u) vertical padding, 72px below 900px",
+      "section": "96px (4u) vertical padding, 72px below 900px; hero 72 / 48 (48 top below 900px)",
       "legalColumn": "768px (32u)",
       "anchors": "html scroll-padding-top 96px; [id] scroll-margin-top 96px"
     },
+    "grids": {
+      "header": "auto 1fr auto, gap 24, height 3u - 2px",
+      "hero": "5fr 7fr, gap 48, align start; .hero-copy padding-top 24",
+      "strip": "24px minmax(0,6fr) minmax(0,6fr), column gap 48, grid-column 1 / -1, margin-top 24, padding 24 0, inset 0 1px 0 ink",
+      "reading": "auto 1fr, column gap 36, align end; .label and .chart-caption span; caption margin-top 24",
+      "split": "minmax(0,8fr) minmax(0,4fr), column gap 48, margin-bottom 48; .callouts padding-top 24",
+      "round": "24px 190px 1fr 290px, column gap 24, padding 24 0 (24/170/1fr/240 at <=1040)",
+      "receipt": "minmax(0,1fr) auto, column gap 12, border-left 1px ink, padding-left 24",
+      "measure": "200px 1.05fr 1fr, column gap 36, padding 48 0 24 (160px first column at <=1040)",
+      "measure-shot": "200px minmax(0,1fr) minmax(0,1.25fr) (160 / 1fr / 1.2fr at <=1040); .callouts margin-top 24; .shot margin-top 0",
+      "steps": "repeat(3, 1fr), gap 36, under a 1152x48 SVG rail with 24 below",
+      "never-row": "repeat(4, minmax(0,1fr)); inset 0 1px 0 ink, inset 0 -1px 0 rule-major; items 22px 1fr gap 12, padding 24 24 24 0; item + item padding-left 24, border-left 1px rule-major",
+      "controls": "1fr 1fr, column gap 48; .control 26px 1fr gap 16",
+      "close-band": "1.1fr 1fr, gap 48",
+      "section-head": "1fr auto, gap 24, align end, padding-bottom 24 - 2px, border-bottom 2px ink, margin-bottom 48; .section-intro margin -24 0 48"
+    },
     "inconsistencies": [
-      "--red-deep and --amber are declared in :root and used nowhere; --rule is declared as the structural hairline token and no selector uses it.",
-      ".triage-ink is declared ink-faint but its only use is inside .round-settled, which overrides it to ink-soft.",
-      "The label voice runs six sizes (0.7-0.86rem), three widths (78/85/92%) and five trackings (0.06-0.16em); the mono runs 0.66-0.8rem plus 11px.",
-      "The reading block under the hero plot is not snapped to the ruling: .reading has margin-top 10px and padding-top 14px above its 1px rule, an 8px row gap, .reading-note padding-bottom 6px, .gain margin-top 6px, .chart-caption margin-top 4px, and the figure's 0.86 line-height (82.56px at 6rem) is not a multiple of 24; its .label is on a 24px line but the block is not.",
-      "The hero sticker has a 10px bottom margin (.chart > .sticker) that is not on the ruling.",
-      "Below 900px the h1 (1.06) and h2 (1.1) line-heights are not on the ruling; the ruled sections restart their ruling per content block to compensate, but the section head itself sits off-grid.",
-      "Small off-grid gaps remain inside components: .section-head .meta padding-bottom 6px, .plate figcaption margin-top 12px, the mobile header's 12px top padding and 6px nav margin, .brand small margin-top 4px.",
+      "The hero strip's two columns are not snapped to a shared pitch: the plot column is 72px sticker + 24px + an SVG whose height follows its width (720:236, about 169px at 1440); the reading column's figure is 6rem x 0.86 (82.56px) plus 10px 0 14px padding; the triage word sits 12px down.",
+      "The size scale is still a spray: condensed caps at 0.72 / 0.75 / 0.78 / 0.8 / 0.86rem with three widths (78/85/92%) and five trackings (0.06-0.16em); mono at 0.7 / 0.78 / 0.8rem plus 15 / 13 / 27px in the plot and 10.5px in the timeline; small prose at 0.72 (brand tagline) and 0.85rem (.note); row prose at 0.95 / 0.96 / 0.98 / 1 / 1.0625 / 1.1 / 1.125rem; titles at 1.1 / 1.2 / 1.35 / 1.5rem.",
+      "--rule (12%) is declared as the structural hairline token and no selector uses it; every hairline is --rule-major.",
       "The primary stamp's text is --paper at rest and --white on hover.",
-      "The shared display selector sets -0.035em but later rules override h2 to -0.025em and legal h1 to -0.03em; only the hero h1 gets -0.035em.",
+      "Below 900px the h1 (1.06) and h2 (1.1) line-heights are off the 24px line; the .ruling blocks restart their pitch, so the effect is contained to the heads.",
+      "Small off-grid values remain inside components: the mobile header's 12px top padding and 6px nav margin, .brand small at 0.72rem on a 1.2 line, .shot-caption's 2px side padding.",
+      "Dead or redundant rules: .never-foot p is styled but the foot holds only a stamp; .band-section .section-head re-declares the ink rule it already has; the Archivo italic face is loaded and unused.",
+      "The plot's lettering is authored in viewBox units (15 / 13 / 27px) and scales with the SVG: about 11 / 9.4 / 19px effective at 1440, hence the enlarged sizes below 520px.",
       "The direction says 1px rules; the build uses 1 / 1.5 / 2 / 3px by role.",
       "404.html has no site footer and no font preloads; privacy.html and security.html have both."
     ],
-    "notCanonized": "Generic line-icon glyphs (hero-facts shield/eye/rotate, the four .control icons) are inline SVGs the build carries; they are not recorded as a system device. The world's native marks are the ticked box, the check list marker, and the plotted node. The unsnapped hero reading block and the mobile display line-heights are recorded as defects, not as permitted exceptions."
+    "resolvedSinceLastRecord": [
+      "--red-deep and --amber removed; --amber-fill is the only amber and it is used.",
+      ".triage-ink now declares ink-soft directly (no override needed).",
+      "All display selectors share -0.035em; the h2 / legal-h1 overrides are gone.",
+      ".section-head .meta 6px pad, the plate caption's 12px margin and the hero sticker's 10px margin are gone; the strip sticker sits 24px above the plot.",
+      "Mono no longer carries prose: captions, meta, unit lines, notes and the footer are Archivo .note.",
+      "The ruled sections no longer paint a ruling behind heads and intros; .ruling is per block at every width.",
+      "The .reading block no longer carries its own rule and 10/14/8/6/4px gaps; the strip's top rule is one inset ink rule and the caption sits 24px below."
+    ],
+    "notCanonized": "Generic line-icon glyphs (hero-facts shield/eye/rotate, the four .control icons) are inline SVGs the build carries; they are not recorded as a system device. The world's native marks are the ticked box, the plotted node and the triage band. The unsnapped strip and the size spray are recorded as defects, not as permitted exceptions. The mono .eyebrow is recorded as it is used (receipt title, callout heading, 'Included') and is not a licence for kickers above headings."
   },
   "components": [
     {
       "name": "Stamp (primary)",
       "kind": "button",
       "refersTo": "stamp",
-      "description": "The stamped action: ink square two rules (48px) tall, paper condensed caps; goes red on hover.",
+      "description": "The stamped action: ink square two rules (48px) tall, paper condensed caps; goes red with white text on hover.",
       "html": "<a class=\"ds-stamp\" href=\"#\">Request a demo</a>",
-      "css": ".ds-stamp{display:inline-flex;align-items:center;gap:10px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:85%;font-weight:600;font-size:.86rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--paper, #e5ece4);background:var(--ink, #131a16);border:1.5px solid var(--ink, #131a16);border-radius:2px;height:48px;padding:0 22px;line-height:1;transition:background-color 180ms cubic-bezier(0.16,1,0.3,1),border-color 180ms cubic-bezier(0.16,1,0.3,1),color 180ms cubic-bezier(0.16,1,0.3,1),box-shadow 180ms cubic-bezier(0.16,1,0.3,1),transform 180ms cubic-bezier(0.16,1,0.3,1)}.ds-stamp:hover{background:var(--red, #c0301c);border-color:var(--red, #c0301c);color:var(--white, #f9fbf7);box-shadow:0 10px 28px -12px rgba(19,26,22,.35), 0 2px 6px -2px rgba(19,26,22,.18)}.ds-stamp:active{transform:translateY(1px);box-shadow:none}.ds-stamp:focus-visible{outline:2px solid var(--red, #c0301c);outline-offset:3px}"
+      "css": ".ds-stamp{display:inline-flex;align-items:center;gap:10px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:85%;font-weight:600;font-size:.86rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--paper, #f7f5f2);background:var(--ink, #131a16);border:1.5px solid var(--ink, #131a16);border-radius:2px;height:48px;padding:0 22px;line-height:1;transition:background-color 180ms cubic-bezier(0.16,1,0.3,1),border-color 180ms cubic-bezier(0.16,1,0.3,1),color 180ms cubic-bezier(0.16,1,0.3,1),box-shadow 180ms cubic-bezier(0.16,1,0.3,1),transform 180ms cubic-bezier(0.16,1,0.3,1)}.ds-stamp:hover{background:var(--red, #c0301c);border-color:var(--red, #c0301c);color:var(--white, #ffffff);box-shadow:0 10px 28px -12px rgba(19,26,22,.28), 0 2px 6px -2px rgba(19,26,22,.14)}.ds-stamp:active{transform:translateY(1px);box-shadow:none}.ds-stamp:focus-visible{outline:2px solid var(--red, #c0301c);outline-offset:3px}"
     },
     {
       "name": "Stamp (outline)",
       "kind": "button",
       "refersTo": "stamp-outline",
-      "description": "Secondary action: the same 48px stamp with no fill; hover fills sticker-white, never red.",
+      "description": "Secondary action: the same 48px stamp with no fill; hover fills white, never red.",
       "html": "<a class=\"ds-stamp-outline\" href=\"#\">Read today&#39;s brief <svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12l7 7 7-7\"/></svg></a>",
-      "css": ".ds-stamp-outline{display:inline-flex;align-items:center;gap:10px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:85%;font-weight:600;font-size:.86rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink, #131a16);background:transparent;border:1.5px solid var(--ink, #131a16);border-radius:2px;height:48px;padding:0 22px;line-height:1;transition:background-color 180ms cubic-bezier(0.16,1,0.3,1),color 180ms cubic-bezier(0.16,1,0.3,1),box-shadow 180ms cubic-bezier(0.16,1,0.3,1),transform 180ms cubic-bezier(0.16,1,0.3,1)}.ds-stamp-outline svg{width:14px;height:14px;flex-shrink:0}.ds-stamp-outline:hover{background:var(--white, #f9fbf7);box-shadow:0 10px 28px -12px rgba(19,26,22,.35), 0 2px 6px -2px rgba(19,26,22,.18)}.ds-stamp-outline:active{transform:translateY(1px);box-shadow:none}.ds-stamp-outline:focus-visible{outline:2px solid var(--red, #c0301c);outline-offset:3px}"
+      "css": ".ds-stamp-outline{display:inline-flex;align-items:center;gap:10px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:85%;font-weight:600;font-size:.86rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink, #131a16);background:transparent;border:1.5px solid var(--ink, #131a16);border-radius:2px;height:48px;padding:0 22px;line-height:1;transition:background-color 180ms cubic-bezier(0.16,1,0.3,1),color 180ms cubic-bezier(0.16,1,0.3,1),box-shadow 180ms cubic-bezier(0.16,1,0.3,1),transform 180ms cubic-bezier(0.16,1,0.3,1)}.ds-stamp-outline svg{width:14px;height:14px;flex-shrink:0}.ds-stamp-outline:hover{background:var(--white, #ffffff);box-shadow:0 10px 28px -12px rgba(19,26,22,.28), 0 2px 6px -2px rgba(19,26,22,.14)}.ds-stamp-outline:active{transform:translateY(1px);box-shadow:none}.ds-stamp-outline:focus-visible{outline:2px solid var(--red, #c0301c);outline-offset:3px}"
     },
     {
       "name": "Nav link",
@@ -460,7 +459,7 @@
       "refersTo": "nav-link",
       "description": "Printed form header link: condensed caps with a 2px underline, ink-faint on hover and red on the current page.",
       "html": "<nav class=\"ds-nav\"><a href=\"#\">The brief</a><a href=\"#\">What&#39;s charted</a><a href=\"#\" aria-current=\"page\">Security</a></nav>",
-      "css": ".ds-nav{display:flex;gap:4px;align-items:center;background:var(--paper, #e5ece4);padding:8px 0;border-bottom:2px solid var(--ink, #131a16)}.ds-nav a{display:inline-block;text-decoration:none;color:var(--ink-soft, #4a5951);font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:85%;font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:10px 12px;border-bottom:2px solid transparent;transition:color 160ms cubic-bezier(0.16,1,0.3,1),border-color 160ms cubic-bezier(0.16,1,0.3,1)}.ds-nav a:hover{color:var(--ink, #131a16);border-bottom-color:var(--ink-faint, #6f7e75)}.ds-nav a[aria-current=\"page\"]{color:var(--ink, #131a16);border-bottom-color:var(--red, #c0301c)}.ds-nav a:focus-visible{outline:2px solid var(--red, #c0301c);outline-offset:3px}"
+      "css": ".ds-nav{display:flex;gap:4px;align-items:center;background:var(--paper, #f7f5f2);padding:8px 0;border-bottom:2px solid var(--ink, #131a16)}.ds-nav a{display:inline-block;text-decoration:none;color:var(--ink-soft, #4a5951);font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:85%;font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:10px 12px;border-bottom:2px solid transparent;transition:color 160ms cubic-bezier(0.16,1,0.3,1),border-color 160ms cubic-bezier(0.16,1,0.3,1)}.ds-nav a:hover{color:var(--ink, #131a16);border-bottom-color:var(--ink-faint, #6f7e75)}.ds-nav a[aria-current=\"page\"]{color:var(--ink, #131a16);border-bottom-color:var(--red, #c0301c)}.ds-nav a:focus-visible{outline:2px solid var(--red, #c0301c);outline-offset:3px}"
     },
     {
       "name": "Sticker (patient label)",
@@ -468,7 +467,7 @@
       "refersTo": "sticker",
       "description": "White label stuck on the chart, exactly 72px tall (two 24px lines in 11px padding and a 1px border): mono ASIN and marketplace over a sans product name; a hard 1px ink edge plus a grounded shadow.",
       "html": "<div class=\"ds-sticker\"><b>B0XXXXXXXX</b><span class=\"ds-dim\">Amazon.com</span><span class=\"ds-sticker-name\">Sample Product, 30 Count</span></div>",
-      "css": ".ds-sticker{display:inline-grid;grid-template-columns:auto auto;column-gap:14px;row-gap:0;align-items:baseline;background:var(--white, #f9fbf7);border:1px solid var(--ink, #131a16);border-radius:2px;padding:11px 12px;box-shadow:0 1px 0 var(--ink, #131a16),0 6px 14px -8px rgba(19,26,22,.4);font-family:\"Fragment Mono\",\"Courier New\",monospace;font-size:.78rem;line-height:24px;color:var(--ink, #131a16)}.ds-sticker b{font-weight:400;letter-spacing:.02em}.ds-sticker .ds-dim{color:var(--ink-soft, #4a5951)}.ds-sticker .ds-sticker-name{grid-column:1/-1;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-weight:600;font-stretch:92%;font-size:.92rem;letter-spacing:-.01em}"
+      "css": ".ds-sticker{display:inline-grid;grid-template-columns:auto auto;column-gap:14px;row-gap:0;align-items:baseline;background:var(--white, #ffffff);border:1px solid var(--ink, #131a16);border-radius:2px;padding:11px 12px;box-shadow:0 1px 0 var(--ink, #131a16),0 6px 14px -8px rgba(19,26,22,.35);font-family:\"Fragment Mono\",\"Courier New\",monospace;font-size:.78rem;line-height:24px;color:var(--ink, #131a16)}.ds-sticker b{font-weight:400;letter-spacing:.02em}.ds-sticker .ds-dim{color:var(--ink-soft, #4a5951)}.ds-sticker .ds-sticker-name{grid-column:1/-1;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-weight:600;font-stretch:92%;font-size:.92rem;letter-spacing:-.01em}"
     },
     {
       "name": "Triage band",
@@ -476,15 +475,15 @@
       "refersTo": "triage-red",
       "description": "24px vertical margin strip with the action word rotated to read upward; red, amber (ink text), green, or settled grey. Hover extends it 6px by scaleX.",
       "html": "<div class=\"ds-triage-row\"><div class=\"ds-triage ds-triage-red\"><span>Stop ads</span></div><div class=\"ds-triage ds-triage-amber\"><span>Reorder</span></div><div class=\"ds-triage ds-triage-green\"><span>Scale</span></div><div class=\"ds-triage ds-triage-settled\"><span>Reprice</span></div></div>",
-      "css": ".ds-triage-row{display:flex;gap:24px;height:120px;background:var(--paper, #e5ece4)}.ds-triage{position:relative;width:24px;display:flex;align-items:flex-start;justify-content:center;padding-top:12px;color:var(--white, #f9fbf7)}.ds-triage::after{content:\"\";position:absolute;top:0;bottom:0;left:100%;width:6px;background:inherit;transform:scaleX(0);transform-origin:left center;transition:transform 200ms cubic-bezier(0.16,1,0.3,1)}.ds-triage:hover::after{transform:scaleX(1)}.ds-triage span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:78%;font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}.ds-triage-red{background:var(--red, #c0301c)}.ds-triage-amber{background:var(--amber-fill, #e0930c);color:var(--ink, #131a16)}.ds-triage-green{background:var(--green, #2f7a4f)}.ds-triage-settled{background:var(--ink-soft, #4a5951)}"
+      "css": ".ds-triage-row{display:flex;gap:24px;height:120px;background:var(--paper, #f7f5f2)}.ds-triage{position:relative;width:24px;display:flex;align-items:flex-start;justify-content:center;padding-top:12px;color:var(--white, #ffffff)}.ds-triage::after{content:\"\";position:absolute;top:0;bottom:0;left:100%;width:6px;background:inherit;transform:scaleX(0);transform-origin:left center;transition:transform 200ms cubic-bezier(0.16,1,0.3,1)}.ds-triage:hover::after{transform:scaleX(1)}.ds-triage span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:78%;font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}.ds-triage-red{background:var(--red, #c0301c)}.ds-triage-amber{background:var(--amber-fill, #e0930c);color:var(--ink, #131a16)}.ds-triage-green{background:var(--green, #2f7a4f)}.ds-triage-settled{background:var(--ink-soft, #4a5951)}"
     },
     {
       "name": "Receipt",
       "kind": "card",
       "refersTo": "paper-plate",
-      "description": "The evidence beside a recommendation, on a paper plate: mono key/value pairs one 24px rule each, painted 4px x 1px rule-major hairlines, red negatives and green-ink positives, a 1px ink left rule.",
-      "html": "<dl class=\"ds-receipt\"><span class=\"ds-receipt-title\">Receipt · 14 days</span><dt>Revenue</dt><dd>$510</dd><dt>Ad spend</dt><dd class=\"ds-neg\">−$515</dd><dt>Net profit</dt><dd class=\"ds-neg\">−$398</dd><dt>TACOS / target</dt><dd>101% / 20%</dd><dt>Impact if paused</dt><dd class=\"ds-pos\">+$435 / 2 wk</dd></dl>",
-      "css": ".ds-receipt{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;align-items:end;font-family:\"Fragment Mono\",\"Courier New\",monospace;font-size:.8rem;line-height:24px;background:rgba(229,236,228,.95);border-left:1px solid var(--ink, #131a16);padding:0 8px 0 24px;max-width:290px;font-variant-numeric:tabular-nums}.ds-receipt dt,.ds-receipt dd{margin:0;padding:0;background-image:linear-gradient(90deg,var(--rule-major, rgba(19,26,22,.2)) 50%,transparent 50%);background-size:4px 1px;background-repeat:repeat-x;background-position:0 100%}.ds-receipt dt{color:var(--ink-soft, #4a5951)}.ds-receipt dd{color:var(--ink, #131a16);text-align:right;white-space:nowrap}.ds-receipt dt:nth-last-of-type(1),.ds-receipt dd:last-child{background-image:none}.ds-receipt .ds-neg{color:var(--red, #c0301c)}.ds-receipt .ds-pos{color:var(--green-ink, #256a42)}.ds-receipt .ds-receipt-title{display:block;grid-column:1/-1;line-height:24px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:78%;font-weight:600;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft, #4a5951)}"
+      "description": "The evidence beside a recommendation, on a paper plate: a mono eyebrow title, mono key/value pairs one 24px rule each, painted 4px x 1px rule-major hairlines, red negatives and green-ink positives, a 1px ink left rule.",
+      "html": "<dl class=\"ds-receipt\"><span class=\"ds-eyebrow\">Receipt · 14 days</span><dt>Revenue</dt><dd>$510</dd><dt>Ad spend</dt><dd class=\"ds-neg\">−$515</dd><dt>Net profit</dt><dd class=\"ds-neg\">−$398</dd><dt>TACOS / target</dt><dd>101% / 20%</dd><dt>Impact if paused</dt><dd class=\"ds-pos\">+$435 / 2 wk</dd></dl>",
+      "css": ".ds-receipt{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;align-items:end;font-family:\"Fragment Mono\",\"Courier New\",monospace;font-size:.8rem;line-height:24px;background:var(--plate, rgba(247,245,242,.95));border-left:1px solid var(--ink, #131a16);padding:0 8px 0 24px;max-width:290px;font-variant-numeric:tabular-nums}.ds-receipt dt,.ds-receipt dd{margin:0;padding:0;background-image:linear-gradient(90deg,var(--rule-major, rgba(19,26,22,.22)) 50%,transparent 50%);background-size:4px 1px;background-repeat:repeat-x;background-position:0 100%}.ds-receipt dt{color:var(--ink-soft, #4a5951)}.ds-receipt dd{color:var(--ink, #131a16);text-align:right;white-space:nowrap}.ds-receipt dt:nth-last-of-type(1),.ds-receipt dd:last-child{background-image:none}.ds-receipt .ds-neg{color:var(--red, #c0301c)}.ds-receipt .ds-pos{color:var(--green-ink, #256a42)}.ds-receipt .ds-eyebrow{display:block;grid-column:1/-1;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft, #4a5951);line-height:24px}"
     },
     {
       "name": "Resolved stamp",
@@ -495,28 +494,44 @@
       "css": ".ds-done{display:inline-block;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:78%;font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green-ink, #256a42);border:1.5px solid var(--green-ink, #256a42);border-radius:2px;padding:4px 8px;transform:rotate(-6deg)}"
     },
     {
-      "name": "Reading (label + figure)",
+      "name": "Reading (label + figure + note)",
       "kind": "custom",
       "refersTo": "sticker",
-      "description": "A field label in condensed caps over the red 6rem condensed figure, above a 1px ink rule; the figure is set larger than any heading.",
-      "html": "<figcaption class=\"ds-reading\"><p class=\"ds-label\">Net profit · last 14 days</p><p class=\"ds-figure\">−$398</p><p class=\"ds-gain\">Est. +$435 over the next 2 weeks if paused</p></figcaption>",
-      "css": ".ds-reading{display:grid;gap:8px;padding-top:14px;border-top:1px solid var(--ink, #131a16);font-variant-numeric:tabular-nums}.ds-reading p{margin:0}.ds-label{font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:78%;font-weight:600;font-size:.75rem;line-height:24px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft, #4a5951)}.ds-figure{font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:68%;font-weight:700;font-size:6rem;line-height:.86;letter-spacing:-.03em;color:var(--red, #c0301c);white-space:nowrap}.ds-gain{font-family:\"Fragment Mono\",\"Courier New\",monospace;font-size:.8rem;line-height:24px;color:var(--green-ink, #256a42)}"
+      "description": "The strip's reading: a field label in condensed caps, the red 6rem condensed figure beside its note, the mono gain line, and an Archivo .note caption one rule below.",
+      "html": "<figcaption class=\"ds-reading\"><p class=\"ds-label\">Net profit · last 14 days</p><p class=\"ds-figure\">−$398</p><p class=\"ds-reading-note\"><strong>Stop ads on this product</strong> until profitability recovers.<span class=\"ds-gain\">Est. +$435 over the next 2 weeks if paused</span></p><p class=\"ds-note\">Illustrative sample data, not a real account.</p></figcaption>",
+      "css": ".ds-reading{display:grid;grid-template-columns:auto 1fr;gap:0 36px;align-items:end;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-variant-numeric:tabular-nums;color:var(--ink, #131a16)}.ds-reading p{margin:0}.ds-label{grid-column:1/-1;font-stretch:78%;font-weight:600;font-size:.75rem;line-height:24px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft, #4a5951)}.ds-figure{font-stretch:68%;font-weight:700;font-size:6rem;line-height:.86;letter-spacing:-.03em;color:var(--red, #c0301c);white-space:nowrap;padding:10px 0 14px}.ds-reading-note{font-size:.95rem;line-height:24px;color:var(--ink-2, #2a3630);max-width:30rem}.ds-reading-note strong{font-weight:600;color:var(--ink, #131a16)}.ds-gain{display:block;font-family:\"Fragment Mono\",\"Courier New\",monospace;font-size:.8rem;color:var(--green-ink, #256a42)}.ds-note{grid-column:1/-1;margin-top:24px!important;font-size:.85rem;line-height:24px;color:var(--ink-soft, #4a5951)}"
     },
     {
-      "name": "Plate (empty state)",
+      "name": "Screenshot slot",
       "kind": "card",
-      "refersTo": "plate-frame",
-      "description": "Mounted screenshot frame: sticker-white, 1px ink border, 2px radius, mounted shadow; the fallback beneath the image is hatched paper with a dashed ink-faint edge.",
-      "html": "<div class=\"ds-plate-frame\"><div class=\"ds-plate-empty\"><span class=\"ds-label\">Daily Brief</span><span>Product screenshot being prepared</span><code>images/daily-brief.png</code></div></div>",
-      "css": ".ds-plate-frame{position:relative;background:var(--white, #f9fbf7);border:1px solid var(--ink, #131a16);border-radius:2px;box-shadow:0 10px 28px -12px rgba(19,26,22,.35), 0 2px 6px -2px rgba(19,26,22,.18);padding:8px;aspect-ratio:16/10;overflow:hidden;max-width:420px}.ds-plate-empty{position:absolute;inset:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;color:var(--ink-soft, #4a5951);background-color:var(--paper, #e5ece4);background-image:repeating-linear-gradient(-45deg,transparent 0 10px,rgba(19,26,22,.07) 10px 11px);border:1px dashed var(--ink-faint, #6f7e75);padding:24px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-size:.95rem;line-height:24px}.ds-plate-empty .ds-label{font-stretch:78%;font-weight:600;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink, #131a16)}.ds-plate-empty code{font-family:\"Fragment Mono\",\"Courier New\",monospace;font-size:.74rem;background:var(--white, #f9fbf7);border:1px solid var(--rule-major, rgba(19,26,22,.2));padding:2px 6px}"
+      "refersTo": "shot-frame",
+      "description": "The product, mounted: a 24px mono caption bar over a bordered, hatched paper-deep frame that fixes its aspect ratio and shows a mono label until the file exists; the image fills it absolutely.",
+      "html": "<figure class=\"ds-shot\"><figcaption class=\"ds-shot-caption\"><span>SellerCopilot AI · Daily Brief</span><span>Product screenshot</span></figcaption><div class=\"ds-shot-frame\"><span class=\"ds-shot-placeholder\" aria-hidden=\"true\">[ SCREENSHOT: hero-app · 16:10 ]</span></div></figure>",
+      "css": ".ds-shot{margin:0;min-width:0;max-width:480px}.ds-shot-caption{display:flex;justify-content:space-between;gap:24px;font-family:\"Fragment Mono\",\"Courier New\",monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft, #4a5951);line-height:24px;padding:0 2px;white-space:nowrap}.ds-shot-caption span:last-child{color:var(--ink-faint, #6f7e75)}.ds-shot-frame{position:relative;aspect-ratio:16/10;background-color:var(--paper-deep, #edeae5);background-image:repeating-linear-gradient(-45deg,transparent 0 14px,rgba(19,26,22,.045) 14px 15px);border:1px solid var(--ink, #131a16);border-radius:2px;box-shadow:0 10px 28px -12px rgba(19,26,22,.28), 0 2px 6px -2px rgba(19,26,22,.14);overflow:hidden}.ds-shot-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;font-family:\"Fragment Mono\",\"Courier New\",monospace;font-size:.78rem;letter-spacing:.02em;color:var(--ink-soft, #4a5951)}.ds-shot-frame img{position:absolute;inset:0;z-index:1;display:block;width:100%;height:100%;object-fit:cover;object-position:top left;color:transparent;font-size:0}"
     },
     {
-      "name": "Section head (ruled paper)",
+      "name": "Callout",
+      "kind": "custom",
+      "refersTo": "callout",
+      "description": "A short captioned note beside a screenshot: a hairline above, a mono eyebrow on one rule, and a 0.95rem paragraph on the 24px line.",
+      "html": "<div class=\"ds-callouts\"><div class=\"ds-callout\"><span class=\"ds-eyebrow\">Ordered by impact</span><p>Every product is evaluated against the performance rules you set. The ones out of range surface first.</p></div><div class=\"ds-callout\"><span class=\"ds-eyebrow\">The receipt is attached</span><p>Each note opens onto the readings that produced it. Nothing is asserted without its numbers.</p></div></div>",
+      "css": ".ds-callouts{display:grid;align-content:start;max-width:360px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-callout{padding-top:24px;box-shadow:inset 0 1px 0 var(--rule-major, rgba(19,26,22,.22))}.ds-callout .ds-eyebrow{display:block;font-family:\"Fragment Mono\",\"Courier New\",monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft, #4a5951);line-height:24px}.ds-callout p{margin:0;font-size:.95rem;line-height:24px;color:var(--ink-2, #2a3630);padding-bottom:24px}.ds-callout strong{font-weight:600;color:var(--ink, #131a16)}"
+    },
+    {
+      "name": "Spec list",
+      "kind": "custom",
+      "refersTo": "spec-item",
+      "description": "The 'Included' list under a measure: a mono eyebrow, a hairline above, one 24px rule per item with a painted dotted hairline at its foot, no glyphs.",
+      "html": "<div class=\"ds-measure-list\"><span class=\"ds-eyebrow\">Included</span><ul class=\"ds-spec\"><li>Prioritized daily action plan (ads, inventory, listings, pricing)</li><li>Evidence panel with the metrics behind every recommendation</li><li>Outcome tracking: measure the real impact of actions you take</li></ul></div>",
+      "css": ".ds-measure-list{background:var(--plate, rgba(247,245,242,.95));padding:0 8px;max-width:420px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-measure-list .ds-eyebrow{display:block;font-family:\"Fragment Mono\",\"Courier New\",monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft, #4a5951);line-height:24px}.ds-spec{list-style:none;margin:0;padding:0;box-shadow:inset 0 1px 0 var(--rule-major, rgba(19,26,22,.22))}.ds-spec li{font-size:.95rem;line-height:24px;color:var(--ink-2, #2a3630);padding:0;background-image:linear-gradient(90deg,var(--rule-major, rgba(19,26,22,.22)) 50%,transparent 50%);background-size:4px 1px;background-repeat:repeat-x;background-position:0 100%}.ds-spec li:last-child{background-image:none}"
+    },
+    {
+      "name": "Section head (paper)",
       "kind": "custom",
       "refersTo": "quote-card",
-      "description": "Form-section heading on ruled paper: wide h2 on a 48px line, mono margin note on the right, closed by a 2px ink rule paid for in the padding (24px - 2px).",
+      "description": "Form-section heading on opaque paper: wide h2 on a 48px line, an Archivo .note margin note on the right, closed by a 2px ink rule paid for in the padding (24px - 2px).",
       "html": "<section class=\"ds-ruled\"><div class=\"ds-section-head\"><h2>Every product gets a line on the chart.</h2><p class=\"ds-meta\">Today&#39;s rounds · 4 items · sample</p></div></section>",
-      "css": ".ds-ruled{background-color:var(--paper, #e5ece4);background-image:linear-gradient(var(--grid-major, rgba(19,26,22,.09)) 1px,transparent 1px),linear-gradient(var(--grid-minor, rgba(19,26,22,.04)) 1px,transparent 1px);background-size:100% 120px,100% 24px;background-position:0 -1px;padding:48px 24px 24px}.ds-section-head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;padding-bottom:22px;border-bottom:2px solid var(--ink, #131a16)}.ds-section-head h2{margin:0;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:110%;font-weight:600;font-size:clamp(1.7rem,2.6vw,2.25rem);line-height:48px;letter-spacing:-.025em;color:var(--ink, #131a16);max-width:24ch;text-wrap:balance}.ds-section-head .ds-meta{margin:0;font-family:\"Fragment Mono\",\"Courier New\",monospace;font-size:.78rem;line-height:24px;color:var(--ink-soft, #4a5951);text-align:right;white-space:nowrap;padding-bottom:6px}"
+      "css": ".ds-ruled{background-color:var(--paper, #f7f5f2);padding:48px 24px 24px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-section-head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;padding-bottom:22px;border-bottom:2px solid var(--ink, #131a16)}.ds-section-head h2{margin:0;font-stretch:110%;font-weight:600;font-size:clamp(1.7rem,2.6vw,2.25rem);line-height:48px;letter-spacing:-.035em;color:var(--ink, #131a16);max-width:24ch;text-wrap:balance}.ds-section-head .ds-meta{margin:0;font-size:.85rem;line-height:24px;color:var(--ink-soft, #4a5951);text-align:right;white-space:nowrap}"
     },
     {
       "name": "Control (ink section)",
@@ -524,26 +539,32 @@
       "refersTo": "section-ink",
       "description": "The Security section's reversed stock: ink ground with a 5% paper ruling, paper headings and icons, paper-dim copy, a paper top rule and 22% paper dividers painted as inset shadows.",
       "html": "<section class=\"ds-ink\"><div class=\"ds-controls\"><div class=\"ds-control\"><svg viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"4\" y=\"10\" width=\"16\" height=\"11\" rx=\"1\"/><path d=\"M8 10V7a4 4 0 0 1 8 0v3\"/></svg><div><h3>Encryption in transit and at rest</h3><p>All traffic is served over HTTPS/TLS. Credentials are stored encrypted. See our <a href=\"#\">security overview</a>.</p></div></div></div></section>",
-      "css": ".ds-ink{background-color:var(--ink, #131a16);background-image:linear-gradient(rgba(229,236,228,.05) 1px,transparent 1px);background-size:100% 24px;background-position:0 -1px;color:var(--paper-dim, #b8c4ba);padding:24px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-controls{box-shadow:inset 0 1px 0 var(--paper, #e5ece4)}.ds-control{display:grid;grid-template-columns:26px 1fr;gap:16px;padding:24px 0;box-shadow:inset 0 -1px 0 rgba(229,236,228,.22)}.ds-control svg{color:var(--paper, #e5ece4)}.ds-control h3{margin:0 0 24px;font-weight:600;font-size:1.1rem;line-height:24px;letter-spacing:-.02em;color:var(--paper, #e5ece4)}.ds-control p{margin:0;font-size:.96rem;line-height:24px;color:var(--paper-dim, #b8c4ba)}.ds-control a{color:var(--paper, #e5ece4);text-decoration-thickness:1px;text-underline-offset:.18em;text-decoration-color:rgba(229,236,228,.4)}.ds-control a:hover{text-decoration-color:var(--paper, #e5ece4)}.ds-ink ::selection{background:var(--paper, #e5ece4);color:var(--ink, #131a16)}"
+      "css": ".ds-ink{background-color:var(--ink, #131a16);background-image:linear-gradient(rgba(247,245,242,.05) 1px,transparent 1px);background-size:100% 24px;background-position:0 -1px;color:var(--paper-dim, #c9c4bc);padding:24px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-controls{box-shadow:inset 0 1px 0 var(--paper, #f7f5f2)}.ds-control{display:grid;grid-template-columns:26px 1fr;gap:16px;padding:24px 0;box-shadow:inset 0 -1px 0 rgba(247,245,242,.22)}.ds-control svg{color:var(--paper, #f7f5f2)}.ds-control h3{margin:0 0 24px;font-weight:600;font-size:1.1rem;line-height:24px;letter-spacing:-.02em;color:var(--paper, #f7f5f2)}.ds-control p{margin:0;font-size:.96rem;line-height:24px;color:var(--paper-dim, #c9c4bc)}.ds-control a{color:var(--paper, #f7f5f2);text-decoration-thickness:1px;text-underline-offset:.18em;text-decoration-color:rgba(247,245,242,.4)}.ds-control a:hover{text-decoration-color:var(--paper, #f7f5f2)}.ds-ink ::selection{background:var(--paper, #f7f5f2);color:var(--ink, #131a16)}"
     }
   ],
   "narrative": {
     "northStar": "Morning Rounds",
-    "overview": "The site is the observation chart clipped to the end of the bed on a 6am ward round. The ground is mint chart stock ruled every 24px with a heavier line every fifth; the ruling is a paper texture that is strongest in the outer margins and fades out behind the centre column, so the reading column is clean and the margins say \"chart\". Everything on it is either ink (near-black green), a white paper object stuck onto the chart (sticker, plate, quote card, call-out), or a coloured triage band down the margin. Nothing floats and nothing is a card: the plot in the first viewport is drawn straight onto the ruled ground with no container behind it, the brief is a list of triage rows separated by 1px rules, and the seven feature measures are observation rows rather than an icon grid. One section, Security, is printed in reverse: ink ground, paper type, the same 24px ruling at 5% paper.\n\nDensity is that of a printed form: every line of text sits on the 24px ruling (body 17px on a 24px line, display type on a 48px line), structural rules are painted rather than laid out so they never push the pitch off, and sections are separated by a 2px ink rule with a mono margin note (\"Today's rounds · 4 items · sample\") rather than by whitespace or colour blocks. The world is read in three type voices from one variable family plus a mono: Archivo set wide (110%) for the two display levels, Archivo set condensed (78–85%) in small caps for form labels, stamps and triage bands, and Fragment Mono for every reading, dateline and caption. The largest thing on the page is a number, not a headline: the net-profit figure is set at 6rem in condensed 700 while the h1 tops out at 2.7rem.\n\nColour is diagnostic, never decorative. Red is a breach reading and the hover state of the one action; amber and green are triage classes; the shaded target band is a translucent green wash. There is no glass, no glow, no colour gradient, no drop-shadow on the ground itself. The only authored motion is the vital plotting itself once, followed by the breach report settling into place; everything else is a 160–200ms colour or transform transition, and the whole sequence is off under `prefers-reduced-motion`.",
+    "overview": "The site is the observation chart clipped to the end of the bed on a 6am ward round. The ground is warm near-white stock (`paper`) ruled every 24px with a heavier line every fifth; the ruling is a paper texture that is strongest in the outer margins and fades out behind the centre column, and inside the form blocks it is repainted horizontally from each block's own top edge, so every row starts on a rule regardless of what precedes it. Everything on the chart is either ink (near-black green), a white paper object stuck onto it (sticker, quote card, plot call-out), a bordered screenshot slot where the product itself is mounted, or a coloured triage band down the margin. Nothing floats and nothing is a card: the plot in the first viewport is drawn straight onto the ground, the brief is a list of triage rows separated by 1px rules, and the seven feature measures are observation rows, two of them carrying a screenshot. One full-bleed band (`#read-only`) rests on the deeper paper, and one section, Security, is printed in reverse: ink ground, paper type, the same 24px ruling at 5% paper. The theme is light only and permanently so (`color-scheme: light`); there is no dark mode.\n\nDensity is that of a printed form: body text sits on the 24px ruling (17px on a 24px line), section h2s take a 48px line, structural rules are painted rather than laid out so they never push the pitch off, and sections are separated by a 2px ink rule with a small right-aligned note (\"Today's rounds · 4 items · sample\") rather than by whitespace or colour blocks. The world is read in three type voices from one variable family plus a mono: Archivo set wide (110%) for the two display levels, Archivo set condensed (78–85%) in tracked caps for form labels, stamps and triage bands, and Fragment Mono for readings only: receipts, ASINs, the plot's lettering, the gain line, the screenshot slot's caption and label, and short eyebrows. Prose captions and footnotes are not readings and are set in Archivo at 0.85rem (`.note`). The largest thing on the page is a number, not a headline: the net-profit figure is set at 6rem in condensed 700 while the h1 tops out at 2.7rem.\n\nColour is diagnostic, never decorative. Red is the one accent: the breach reading, the h1's thesis clause, and the hover state of every action. Green is accent-only: the SCALE band and the target band's edge (`green`), positive figures (`green-ink`), the translucent target wash (`band`). Amber is the REORDER band. There is no glass, no glow, no colour gradient, no drop-shadow on the ground itself. Motion is restraint-level and entirely an enhancement: with script off or `prefers-reduced-motion: reduce` the page is complete and static. With script, section content rises 8px on scroll-in, the vital plots itself once, the net-profit figure counts up once, and one note in the brief types itself once. Measured cumulative layout shift in the finish review: 0.",
     "keyCharacteristics": [
-      "Mint chart stock (#e5ece4) ruled at 24px, heavier every 120px; the ruling is the layout unit and the baseline: text sits on 24px lines, display on 48px.",
-      "The ruling is texture, not structure: a masked two-axis grid in the page margins, horizontal-only paper inside text-heavy sections, and separate `rule` tokens for the hairlines that actually divide things.",
-      "Three type voices from two families: Archivo wide (display), Archivo condensed caps (labels, stamps, bands), Fragment Mono (readings).",
+      "Warm near-white stock (`paper`) ruled at 24px, heavier every 120px; the ruling is the layout unit and the baseline: text sits on 24px lines, h2s on 48px.",
+      "The ruling is texture, not structure: a masked two-axis grid in the page margins (`body::before`) and a horizontal-only `.ruling` painted from the top of each form block (the rounds list, every measure row); separate `rule` tokens for the hairlines that actually divide things.",
+      "Three type voices from two families: Archivo wide (display), Archivo condensed caps (labels, stamps, bands), Fragment Mono (readings only); prose captions in the Archivo `.note` voice.",
       "Red / amber / green / settled-grey triage bands as 24px vertical margin strips with rotated condensed caps.",
-      "White paper objects (stickers, plates, quote, call-out) are the only things that cast a shadow; near-opaque paper plates sit under copy and figures so no rule crosses a numeral.",
-      "2px radius on stamped and stuck-on objects, 0 everywhere else; 1px rules for structure, 2px for the form's header and section rules, all painted so they take no layout height.",
-      "One ink section (Security) in the run of paper; the settled state recedes by ink colour, never by opacity.",
-      "One authored motion moment; all other motion is a short ease-out transition."
+      "Four screenshot slots (`.shot`): a mono caption bar over a bordered, hatched `paper-deep` frame that reserves its aspect ratio and shows a mono `[ SCREENSHOT: … ]` label until the file exists.",
+      "White paper objects (stickers, quote card, plot call-out) and the shot frames are the only things that cast a shadow; near-opaque paper plates sit under row copy and receipts so no rule crosses a numeral.",
+      "2px radius on stamped, stuck-on and mounted objects, 0 everywhere else; 1px rules for structure, 2px for the form's header and section rules, all painted so they take no layout height.",
+      "One deeper-paper band and one ink section in the run of paper; the settled state recedes by ink colour, never by opacity.",
+      "Every authored motion runs once, is gated by the `js` class and by reduced motion, and never moves layout."
     ],
     "rules": [
       {
+        "name": "The One Accent Rule",
+        "body": "Red is the only colour that may appear as an accent on paper. Green is a triage class and a positive figure; amber is a triage class; neither colours a heading, a link, a button or a decorative element.",
+        "section": "colors"
+      },
+      {
         "name": "The Green Split Rule",
-        "body": "`triage-green` fills and strokes; `green-ink` writes. A green value in text is always `green-ink` (5.42:1); a green area or line is always `triage-green`.",
+        "body": "`green` fills and strokes; `green-ink` writes. A green value in text is always `green-ink` (6.00:1); a green area or line is always `green`.",
         "section": "colors"
       },
       {
@@ -553,22 +574,27 @@
       },
       {
         "name": "The Faint Is Not Text Rule",
-        "body": "`ink-faint` sits at 3.55:1 and is used only for markers, strikes, hover underlines and dashed edges. Text below the label size uses `ink-soft` or darker.",
+        "body": "`ink-faint` sits at 3.92:1 and is used only for strikes, hover underlines, markers and the scrollbar. Text at any size uses `ink-soft` or darker.",
         "section": "colors"
       },
       {
         "name": "The Texture Is Not Structure Rule",
-        "body": "The ruling is drawn with `grid-minor` / `grid-major` (4% / 9%) and never with `rule` / `rule-major` (11% / 20%). A line that separates two things is a rule token at full width; a line that is merely paper is a grid token and may be masked away.",
+        "body": "The ruling is drawn with `grid-minor` / `grid-major` (4.5% / 10%) and never with `rule` / `rule-major` (12% / 22%). A line that separates two things is a rule token at full width; a line that is merely paper is a grid token and may be masked away or covered by a plate.",
         "section": "colors"
       },
       {
         "name": "The One Ink Section Rule",
-        "body": "Security is the page's only reversed section: `ink` ground, `paper` headings, icons, links and top rule, `paper-dim` running text, 5% paper ruling, dividers in paper (top) and 22% paper (between controls), selection inverted to paper-on-ink. A second dark section would turn a rest into a pattern.",
+        "body": "Security is the page's only reversed section: `ink` ground, `paper` headings, icons, links and top rule, `paper-dim` running text and notes, 5% paper ruling, dividers in paper (top) and 22% paper (between controls), selection inverted to paper-on-ink. The `#read-only` band is a rest on deeper paper, not a second dark section.",
         "section": "colors"
       },
       {
         "name": "The Three Voices Rule",
         "body": "Wide for the two display levels, condensed caps for anything that labels or stamps, mono for anything that is a reading. A new element picks one voice; it does not mix wide with caps or set a reading in the sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Is A Reading Rule",
+        "body": "Fragment Mono is restricted to `.receipt`, the sticker's identifier and marketplace, the plot's lettering, the figure's gain line, `.shot-caption`, `.shot-placeholder` and `.eyebrow`. A caption, footnote, dateline or sub-line that is prose is set in the Archivo `.note` voice, never in the mono. The test: if it could be printed by the instrument, it is mono; if a person wrote it, it is not.",
         "section": "typography"
       },
       {
@@ -578,7 +604,7 @@
       },
       {
         "name": "The Line Is 24px Rule",
-        "body": "Text is set on `line-height: var(--u)` regardless of size: 17px body, 15–16px row copy, 12.8px mono and 12px labels all occupy one 24px rule; h1, h2 and the contact email occupy two. A new size picks a line of 24px or 48px, not a ratio. The figure (6rem × 0.86) is the recorded exception.",
+        "body": "Text is set on `line-height: var(--u)` regardless of size: 17px body, 15–16px row copy, 13.6px notes, 12.8px mono and 12px labels all occupy one 24px rule; h2s and the contact email occupy two. A new size picks a line of 24px or 48px, not a ratio. The figure (6rem × 0.86) is the recorded exception; the h1 at 1.06 is a recorded defect, not an exception.",
         "section": "typography"
       },
       {
@@ -587,57 +613,83 @@
         "section": "layout"
       },
       {
-        "name": "The Ruled / Plain / Ink Section Rule",
-        "body": "A section is one of three grounds: plain (the masked margin texture shows through; for plots, plates and diagrams), ruled (`.ruled`: opaque paper with horizontal rules; for sections whose content is rows of text), or ink (`#security` only). A new text-heavy section takes `.ruled`; a new visual section stays plain.",
+        "name": "The Ruling Restarts Rule",
+        "body": "The horizontal ruling belongs to the form block, not the section: `.ruling` goes on the list or row whose lines must land on rules (`.rounds`, each `.measure`), and it paints from that block's own top. A section never paints a ruling behind a heading, an intro or a screenshot.",
+        "section": "layout"
+      },
+      {
+        "name": "The Ground Rule",
+        "body": "A section is one of four grounds: plain (the masked margin texture shows through; for the hero and the timeline), paper (`.ruled`: opaque `paper`, for sections whose content is rows of text or the quote), band (`.band-section`: full-bleed `paper-deep`, one per page, for the read-only rest), or ink (`#security` only). A new text-heavy section takes `.ruled` and puts `.ruling` on its rows; a new visual section stays plain.",
         "section": "layout"
       },
       {
         "name": "The Plate Rule",
-        "body": "Where copy or figures sit inside a ruled section, they sit on a paper plate (`rgba(229,236,228,0.95)`, 8px side padding, −8px side margins) so the ruling is a texture between blocks and never a line through a word or a number.",
+        "body": "Where copy or figures sit inside a `.ruling` block, they sit on a paper plate (`plate`, 8px side padding, −8px side margins) so the ruling is a texture between blocks and never a line through a word or a number.",
+        "section": "layout"
+      },
+      {
+        "name": "The Slot Rule",
+        "body": "A product image never appears bare or in an ad-hoc frame. It goes in a `.shot` with a fixed aspect class, a mono caption bar above, `width`/`height` on the `<img>`, and the mono `[ SCREENSHOT: slot · ratio ]` label beneath, so the page reads the same with or without the file and never shifts when it arrives.",
         "section": "layout"
       },
       {
         "name": "The Paper Object Rule",
-        "body": "Only `sticker-white` objects with a 1px ink border cast a shadow. Nothing on the mint ground does, and nothing gets a shadow to signal importance.",
+        "body": "Only `white` objects with a 1px ink border (sticker, quote card, call-out) and the mounted shot frames cast a shadow. Nothing else on the ground does, and nothing gets a shadow to signal importance.",
         "section": "elevation"
       },
       {
         "name": "The Ink Recedes Rule",
-        "body": "A settled item recedes by colour only: heading and sticker to `ink-soft`, band to `ink-soft`, sticker shadow removed, receipt values to `ink-2`, heading struck through in `ink-faint`. Opacity is never used to age content, so the settled row stays above the contrast floor.",
+        "body": "A settled item recedes by colour only: heading, copy and sticker to `ink-soft`, band to `ink-soft`, sticker shadow removed, receipt values to `ink-2`, heading struck through in `ink-faint`. Opacity is never used to age content, so the settled row stays above the contrast floor.",
         "section": "elevation"
+      },
+      {
+        "name": "The Enhancement Rule",
+        "body": "Motion is added by the `js` class and removed by `prefers-reduced-motion: reduce`; the static page is the baseline, not a fallback. A new motion hooks onto `html.js` or the `no-preference` query and reserves its space (`min-width`, `min-height`, `aspect-ratio`) before it runs.",
+        "section": "components"
+      },
+      {
+        "name": "The Once Rule",
+        "body": "Every authored motion runs exactly once, on entry, and then unobserves: the rise, the plot, the count-up, the typing. Nothing loops, nothing replays on scroll-back, nothing responds to the pointer beyond a 160–200ms colour or transform transition.",
+        "section": "components"
       }
     ],
     "dos": [
-      "**Do** size structure on the ruling: 24px and its multiples (1u, 1.5u, 2u, 3u, 4u) for padding, heights and section rhythm; 4–22px only inside a component; and when a box carries a real border, shrink its padding by the border (`24px − 2px`, `24px − 1px`) so the next line still lands on a rule.",
-      "**Do** set every text size on `line-height: var(--u)` (24px) and the two display levels on 48px at ≥901px; pick a line of 24 or 48, never a ratio.",
-      "**Do** paint 1px structural rules instead of laying them out: `box-shadow: inset 0 ±1px 0` for row and list edges, a 4px × 1px repeating gradient for dotted hairlines.",
-      "**Do** give a text-heavy section `.ruled` (opaque paper, horizontal rules only) and put its copy and figures on paper plates (`rgba(229,236,228,0.95)`, 8px / −8px sides); leave plots, plates and diagrams on the plain masked ground.",
+      "**Do** size structure on the ruling: 24px and its multiples (1u, 1.5u, 2u, 3u, 4u) for padding, heights and section rhythm; 2–22px only inside a component; and when a box carries a real border, shrink its padding by the border (`24px − 2px`, `24px − 1px`) so the next line still lands on a rule.",
+      "**Do** set every text size on `line-height: var(--u)` (24px) and h2s on 48px at ≥901px; pick a line of 24 or 48, never a ratio.",
+      "**Do** paint 1px structural rules instead of laying them out: `box-shadow: inset 0 ±1px 0` for row, list, callout and spec edges, a 4px × 1px repeating gradient for dotted hairlines.",
+      "**Do** give a text-heavy section `.ruled` (opaque paper) and put `.ruling` on the block whose rows must land on rules, with its copy and figures on paper plates (`plate`, 8px / −8px sides); leave the hero and diagrams on the plain masked ground.",
       "**Do** draw data straight onto the ground. A plot, a list of rows, a timeline gets a top rule and dividers, not a card.",
-      "**Do** pick one type voice per element: wide 110% for h1/h2, condensed 78–85% caps for labels, stamps and bands, Fragment Mono for readings, and normal width for h3s and body.",
+      "**Do** mount every product image in a `.shot`: fixed aspect class, mono caption bar, `width`/`height` on the `<img>`, mono `[ SCREENSHOT: slot · ratio ]` label beneath, filename from `img/README.md`.",
+      "**Do** pick one type voice per element: wide 110% for h1/h2, condensed 78–85% caps for labels, stamps and bands, Fragment Mono for readings and eyebrows, and normal width for h3s, body and notes.",
+      "**Do** set prose captions, footnotes, datelines and sub-lines in the Archivo `.note` voice (0.85rem, `ink-soft`, 24px line); keep the mono for what an instrument would print.",
       "**Do** set the leading number larger than the heading when a surface leads with a reading (6rem figure over a 2.7rem h1).",
-      "**Do** use `green-ink` for any green text and `triage-green` only for fills and strokes; use `ink-soft` (6.15:1) as the floor for text on paper and `paper-dim` (9.81:1) as the floor for text on ink.",
-      "**Do** give stuck-on white objects a 1px ink border, 2px radius and a grounded shadow (`--shadow` or the sticker's 1px hard edge), and nothing else a shadow.",
+      "**Do** use `green-ink` for any green text and `green` only for fills and strokes; use `ink-soft` (6.80:1) as the floor for text on paper and `paper-dim` (10.20:1) as the floor for text on ink.",
+      "**Do** give stuck-on white objects a 1px ink border, 2px radius and a grounded shadow (`--shadow` or the sticker's 1px hard edge), give the shot frame the same border, radius and shadow over hatched `paper-deep`, and give nothing else a shadow.",
       "**Do** age content by moving it to `ink-soft` and removing its shadow; keep its band, sticker and receipt in place.",
       "**Do** keep the 24px triage band as a vertical strip with the word rotated to read upward, ink text on amber, white on red and green.",
+      "**Do** gate every authored motion behind `html.js` or `prefers-reduced-motion: no-preference`, run it once on entry, and reserve its space before it starts (pin `min-width` before a count-up, `min-height` before typing).",
       "**Do** extend or reveal on hover with `transform` on a pseudo-element (the band's `scaleX`) and a 160–200ms `--ease-out` transition.",
-      "**Do** label sample data in mono `ink-soft` directly beneath it (\"Illustrative sample data, not a real account.\").",
-      "**Do** reorder the phone hero so the chart is second (h1, chart, actions, lead, facts), restart the ruling at each content block below 900px, and enlarge SVG lettering below 520px rather than letting the plot's text scale down with it."
+      "**Do** label sample data in the `.note` voice directly beneath it (\"Illustrative sample data, not a real account.\").",
+      "**Do** reorder the phone hero so the product is second (h1, shot, actions, lead, facts, strip), stack measure rows body → list or shot → unit line, and enlarge SVG lettering below 520px rather than letting the plot's text scale down with it."
     ],
     "donts": [
       "**Don't** add a radius above 2px, a pill, or a rounded card; the only circles are plotted nodes.",
+      "**Don't** add a dark mode or a second theme; the page is `color-scheme: light` and the one ink section is a change of stock, not a theme.",
       "**Don't** use opacity to fade, age or de-emphasise content; move it to a lighter ink token.",
-      "**Don't** use `ink-faint` for text at any size, or `triage-green` for text.",
-      "**Don't** put red on a heading, border or background for emphasis; red is a breach reading, a triage class, or the action's hover.",
-      "**Don't** introduce glass, blur, glow, a colour gradient, or a shadow under anything that is not a white paper object.",
+      "**Don't** use `ink-faint` for text at any size, or `green` for text.",
+      "**Don't** put red on a heading, border or background for emphasis, or green and amber anywhere but a triage band, a positive figure and the plot's target band.",
+      "**Don't** introduce glass, blur, glow, a colour gradient, or a shadow under anything that is not a white paper object or a shot frame.",
+      "**Don't** set a prose caption, footnote, meta line or unit line in Fragment Mono; the mono is for receipts, identifiers, plot lettering, the gain line, the slot's caption and label, and eyebrows.",
       "**Don't** wrap the plot, a receipt or a row list in a container, panel or tinted block; a paper plate hides the ruling and is not a panel.",
+      "**Don't** paint a ruling on a section; put `.ruling` on the block (a list, a row) so the pitch restarts where the rows start.",
       "**Don't** draw the ruling with `rule` / `rule-major`, or a divider with `grid-minor` / `grid-major`; texture and structure are different tokens.",
       "**Don't** let the two-axis texture run behind the reading column, or let a rule cross a word or a numeral; mask it, rule horizontally, or plate over it.",
-      "**Don't** add a second ink section; Security is the one reversed page of the form.",
-      "**Don't** animate width, height or layout; the band extends with `scaleX`, the plot draws with `stroke-dashoffset`.",
-      "**Don't** add motion outside the one authored sequence beyond a 160–200ms colour/transform transition, and never outside the reduced-motion gate for the sequence itself.",
+      "**Don't** place a product image outside a `.shot`, or leave a slot without `width`/`height` and an aspect class.",
+      "**Don't** add a second ink section or a second full-bleed band; Security is the one reversed page of the form and read-only is its one rest.",
+      "**Don't** animate width, height or layout; the band extends with `scaleX`, the plot draws with `stroke-dashoffset`, the rise is an 8px transform, and the counted figure is pinned to its final width.",
+      "**Don't** replay a motion, loop it, or run it without the `js` gate and the reduced-motion gate.",
       "**Don't** set h3s or body copy wide; the width axis above 100% is the display's alone.",
-      "**Don't** invent a seventh label size or a sixth tracking; reuse the nearest existing pairing from the label-scale note under Typography.",
-      "**Don't** reference `--red-deep` or `--amber`: both are declared in `:root` and used nowhere, and are not part of the recorded palette."
+      "**Don't** invent another label, mono or prose size; reuse the nearest existing pairing from the size note under Typography."
     ]
   }
 }
