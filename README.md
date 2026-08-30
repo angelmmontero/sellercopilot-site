@@ -8,10 +8,24 @@ Static site (plain HTML/CSS, no build step), served by GitHub Pages at
 
 ## Structure
 
-- `index.html` — landing page (features, how it works, security, pricing, contact)
+- `index.html` — landing page (sample brief, product plates, what's charted, how it works,
+  read-only, security, pricing, contact)
+- `security.html` — security overview
 - `privacy.html` — privacy policy
+- `404.html`
 - `styles.css` — single stylesheet
-- `404.html`, `favicon.svg`, `CNAME`
+- `fonts/` — self-hosted Archivo (variable) and Fragment Mono
+- `favicon.svg`, `CNAME`
+- `PRODUCT.md` — product truth used by design work; `DESIGN.md` — the visual system
+
+## Product screenshots
+
+The landing page has three screenshot plates that show a labelled empty slot until the file
+exists. Drop real captures at:
+
+- `images/daily-brief.png` (lead plate, cropped to 2:1 from the top-left; 1600 × 800 or larger)
+- `images/profit-per-asin.png` (16:10; 1600 × 1000 or larger)
+- `images/inventory-forecast.png` (16:10; 1600 × 1000 or larger)
 
 ## Deploy
 
