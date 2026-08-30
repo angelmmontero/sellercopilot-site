@@ -1,0 +1,44 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-color",
+        "value": "#000",
+        "createdAt": "2026-08-30T22:13:20.227Z",
+        "reason": "model: #000 appears only as opaque stops in the body::before mask-image gradient; it is a mask alpha, never a rendered colour"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "10.5px",
+        "createdAt": "2026-08-30T22:13:20.416Z",
+        "reason": "model: SVG user-unit lettering inside the hero plot and timeline (axis ticks, target label, call-out); scales with the viewBox, not the page type ramp"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "11px",
+        "createdAt": "2026-08-30T22:13:20.616Z",
+        "reason": "model: SVG user-unit lettering inside the hero plot and timeline (axis ticks, target label, call-out); scales with the viewBox, not the page type ramp"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "20px",
+        "createdAt": "2026-08-30T22:13:20.933Z",
+        "reason": "model: SVG user-unit lettering inside the hero plot and timeline (axis ticks, target label, call-out); scales with the viewBox, not the page type ramp"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "22px",
+        "createdAt": "2026-08-30T22:13:21.120Z",
+        "reason": "model: SVG user-unit lettering inside the hero plot and timeline (axis ticks, target label, call-out); scales with the viewBox, not the page type ramp"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "40px",
+        "createdAt": "2026-08-30T22:13:21.315Z",
+        "reason": "model: SVG user-unit lettering inside the hero plot and timeline (axis ticks, target label, call-out); scales with the viewBox, not the page type ramp"
+      }
+    ]
+  }
+}
