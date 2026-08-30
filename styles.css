@@ -341,19 +341,20 @@ h1, h2, h3, h4 {
 .triage-green { background: var(--green); }
 .triage-ink { background: var(--ink-faint); }
 
+/* 72px tall: two 24px lines inside 11px padding and a 1px border (96px when it stacks to three lines) */
 .sticker {
   display: inline-grid;
   grid-template-columns: auto auto;
-  column-gap: 14px; row-gap: 2px;
+  column-gap: 14px; row-gap: 0;
   align-items: baseline;
   background: var(--white);
   border: 1px solid var(--ink);
   border-radius: 2px;
-  padding: 8px 12px 9px;
+  padding: 11px 12px;
   box-shadow: 0 1px 0 var(--ink), 0 6px 14px -8px rgba(19, 26, 22, 0.4);
   font-family: var(--mono);
   font-size: 0.78rem;
-  line-height: 1.35;
+  line-height: var(--u);
   color: var(--ink);
 }
 .sticker b { font-weight: 400; letter-spacing: 0.02em; }
@@ -892,16 +893,28 @@ section { padding: calc(var(--u) * 4) 0; }
   .section-head { grid-template-columns: 1fr; align-items: start; }
   .section-head .meta { text-align: left; padding-bottom: 0; white-space: normal; }
 
-  .round { grid-template-columns: var(--u) 1fr; row-gap: 14px; }
+  /* Below 900px the section heading is not on the ruling, so the ruling restarts at each content block */
+  .ruled { background-image: none; }
+  .ruled .rounds, .ruled .measures, .ruled .never-copy, .ruled .never-list {
+    background-image:
+      linear-gradient(var(--grid-major) 1px, transparent 1px),
+      linear-gradient(var(--grid-minor) 1px, transparent 1px);
+    background-size: 100% calc(var(--u) * 5), 100% var(--u);
+    background-position: 0 -1px;
+  }
+  .round { grid-template-columns: var(--u) 1fr; row-gap: 0; }
   .round .triage { grid-row: 1 / span 4; min-height: 0; }
-  .round .sticker { grid-column: 2; }
+  .round .sticker { grid-column: 2; margin-bottom: var(--u); }
   .round-body { grid-column: 2; }
-  .receipt { grid-column: 2; border-left: 0; padding-left: 0; border-top: 1px solid var(--rule-major); padding-top: 10px; }
-  .round-settled .done { position: static; grid-column: 2; justify-self: start; transform: none; }
+  .receipt { grid-column: 2; border-left: 0; padding-left: 8px; margin: var(--u) -8px 0; border-top: 1px solid var(--rule-major); padding-top: calc(var(--u) - 1px); }
+  .round-settled .done {
+    position: static; grid-column: 2; justify-self: start; transform: none;
+    height: var(--u); box-sizing: border-box; padding: 0 8px; line-height: 21px; margin-top: var(--u);
+  }
 
   .plates { grid-template-columns: 1fr; }
   /* The unit line never sits above the heading: it closes the row as a footnote */
-  .measure { grid-template-columns: 1fr; row-gap: 10px; padding: var(--u) 0; }
+  .measure { grid-template-columns: 1fr; row-gap: var(--u); padding: var(--u) 0; }
   .measure > div { order: 1; }
   .measure ul { order: 2; }
   .measure-unit { order: 3; }
