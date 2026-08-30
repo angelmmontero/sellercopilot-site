@@ -197,6 +197,7 @@ h1, .section-head h2, .talk h2, .legal h1 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap;
   color: var(--paper);
   background: var(--ink);
   border: 1.5px solid var(--ink);
@@ -808,7 +809,9 @@ html.js [data-rise].is-in { opacity: 1; transform: none; }
     gap: 0 10px;
   }
   .site-header .brand { grid-column: 1; grid-row: 1; }
-  .site-header .stamp { grid-column: 2; grid-row: 1; padding: 0 14px; font-size: 0.74rem; }
+  .site-header .stamp { grid-column: 2; grid-row: 1; padding: 0 12px; font-size: 0.72rem; letter-spacing: 0.06em; }
+  .site-header .brand { min-width: 0; }
+  .site-header .brand strong { font-size: 0.98rem; }
   .site-header .brand small { display: none; }
   /* The menu button: a stamped square beside the demo stamp; the icon swaps when open */
   .nav-burger {
@@ -917,4 +920,8 @@ html.js [data-rise].is-in { opacity: 1; transform: none; }
   .plot .leader { display: none; }
   .shot-caption span:last-child { display: none; }
   .shot-caption span:first-child { overflow: hidden; text-overflow: ellipsis; }
+}
+@media (max-width: 360px) {
+  /* The narrowest phones keep the mark, the demo stamp and the menu button */
+  .site-header .brand span { display: none; }
 }
