@@ -8,6 +8,17 @@
 
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Phone menu: close it after a link is chosen or on Escape; the toggle itself needs no script */
+  var toggle = document.getElementById("nav-toggle");
+  if (toggle) {
+    var nav = document.querySelector(".main-nav");
+    var sync = function () { toggle.setAttribute("aria-label", toggle.checked ? "Close menu" : "Open menu"); toggle.setAttribute("aria-expanded", toggle.checked ? "true" : "false"); };
+    toggle.addEventListener("change", sync);
+    sync();
+    if (nav) nav.addEventListener("click", function (e) { if (e.target.closest("a")) { toggle.checked = false; sync(); } });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && toggle.checked) { toggle.checked = false; sync(); toggle.focus(); } });
+  }
+
   /* Screenshot slots: a missing file keeps its mono label visible */
   var shots = document.querySelectorAll(".shot img");
   for (var i = 0; i < shots.length; i++) {
