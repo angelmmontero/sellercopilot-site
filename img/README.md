@@ -8,7 +8,7 @@ box, and shows a mono `[ SCREENSHOT: … ]` label until the file exists.
 | --- | --- | --- | --- | --- |
 | `hero-app.jpg` ✅ **live** | `hero-app` | 16:10 | 1600 × 1000 | Hero, right of the headline (the primary shot; loads eagerly). The Daily Brief for one account. |
 | `brief-daily.jpg` ✅ **live** | `brief-daily` | 16:10 | 1600 × 1000 | `#brief`, the wide frame beside the three callouts. One recommendation with its evidence panel open. |
-| `placeholder-chart-product.png` | `chart-product` | 4:3 | 1600 × 1200 | `#features`, the Sales & Traffic row. A per-ASIN chart: revenue, sessions, conversion, or TACOS against target. |
+| `product-chart.jpg` ✅ **live** | `chart-product` | 4:3 | 1600 × 1200 | `#features`, the Sales & Traffic row. Currently daily revenue stacked by product. Renders at only 489 × 367 CSS px, so a chart with a large legend loses its labels — a single-series or few-series view reads far better here. |
 | `placeholder-inventory-view.png` | `inventory-view` | 4:3 | 1600 × 1200 | `#features`, the Inventory Forecasting row. Days of supply, stockout risk, reorder date and quantity per SKU. |
 
 Notes
