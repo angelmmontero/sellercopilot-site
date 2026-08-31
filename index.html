@@ -149,10 +149,10 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <div class="container">
     <div class="section-head" data-rise="0">
       <h2 id="brief-title">Every product gets a line on the chart. Only the ones out of range get a note.</h2>
-      <p class="meta note">Today's rounds · 4 items · sample</p>
+      <p class="meta note">Today's rounds · 3 items · sample</p>
     </div>
     <p class="section-intro" data-rise="1">
-      Every morning SCAI evaluates your whole catalog against the performance rules you set and
+      Every morning SCAI evaluates your whole catalog against its rule engine, tuned to your own targets, and
       writes up what needs attention, in order of impact. Each note carries its receipt, the
       readings behind it, and once you act, the outcome is tracked against what was predicted.
     </p>
@@ -168,7 +168,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <div class="callouts">
         <div class="callout">
           <span class="eyebrow">Ordered by impact</span>
-          <p>Every product is evaluated against the performance rules you set. The ones out of range surface first, each with the estimated effect of acting on it.</p>
+          <p>Every product is evaluated against the rules in your account, tuned to the targets you set. The ones out of range surface first, ordered by priority, each with the estimated dollar impact of acting on it.</p>
         </div>
         <div class="callout">
           <span class="eyebrow">The receipt is attached</span>
@@ -183,85 +183,65 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
     <ol class="rounds ruling" data-rise="0">
       <li class="round">
-        <div class="triage triage-red" aria-hidden="true"><span>Stop ads</span></div>
+        <div class="triage triage-red" aria-hidden="true"><span>Stop Ads</span></div>
         <div class="sticker">
           <b>B0XXXXXXXX</b>
           <span class="dim">Amazon.com</span>
           <span class="sticker-name">Sample Product, 30 Count</span>
         </div>
         <div class="round-body">
-          <h3>Losing money on advertising</h3>
-          <p data-typed>Ad spend is $515 against $510 of revenue over fourteen days, and TACOS is at 101% against your 20% target. Pause campaigns until profitability improves.</p>
+          <h3>Severe loss and extreme TACOS</h3>
+          <p data-typed>Loss of $398 with TACOS at 101%, more than 1.5&times; your 20% target. Immediate action required: pause the worst-performing campaigns first, then add the top wasted search terms as negatives.</p>
         </div>
         <dl class="receipt">
-          <span class="eyebrow">Receipt · 14 days</span>
+          <span class="eyebrow">Receipt &middot; 14 days</span>
           <dt>Revenue</dt><dd>$510</dd>
-          <dt>Ad spend</dt><dd class="neg">−$515</dd>
+          <dt>Ad spend</dt><dd class="neg">&minus;$515</dd>
           <dt>Ad-attributed sales</dt><dd>$361</dd>
-          <dt>Net profit</dt><dd class="neg">−$398</dd>
+          <dt>Net profit</dt><dd class="neg">&minus;$398</dd>
           <dt>TACOS / target</dt><dd>101% / 20%</dd>
-          <dt>Impact if paused</dt><dd class="pos">+$435 / 2 wk</dd>
+          <dt>Estimated impact</dt><dd class="pos">$2,086</dd>
         </dl>
       </li>
 
       <li class="round">
-        <div class="triage triage-amber" aria-hidden="true"><span>Reorder</span></div>
+        <div class="triage triage-amber" aria-hidden="true"><span>Order Inventory</span></div>
         <div class="sticker">
           <b>B0YYYYYYYY</b>
           <span class="dim">Amazon.com</span>
           <span class="sticker-name">Sample Product, 12 Pack</span>
         </div>
         <div class="round-body">
-          <h3>Eleven days of supply left</h3>
-          <p>Sales velocity has risen to 14.6 units a day and on-hand stock is down to 160. With a 9-day lead time, an order placed this week lands before the shelf empties.</p>
+          <h3>High demand, stockout imminent</h3>
+          <p>Only 6 days of supply with 438 units sold in the last 30 days. Place an emergency restock order now, and consider air freight if sea shipping will not arrive in time.</p>
         </div>
         <dl class="receipt">
-          <span class="eyebrow">Receipt · 30 days</span>
+          <span class="eyebrow">Receipt &middot; 30 days</span>
+          <dt>Units sold</dt><dd>438</dd>
           <dt>Velocity</dt><dd>14.6 units / day</dd>
-          <dt>On hand</dt><dd>160 units</dd>
-          <dt>Days of supply</dt><dd class="neg">11</dd>
+          <dt>On hand</dt><dd>88 units</dd>
+          <dt>Days of supply</dt><dd class="neg">6</dd>
           <dt>Lead time</dt><dd>9 days</dd>
-          <dt>Suggested order</dt><dd class="pos">480 units</dd>
         </dl>
       </li>
 
-      <li class="round">
-        <div class="triage triage-green" aria-hidden="true"><span>Scale</span></div>
+      <li class="round round-settled">
+        <div class="triage triage-green" aria-hidden="true"><span>Scale Ads</span></div>
         <div class="sticker">
           <b>B0ZZZZZZZZ</b>
           <span class="dim">Amazon.com</span>
           <span class="sticker-name">Sample Product, 2 Pack</span>
         </div>
         <div class="round-body">
-          <h3>Room to spend more</h3>
-          <p>TACOS is at 9% against a 20% target with a 31% net margin after fees and ads, and the Buy Box has been held all month. Advertising here has headroom.</p>
+          <h3>Efficient with room to grow</h3>
+          <p>Highly efficient with TACOS at 9%, well below the 20% target, and positive profit. Acted on two weeks ago; SCAI measured the following 14 days against the 14 before them.</p>
         </div>
         <dl class="receipt">
-          <span class="eyebrow">Receipt · 30 days</span>
+          <span class="eyebrow">Outcome &middot; 14 days</span>
           <dt>TACOS / target</dt><dd class="pos">9% / 20%</dd>
           <dt>Net margin</dt><dd>31%</dd>
-          <dt>Buy Box held</dt><dd>100%</dd>
-          <dt>Conversion</dt><dd>18.4%</dd>
-          <dt>Organic share of sales</dt><dd>72%</dd>
-        </dl>
-      </li>
-
-      <li class="round round-settled">
-        <div class="triage triage-ink" aria-hidden="true"><span>Reprice</span></div>
-        <div class="sticker">
-          <b>B0WWWWWWWW</b>
-          <span class="dim">Amazon.com</span>
-          <span class="sticker-name">Sample Product, 6 Pack</span>
-        </div>
-        <div class="round-body">
-          <h3>Price below the margin floor</h3>
-          <p>Acted on yesterday. SCAI keeps measuring the outcome of every action you take, so tomorrow's brief can tell you whether it worked.</p>
-        </div>
-        <dl class="receipt">
-          <span class="eyebrow">Outcome · 24 h</span>
-          <dt>Net profit change</dt><dd class="pos">+$212</dd>
-          <dt>Units sold</dt><dd>41 → 38</dd>
-          <dt>Buy Box held</dt><dd>100%</dd>
+          <dt>Realized impact</dt><dd class="pos">+$212</dd>
+          <dt>Verdict</dt><dd class="pos">Positive</dd>
         </dl>
         <span class="done" aria-label="Resolved">Resolved</span>
       </li>
@@ -312,7 +292,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
         <p class="measure-unit note"><span>whole catalog</span><span>every morning</span><span>against your rules</span></p>
         <div class="measure-body">
           <h3>Daily Brief &amp; AI Recommendations</h3>
-          <p>Every morning, SCAI evaluates your entire catalog against configurable performance rules and tells you exactly what needs attention — and why.</p>
+          <p>Every morning, SCAI evaluates your entire catalog against its rule engine — advertising efficiency, listing health, inventory and growth — and tells you exactly what needs attention, and why.</p>
         </div>
         <div class="measure-list">
           <span class="eyebrow">Included</span>
