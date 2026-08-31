@@ -78,35 +78,41 @@
     countObserver.observe(fig);
   }
 
-  /* One note in the brief types itself out on first scroll into view, then stops */
-  var typed = document.querySelector("[data-typed]");
-  if (typed) {
-    var text = typed.textContent.replace(/\s+/g, " ").trim();
-    var typeObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        typeObserver.disconnect();
-        typed.style.minHeight = typed.getBoundingClientRect().height + "px";   /* reserve the final height */
-        var full = document.createElement("span");
-        full.className = "sr-only";
-        full.textContent = text;
-        var live = document.createElement("span");
-        live.className = "typed";
-        live.setAttribute("aria-hidden", "true");
-        typed.textContent = "";
-        typed.appendChild(full);
-        typed.appendChild(live);
-        typed.classList.add("is-typing");
-        var n = 0, per = Math.max(9, Math.min(20, Math.round(1500 / text.length)));
-        var tick = function () {
-          n += 1;
-          live.textContent = text.slice(0, n);
-          if (n < text.length) window.setTimeout(tick, per);
-          else window.setTimeout(function () { typed.classList.remove("is-typing"); }, 400);
-        };
-        window.setTimeout(tick, 250);
-      });
-    }, { threshold: 0.6 });
-    typeObserver.observe(typed);
+  /* Each note in the brief types itself out on first scroll into view, then stops.
+     Every note, not one: three sibling cards where only the first animates reads as a
+     bug rather than as restraint. Each gets its own observer so it starts when it is
+     itself in view, which staggers them naturally as the reader scrolls. */
+  var typedNotes = document.querySelectorAll("[data-typed]");
+  for (var t = 0; t < typedNotes.length; t++) {
+    (function (typed) {
+      var text = typed.textContent.replace(/\s+/g, " ").trim();
+      if (!text) return;
+      var typeObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          typeObserver.disconnect();
+          typed.style.minHeight = typed.getBoundingClientRect().height + "px";   /* reserve the final height */
+          var full = document.createElement("span");
+          full.className = "sr-only";
+          full.textContent = text;
+          var live = document.createElement("span");
+          live.className = "typed";
+          live.setAttribute("aria-hidden", "true");
+          typed.textContent = "";
+          typed.appendChild(full);
+          typed.appendChild(live);
+          typed.classList.add("is-typing");
+          var n = 0, per = Math.max(9, Math.min(20, Math.round(1500 / text.length)));
+          var tick = function () {
+            n += 1;
+            live.textContent = text.slice(0, n);
+            if (n < text.length) window.setTimeout(tick, per);
+            else window.setTimeout(function () { typed.classList.remove("is-typing"); }, 400);
+          };
+          window.setTimeout(tick, 250);
+        });
+      }, { threshold: 0.6 });
+      typeObserver.observe(typed);
+    })(typedNotes[t]);
   }
 })();
