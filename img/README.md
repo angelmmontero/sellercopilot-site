@@ -6,7 +6,7 @@ box, and shows a mono `[ SCREENSHOT: … ]` label until the file exists.
 
 | File | Slot | Aspect | Export at (2×) | Where it appears |
 | --- | --- | --- | --- | --- |
-| `placeholder-hero-app.png` | `hero-app` | 16:10 | 1600 × 1000 | Hero, right of the headline (the primary shot; loads eagerly). Show the application at its best single view — the Daily Brief for one account. |
+| `hero-app.jpg` ✅ **live** | `hero-app` | 16:10 | 1600 × 1000 | Hero, right of the headline (the primary shot; loads eagerly). The Daily Brief for one account. |
 | `placeholder-brief-daily.png` | `brief-daily` | 16:10 | 1600 × 1000 | `#brief`, the wide frame beside the three callouts. The Daily Brief list with one recommendation's evidence panel open. |
 | `placeholder-chart-product.png` | `chart-product` | 4:3 | 1600 × 1200 | `#features`, the Sales & Traffic row. A per-ASIN chart: revenue, sessions, conversion, or TACOS against target. |
 | `placeholder-inventory-view.png` | `inventory-view` | 4:3 | 1600 × 1200 | `#features`, the Inventory Forecasting row. Days of supply, stockout risk, reorder date and quantity per SKU. |
@@ -20,4 +20,11 @@ Notes
   the four `<img src>` attributes in `index.html`.
 - Anonymise real account data before exporting. The page labels its hand-authored sample
   figures as illustrative; screenshots are presented as the product.
+- A slot goes live by dropping the file in and pointing its `src` at it; drop the
+  `placeholder-` prefix from the name so it is obvious which slots are real.
+- **Optimise before committing.** The first supplied capture was 2612 × 1632 at 1.4 MB, which
+  alone would have made the page 7× heavier than everything else on it combined. Resized to
+  1600 × 1000 and re-encoded as JPEG q85 it is 115 KB — a 92% saving with no visible loss on
+  UI text. With no image tooling installed, this was done by rendering the file at the target
+  size in a headless browser and screenshotting it as JPEG.
 - To rename a slot, change the filename here and the matching `src` in `index.html`.
