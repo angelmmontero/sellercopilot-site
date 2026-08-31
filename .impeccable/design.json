@@ -20,19 +20,46 @@
         "role": "neutral",
         "displayName": "Paper (warm near-white stock)",
         "canonical": "oklch(97.1% 0.005 78.3)",
-        "tonalRamp": ["#0c0b09", "#262523", "#444240", "#63615f", "#858380", "#a8a6a3", "#cccac7", "#f0eeeb"]
+        "tonalRamp": [
+          "#0c0b09",
+          "#262523",
+          "#444240",
+          "#63615f",
+          "#858380",
+          "#a8a6a3",
+          "#cccac7",
+          "#f0eeeb"
+        ]
       },
       "paper-deep": {
         "role": "neutral",
         "displayName": "Paper Deep (rest band, shot frames)",
         "canonical": "oklch(93.8% 0.007 80.7)",
-        "tonalRamp": ["#0d0b08", "#272521", "#44423e", "#64615d", "#85837e", "#a8a6a1", "#cdcac5", "#f1eee9"]
+        "tonalRamp": [
+          "#0d0b08",
+          "#272521",
+          "#44423e",
+          "#64615d",
+          "#85837e",
+          "#a8a6a1",
+          "#cdcac5",
+          "#f1eee9"
+        ]
       },
       "white": {
         "role": "neutral",
         "displayName": "White (stuck-on objects)",
         "canonical": "oklch(100% 0 0)",
-        "tonalRamp": ["#0b0b0b", "#252525", "#424242", "#626262", "#838383", "#a6a6a6", "#cacaca", "#eeeeee"]
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#626262",
+          "#838383",
+          "#a6a6a6",
+          "#cacaca",
+          "#eeeeee"
+        ]
       },
       "plate": {
         "role": "neutral",
@@ -46,55 +73,136 @@
         "displayName": "Paper Dim (text on ink)",
         "canonical": "oklch(82.2% 0.012 79.8)",
         "contrastOnInk": "10.20:1",
-        "tonalRamp": ["#0e0b06", "#28251f", "#46423b", "#66615a", "#87827b", "#aaa59e", "#cfcac2", "#f3eee5"]
+        "tonalRamp": [
+          "#0e0b06",
+          "#28251f",
+          "#46423b",
+          "#66615a",
+          "#87827b",
+          "#aaa59e",
+          "#cfcac2",
+          "#f3eee5"
+        ]
       },
       "ink": {
         "role": "neutral",
         "displayName": "Ink",
         "canonical": "oklch(20.9% 0.013 160.0)",
-        "tonalRamp": ["#070d09", "#202723", "#3d4540", "#5c645f", "#7d8680", "#a0a9a3", "#c4cdc8", "#e7f1eb"]
+        "tonalRamp": [
+          "#070d09",
+          "#202723",
+          "#3d4540",
+          "#5c645f",
+          "#7d8680",
+          "#a0a9a3",
+          "#c4cdc8",
+          "#e7f1eb"
+        ]
       },
       "ink-2": {
         "role": "neutral",
         "displayName": "Ink 2",
         "canonical": "oklch(32.0% 0.019 163.4)",
-        "tonalRamp": ["#040e09", "#1d2823", "#39463f", "#58655f", "#798780", "#9caaa3", "#c0cfc7", "#e4f3eb"]
+        "tonalRamp": [
+          "#040e09",
+          "#1d2823",
+          "#39463f",
+          "#58655f",
+          "#798780",
+          "#9caaa3",
+          "#c0cfc7",
+          "#e4f3eb"
+        ]
       },
       "ink-soft": {
         "role": "neutral",
         "displayName": "Ink Soft",
         "canonical": "oklch(44.9% 0.023 162.1)",
-        "tonalRamp": ["#030e08", "#1b2922", "#38463f", "#57665e", "#78887f", "#9aaba2", "#becfc6", "#e2f4ea"]
+        "tonalRamp": [
+          "#030e08",
+          "#1b2922",
+          "#38463f",
+          "#57665e",
+          "#78887f",
+          "#9aaba2",
+          "#becfc6",
+          "#e2f4ea"
+        ]
       },
       "ink-faint": {
         "role": "neutral",
         "displayName": "Ink Faint (never text)",
         "canonical": "oklch(57.8% 0.022 159.3)",
-        "tonalRamp": ["#040e08", "#1c2921", "#38463e", "#57665d", "#78887e", "#9baba1", "#bfcfc5", "#e3f3e9"]
+        "tonalRamp": [
+          "#040e08",
+          "#1c2921",
+          "#38463e",
+          "#57665d",
+          "#78887e",
+          "#9baba1",
+          "#bfcfc5",
+          "#e3f3e9"
+        ]
       },
       "red": {
         "role": "primary",
         "displayName": "Red (the one accent)",
         "canonical": "oklch(53.3% 0.184 31.2)",
-        "tonalRamp": ["#2d0000", "#510000", "#752115", "#9a4335", "#c06555", "#e78877", "#ffad9a", "#ffd0bd"]
+        "tonalRamp": [
+          "#2d0000",
+          "#510000",
+          "#752115",
+          "#9a4335",
+          "#c06555",
+          "#e78877",
+          "#ffad9a",
+          "#ffd0bd"
+        ]
       },
       "amber-fill": {
         "role": "secondary",
         "displayName": "Amber Fill (REORDER band)",
         "canonical": "oklch(72.4% 0.153 71.7)",
-        "tonalRamp": ["#250000", "#461300", "#683300", "#8b5400", "#af751f", "#d59949", "#fbbd6e", "#ffe192"]
+        "tonalRamp": [
+          "#250000",
+          "#461300",
+          "#683300",
+          "#8b5400",
+          "#af751f",
+          "#d59949",
+          "#fbbd6e",
+          "#ffe192"
+        ]
       },
       "green": {
         "role": "secondary",
         "displayName": "Green (fills and strokes only)",
         "canonical": "oklch(52.1% 0.101 155.2)",
-        "tonalRamp": ["#001500", "#00320c", "#005129", "#267248", "#4b9568", "#6fb98a", "#94dfae", "#b7ffd1"]
+        "tonalRamp": [
+          "#001500",
+          "#00320c",
+          "#005129",
+          "#267248",
+          "#4b9568",
+          "#6fb98a",
+          "#94dfae",
+          "#b7ffd1"
+        ]
       },
       "green-ink": {
         "role": "secondary",
         "displayName": "Green Ink (positive figures)",
         "canonical": "oklch(47.0% 0.095 154.6)",
-        "tonalRamp": ["#001400", "#00310d", "#00502a", "#2d7149", "#519469", "#74b88c", "#98ddaf", "#bcffd2"]
+        "tonalRamp": [
+          "#001400",
+          "#00310d",
+          "#00502a",
+          "#2d7149",
+          "#519469",
+          "#74b88c",
+          "#98ddaf",
+          "#bcffd2"
+        ]
       },
       "band": {
         "role": "secondary",
@@ -184,35 +292,35 @@
       },
       "title": {
         "displayName": "Title",
-        "purpose": "h3s at normal width on a 24px line with one blank rule (24px) below: 1.2rem (rounds, steps), 1.35rem (measures, legal h2), 1.1rem (controls), 1.5rem (quote)."
+        "purpose": "h3s at normal width on a 24px line with one blank rule (24px) below: var(--t-7) (rounds, steps), var(--t-8) (measures, legal h2), var(--t-6) (controls), var(--t-8) (quote)."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "1.0625rem on a 24px line (1rem below 900px); every paragraph, list item and caption shares the 24px line. Lead 1.125rem ink-soft; intros 1.1rem ink-soft; row paragraphs 0.95-1rem ink-2 (callout, spec, reading-note 0.95; control 0.96; round, step, never 0.98; measure 1); legal 1rem ink-2 with a 24px paragraph margin."
+        "purpose": "var(--t-5) on a 24px line (1rem below 900px); every paragraph, list item and caption shares the 24px line. Lead var(--t-6) ink-soft; intros var(--t-6) ink-soft; row paragraphs 0.95-1rem ink-2 (callout, spec, reading-note 0.95; control 0.96; round, step, never 0.98; measure 1); legal 1rem ink-2 with a 24px paragraph margin."
       },
       "note": {
         "displayName": "Note (prose caption voice)",
-        "purpose": "Archivo 0.85rem ink-soft on a 24px line for prose captions, sub-lines and footnotes: section-head meta, chart caption, rounds note, measure unit line, quote and talk notes, legal 'last updated', footer. paper-dim on the ink section. The brand tagline is 0.72rem on a 1.2 line."
+        "purpose": "Archivo var(--t-3) ink-soft on a 24px line for prose captions, sub-lines and footnotes: section-head meta, chart caption, rounds note, measure unit line, quote and talk notes, legal 'last updated', footer. paper-dim on the ink section. The brand tagline is var(--t-1) on a 1.2 line."
       },
       "label": {
         "displayName": "Label (form-label voice)",
-        "purpose": "Condensed 78% caps at 0.75rem, ink-soft, 0.12em, on a 24px line; used above the figure. Same voice at 13px / 1.4px in the plot (.t-label green-ink, .t-unit ink-soft) and 10.5px / 1.2px in the timeline SVG."
+        "purpose": "Condensed 78% caps at var(--t-1), ink-soft, 0.12em, on a 24px line; used above the figure. Same voice at 13px / 1.4px in the plot (.t-label green-ink, .t-unit ink-soft) and 10.5px / 1.2px in the timeline SVG."
       },
       "action": {
         "displayName": "Action (stamp voice)",
-        "purpose": "Condensed 85% caps at 0.86rem, 0.08em, line-height 1, inside a 48px stamp; 0.78rem in the 40px header stamp (0.74rem below 900px); 0.8rem for nav links (0.08em) and hero facts (0.06em, on a 24px line)."
+        "purpose": "Condensed 85% caps at var(--t-2), 0.08em, line-height 1, inside a 48px stamp; var(--t-2) in the 40px header stamp (var(--t-1) below 900px); var(--t-2) for nav links (0.08em) and hero facts (0.06em, on a 24px line)."
       },
       "band": {
         "displayName": "Band (triage word)",
-        "purpose": "Condensed 78% at 700, 0.78rem, 0.16em, uppercase, vertical-rl rotated 180deg. The RESOLVED stamp is the same voice at 0.72rem, 0.14em, rotated -6deg."
+        "purpose": "Condensed 78% at 700, var(--t-2), 0.16em, uppercase, vertical-rl rotated 180deg. The RESOLVED stamp is the same voice at var(--t-1), 0.14em, rotated -6deg."
       },
       "eyebrow": {
         "displayName": "Eyebrow (mono caption)",
-        "purpose": "Fragment Mono 0.7rem, 0.1em, uppercase, ink-soft, on a 24px line: receipt title, callout heading, the 'Included' heading over a spec list. The shot caption is the same voice at 0.06em with its right span in ink-faint."
+        "purpose": "Fragment Mono var(--t-1), 0.1em, uppercase, ink-soft, on a 24px line: receipt title, callout heading, the 'Included' heading over a spec list. The shot caption is the same voice at 0.06em with its right span in ink-faint."
       },
       "reading": {
         "displayName": "Reading (mono)",
-        "purpose": "Fragment Mono 400 on a 24px line: receipt keys/values and the gain line at 0.8rem; the sticker's first row at 0.78rem; the shot placeholder at 0.78rem / 0.02em; plot axis text 15px in the 720-unit viewBox (about 11px effective at 1440), call-out value condensed 700 27px, call-out sub-line mono. Restricted to these uses; prose captions use .note."
+        "purpose": "Fragment Mono 400 on a 24px line: receipt keys/values and the gain line at var(--t-2); the sticker's first row at var(--t-2); the shot placeholder at var(--t-2) / 0.02em; plot axis text 15px in the 720-unit viewBox (about 11px effective at 1440), call-out value condensed 700 27px, call-out sub-line mono. Restricted to these uses; prose captions use .note."
       }
     },
     "fontAxes": {
@@ -226,9 +334,27 @@
       }
     },
     "monoRestriction": {
-      "allowed": [".receipt", ".sticker b and .sticker .dim (identifier, marketplace)", ".plot text (axis, call-out sub-line)", ".reading-note .gain", ".shot-caption", ".shot-placeholder", ".eyebrow"],
-      "prose": [".brand small", ".section-head .meta", ".chart-caption", ".rounds-note", ".measure-unit", ".quote .note", ".talk .note", ".legal .updated", ".site-footer p/a"],
-      "rule": "If an instrument could print it, it is mono; if a person wrote it, it is Archivo (.note at 0.85rem for small prose)."
+      "allowed": [
+        ".receipt",
+        ".sticker b and .sticker .dim (identifier, marketplace)",
+        ".plot text (axis, call-out sub-line)",
+        ".reading-note .gain",
+        ".shot-caption",
+        ".shot-placeholder",
+        ".eyebrow"
+      ],
+      "prose": [
+        ".brand small",
+        ".section-head .meta",
+        ".chart-caption",
+        ".rounds-note",
+        ".measure-unit",
+        ".quote .note",
+        ".talk .note",
+        ".legal .updated",
+        ".site-footer p/a"
+      ],
+      "rule": "If an instrument could print it, it is mono; if a person wrote it, it is Archivo (.note at var(--t-3) for small prose)."
     },
     "shadows": [
       {
@@ -415,13 +541,11 @@
     },
     "inconsistencies": [
       "The hero strip's two columns are not snapped to a shared pitch: the plot column is 72px sticker + 24px + an SVG whose height follows its width (720:236, about 169px at 1440); the reading column's figure is 6rem x 0.86 (82.56px) plus 10px 0 14px padding; the triage word sits 12px down.",
-      "The size scale is still a spray: condensed caps at 0.72 / 0.75 / 0.78 / 0.8 / 0.86rem with three widths (78/85/92%) and five trackings (0.06-0.16em); mono at 0.7 / 0.78 / 0.8rem plus 15 / 13 / 27px in the plot and 10.5px in the timeline; small prose at 0.72 (brand tagline) and 0.85rem (.note); row prose at 0.95 / 0.96 / 0.98 / 1 / 1.0625 / 1.1 / 1.125rem; titles at 1.1 / 1.2 / 1.35 / 1.5rem.",
       "--rule (12%) is declared as the structural hairline token and no selector uses it; every hairline is --rule-major.",
       "The primary stamp's text is --paper at rest and --white on hover.",
       "Below 900px the h1 (1.06) and h2 (1.1) line-heights are off the 24px line; the .ruling blocks restart their pitch, so the effect is contained to the heads.",
-      "Small off-grid values remain inside components: the mobile header's 12px top padding and 6px nav margin, .brand small at 0.72rem on a 1.2 line, .shot-caption's 2px side padding.",
+      "Small off-grid values remain inside components: the mobile header's 12px top padding and 6px nav margin, .brand small at var(--t-1) on a 1.2 line, .shot-caption's 2px side padding.",
       "Dead or redundant rules: .never-foot p is styled but the foot holds only a stamp; .band-section .section-head re-declares the ink rule it already has; the Archivo italic face is loaded and unused.",
-      "The plot's lettering is authored in viewBox units (15 / 13 / 27px) and scales with the SVG: about 11 / 9.4 / 19px effective at 1440, hence the enlarged sizes below 520px.",
       "The direction says 1px rules; the build uses 1 / 1.5 / 2 / 3px by role.",
       "404.html has no site footer and no font preloads; privacy.html and security.html have both."
     ],
@@ -434,7 +558,111 @@
       "The ruled sections no longer paint a ruling behind heads and intros; .ruling is per block at every width.",
       "The .reading block no longer carries its own rule and 10/14/8/6/4px gaps; the strip's top rule is one inset ink rule and the caption sits 24px below."
     ],
-    "notCanonized": "Generic line-icon glyphs (hero-facts shield/eye/rotate, the four .control icons) are inline SVGs the build carries; they are not recorded as a system device. The world's native marks are the ticked box, the plotted node and the triage band. The unsnapped strip and the size spray are recorded as defects, not as permitted exceptions. The mono .eyebrow is recorded as it is used (receipt title, callout heading, 'Included') and is not a licence for kickers above headings."
+    "notCanonized": "Generic line-icon glyphs (hero-facts shield/eye/rotate, the four .control icons) are inline SVGs the build carries; they are not recorded as a system device. The world's native marks are the ticked box, the plotted node and the triage band. The unsnapped strip and the size spray are recorded as defects, not as permitted exceptions. The mono .eyebrow is recorded as it is used (receipt title, callout heading, 'Included') and is not a licence for kickers above headings.",
+    "typeRamp": {
+      "description": "A closed set of type steps declared on :root. Every text size on every page is one of these; no selector carries a literal font-size outside SVG viewBox lettering. A step is a size, not a voice: family, width, weight and tracking set the voice on top of it.",
+      "line": "Every step is set on line-height 24px; --t-head, --t-display and the contact email take 48px at >=901px. --t-figure (x0.86) is the recorded exception.",
+      "steps": [
+        {
+          "token": "--t-1",
+          "value": "0.72rem",
+          "rendered": "11.52px",
+          "roles": "labels, mono eyebrows, the RESOLVED stamp, the brand tagline, the phone header stamp"
+        },
+        {
+          "token": "--t-2",
+          "value": "0.8rem",
+          "rendered": "12.8px",
+          "roles": "mono readings (receipt, sticker, gain), shot placeholder, nav links, stamps, hero facts, triage words, phone menu links"
+        },
+        {
+          "token": "--t-3",
+          "value": "0.875rem",
+          "rendered": "14px",
+          "roles": "the .note voice: captions, footnotes, meta, footer, legal dateline"
+        },
+        {
+          "token": "--t-4",
+          "value": "0.95rem",
+          "rendered": "15.2px",
+          "roles": "row prose: rounds, measures, callouts, specs, steps, controls, never row, section note, reading note, sticker name"
+        },
+        {
+          "token": "--t-5",
+          "value": "1.0625rem",
+          "rendered": "17px (16px <=900px)",
+          "roles": "body and legal body; overridden on :root below 900px"
+        },
+        {
+          "token": "--t-6",
+          "value": "1.125rem",
+          "rendered": "18px",
+          "roles": "hero lead, section intro, wordmark"
+        },
+        {
+          "token": "--t-7",
+          "value": "1.2rem",
+          "rendered": "19.2px",
+          "roles": "row titles: round, step and control h3"
+        },
+        {
+          "token": "--t-8",
+          "value": "1.5rem",
+          "rendered": "24px",
+          "roles": "section and card titles: measure h3, quote h3, legal h2"
+        },
+        {
+          "token": "--t-head",
+          "value": "clamp(1.7rem, 2.6vw, 2.25rem)",
+          "rendered": "36px / 27.2px",
+          "roles": "section h2, contact h2"
+        },
+        {
+          "token": "--t-display",
+          "value": "clamp(2rem, 3.2vw, 2.7rem)",
+          "rendered": "43.2px / 32px",
+          "roles": "hero h1, legal h1, contact email (condensed)"
+        },
+        {
+          "token": "--t-figure",
+          "value": "6rem",
+          "rendered": "96px / 58.5px",
+          "roles": "the net-profit figure; overridden on :root below 900px"
+        }
+      ],
+      "exception": "SVG lettering stays in viewBox units and is outside the ramp: plot axis 15px, t-label/t-unit 13px, call-out value 27px, timeline 10.5px; below 520px the plot enlarges to 22/20/40px. A value that must scale with its drawing cannot take a fixed step.",
+      "rule": "A new element reuses a step. Adding a size is a design-system change made once on :root and named, never a local font-size.",
+      "verified": {
+        "1440": [
+          "11.52",
+          "12.8",
+          "14",
+          "15.2",
+          "17",
+          "18",
+          "19.2",
+          "24",
+          "36",
+          "43.2",
+          "96"
+        ],
+        "390": [
+          "11.52",
+          "12.8",
+          "14",
+          "15.2",
+          "16",
+          "18",
+          "19.2",
+          "24",
+          "27.2",
+          "32",
+          "58.5"
+        ],
+        "detector": "0 findings across styles.css, index.html, privacy.html, security.html, 404.html"
+      },
+      "exceptionDetail": "The plot's lettering is authored in viewBox units (15 / 13 / 27px) and scales with the SVG: about 11 / 9.4 / 19px effective at 1440, hence the enlarged sizes below 520px."
+    }
   },
   "components": [
     {
@@ -513,7 +741,7 @@
       "name": "Callout",
       "kind": "custom",
       "refersTo": "callout",
-      "description": "A short captioned note beside a screenshot: a hairline above, a mono eyebrow on one rule, and a 0.95rem paragraph on the 24px line.",
+      "description": "A short captioned note beside a screenshot: a hairline above, a mono eyebrow on one rule, and a var(--t-4) paragraph on the 24px line.",
       "html": "<div class=\"ds-callouts\"><div class=\"ds-callout\"><span class=\"ds-eyebrow\">Ordered by impact</span><p>Every product is evaluated against the performance rules you set. The ones out of range surface first.</p></div><div class=\"ds-callout\"><span class=\"ds-eyebrow\">The receipt is attached</span><p>Each note opens onto the readings that produced it. Nothing is asserted without its numbers.</p></div></div>",
       "css": ".ds-callouts{display:grid;align-content:start;max-width:360px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-callout{padding-top:24px;box-shadow:inset 0 1px 0 var(--rule-major, rgba(19,26,22,.22))}.ds-callout .ds-eyebrow{display:block;font-family:\"Fragment Mono\",\"Courier New\",monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft, #4a5951);line-height:24px}.ds-callout p{margin:0;font-size:.95rem;line-height:24px;color:var(--ink-2, #2a3630);padding-bottom:24px}.ds-callout strong{font-weight:600;color:var(--ink, #131a16)}"
     },
@@ -539,12 +767,12 @@
       "refersTo": "section-ink",
       "description": "The Security section's reversed stock: ink ground with a 5% paper ruling, paper headings and icons, paper-dim copy, a paper top rule and 22% paper dividers painted as inset shadows.",
       "html": "<section class=\"ds-ink\"><div class=\"ds-controls\"><div class=\"ds-control\"><svg viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"4\" y=\"10\" width=\"16\" height=\"11\" rx=\"1\"/><path d=\"M8 10V7a4 4 0 0 1 8 0v3\"/></svg><div><h3>Encryption in transit and at rest</h3><p>All traffic is served over HTTPS/TLS. Credentials are stored encrypted. See our <a href=\"#\">security overview</a>.</p></div></div></div></section>",
-      "css": ".ds-ink{background-color:var(--ink, #131a16);background-image:linear-gradient(rgba(247,245,242,.05) 1px,transparent 1px);background-size:100% 24px;background-position:0 -1px;color:var(--paper-dim, #c9c4bc);padding:24px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-controls{box-shadow:inset 0 1px 0 var(--paper, #f7f5f2)}.ds-control{display:grid;grid-template-columns:26px 1fr;gap:16px;padding:24px 0;box-shadow:inset 0 -1px 0 rgba(247,245,242,.22)}.ds-control svg{color:var(--paper, #f7f5f2)}.ds-control h3{margin:0 0 24px;font-weight:600;font-size:1.1rem;line-height:24px;letter-spacing:-.02em;color:var(--paper, #f7f5f2)}.ds-control p{margin:0;font-size:.96rem;line-height:24px;color:var(--paper-dim, #c9c4bc)}.ds-control a{color:var(--paper, #f7f5f2);text-decoration-thickness:1px;text-underline-offset:.18em;text-decoration-color:rgba(247,245,242,.4)}.ds-control a:hover{text-decoration-color:var(--paper, #f7f5f2)}.ds-ink ::selection{background:var(--paper, #f7f5f2);color:var(--ink, #131a16)}"
+      "css": ".ds-ink{background-color:var(--ink, #131a16);background-image:linear-gradient(rgba(247,245,242,.05) 1px,transparent 1px);background-size:100% 24px;background-position:0 -1px;color:var(--paper-dim, #c9c4bc);padding:24px;font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif}.ds-controls{box-shadow:inset 0 1px 0 var(--paper, #f7f5f2)}.ds-control{display:grid;grid-template-columns:26px 1fr;gap:16px;padding:24px 0;box-shadow:inset 0 -1px 0 rgba(247,245,242,.22)}.ds-control svg{color:var(--paper, #f7f5f2)}.ds-control h3{margin:0 0 24px;font-weight:600;font-size:var(--t-6, 1.125rem);line-height:24px;letter-spacing:-.02em;color:var(--paper, #f7f5f2)}.ds-control p{margin:0;font-size:.96rem;line-height:24px;color:var(--paper-dim, #c9c4bc)}.ds-control a{color:var(--paper, #f7f5f2);text-decoration-thickness:1px;text-underline-offset:.18em;text-decoration-color:rgba(247,245,242,.4)}.ds-control a:hover{text-decoration-color:var(--paper, #f7f5f2)}.ds-ink ::selection{background:var(--paper, #f7f5f2);color:var(--ink, #131a16)}"
     }
   ],
   "narrative": {
     "northStar": "Morning Rounds",
-    "overview": "The site is the observation chart clipped to the end of the bed on a 6am ward round. The ground is warm near-white stock (`paper`) ruled every 24px with a heavier line every fifth; the ruling is a paper texture that is strongest in the outer margins and fades out behind the centre column, and inside the form blocks it is repainted horizontally from each block's own top edge, so every row starts on a rule regardless of what precedes it. Everything on the chart is either ink (near-black green), a white paper object stuck onto it (sticker, quote card, plot call-out), a bordered screenshot slot where the product itself is mounted, or a coloured triage band down the margin. Nothing floats and nothing is a card: the plot in the first viewport is drawn straight onto the ground, the brief is a list of triage rows separated by 1px rules, and the seven feature measures are observation rows, two of them carrying a screenshot. One full-bleed band (`#read-only`) rests on the deeper paper, and one section, Security, is printed in reverse: ink ground, paper type, the same 24px ruling at 5% paper. The theme is light only and permanently so (`color-scheme: light`); there is no dark mode.\n\nDensity is that of a printed form: body text sits on the 24px ruling (17px on a 24px line), section h2s take a 48px line, structural rules are painted rather than laid out so they never push the pitch off, and sections are separated by a 2px ink rule with a small right-aligned note (\"Today's rounds · 4 items · sample\") rather than by whitespace or colour blocks. The world is read in three type voices from one variable family plus a mono: Archivo set wide (110%) for the two display levels, Archivo set condensed (78–85%) in tracked caps for form labels, stamps and triage bands, and Fragment Mono for readings only: receipts, ASINs, the plot's lettering, the gain line, the screenshot slot's caption and label, and short eyebrows. Prose captions and footnotes are not readings and are set in Archivo at 0.85rem (`.note`). The largest thing on the page is a number, not a headline: the net-profit figure is set at 6rem in condensed 700 while the h1 tops out at 2.7rem.\n\nColour is diagnostic, never decorative. Red is the one accent: the breach reading, the h1's thesis clause, and the hover state of every action. Green is accent-only: the SCALE band and the target band's edge (`green`), positive figures (`green-ink`), the translucent target wash (`band`). Amber is the REORDER band. There is no glass, no glow, no colour gradient, no drop-shadow on the ground itself. Motion is restraint-level and entirely an enhancement: with script off or `prefers-reduced-motion: reduce` the page is complete and static. With script, section content rises 8px on scroll-in, the vital plots itself once, the net-profit figure counts up once, and one note in the brief types itself once. Measured cumulative layout shift in the finish review: 0.",
+    "overview": "The site is the observation chart clipped to the end of the bed on a 6am ward round. The ground is warm near-white stock (`paper`) ruled every 24px with a heavier line every fifth; the ruling is a paper texture that is strongest in the outer margins and fades out behind the centre column, and inside the form blocks it is repainted horizontally from each block's own top edge, so every row starts on a rule regardless of what precedes it. Everything on the chart is either ink (near-black green), a white paper object stuck onto it (sticker, quote card, plot call-out), a bordered screenshot slot where the product itself is mounted, or a coloured triage band down the margin. Nothing floats and nothing is a card: the plot in the first viewport is drawn straight onto the ground, the brief is a list of triage rows separated by 1px rules, and the seven feature measures are observation rows, two of them carrying a screenshot. One full-bleed band (`#read-only`) rests on the deeper paper, and one section, Security, is printed in reverse: ink ground, paper type, the same 24px ruling at 5% paper. The theme is light only and permanently so (`color-scheme: light`); there is no dark mode.\n\nDensity is that of a printed form: body text sits on the 24px ruling (17px on a 24px line), section h2s take a 48px line, structural rules are painted rather than laid out so they never push the pitch off, and sections are separated by a 2px ink rule with a small right-aligned note (\"Today's rounds · 4 items · sample\") rather than by whitespace or colour blocks. The world is read in three type voices from one variable family plus a mono: Archivo set wide (110%) for the two display levels, Archivo set condensed (78–85%) in tracked caps for form labels, stamps and triage bands, and Fragment Mono for readings only: receipts, ASINs, the plot's lettering, the gain line, the screenshot slot's caption and label, and short eyebrows. Prose captions and footnotes are not readings and are set in Archivo at var(--t-3) (`.note`). The largest thing on the page is a number, not a headline: the net-profit figure is set at 6rem in condensed 700 while the h1 tops out at 2.7rem.\n\nColour is diagnostic, never decorative. Red is the one accent: the breach reading, the h1's thesis clause, and the hover state of every action. Green is accent-only: the SCALE band and the target band's edge (`green`), positive figures (`green-ink`), the translucent target wash (`band`). Amber is the REORDER band. There is no glass, no glow, no colour gradient, no drop-shadow on the ground itself. Motion is restraint-level and entirely an enhancement: with script off or `prefers-reduced-motion: reduce` the page is complete and static. With script, section content rises 8px on scroll-in, the vital plots itself once, the net-profit figure counts up once, and one note in the brief types itself once. Measured cumulative layout shift in the finish review: 0.",
     "keyCharacteristics": [
       "Warm near-white stock (`paper`) ruled at 24px, heavier every 120px; the ruling is the layout unit and the baseline: text sits on 24px lines, h2s on 48px.",
       "The ruling is texture, not structure: a masked two-axis grid in the page margins (`body::before`) and a horizontal-only `.ruling` painted from the top of each form block (the rounds list, every measure row); separate `rule` tokens for the hairlines that actually divide things.",
@@ -661,7 +889,7 @@
       "**Do** draw data straight onto the ground. A plot, a list of rows, a timeline gets a top rule and dividers, not a card.",
       "**Do** mount every product image in a `.shot`: fixed aspect class, mono caption bar, `width`/`height` on the `<img>`, mono `[ SCREENSHOT: slot · ratio ]` label beneath, filename from `img/README.md`.",
       "**Do** pick one type voice per element: wide 110% for h1/h2, condensed 78–85% caps for labels, stamps and bands, Fragment Mono for readings and eyebrows, and normal width for h3s, body and notes.",
-      "**Do** set prose captions, footnotes, datelines and sub-lines in the Archivo `.note` voice (0.85rem, `ink-soft`, 24px line); keep the mono for what an instrument would print.",
+      "**Do** set prose captions, footnotes, datelines and sub-lines in the Archivo `.note` voice (var(--t-3), `ink-soft`, 24px line); keep the mono for what an instrument would print.",
       "**Do** set the leading number larger than the heading when a surface leads with a reading (6rem figure over a 2.7rem h1).",
       "**Do** use `green-ink` for any green text and `green` only for fills and strokes; use `ink-soft` (6.80:1) as the floor for text on paper and `paper-dim` (10.20:1) as the floor for text on ink.",
       "**Do** give stuck-on white objects a 1px ink border, 2px radius and a grounded shadow (`--shadow` or the sticker's 1px hard edge), give the shot frame the same border, radius and shadow over hatched `paper-deep`, and give nothing else a shadow.",
