@@ -934,7 +934,21 @@ html.js [data-rise].is-in { opacity: 1; transform: none; }
   .shot-caption span:last-child { display: none; }
   .shot-caption span:first-child { overflow: hidden; text-overflow: ellipsis; }
 }
-@media (max-width: 360px) {
-  /* The narrowest phones keep the mark, the demo stamp and the menu button */
-  .site-header .brand span { display: none; }
+@media (max-width: 430px) {
+  /* The name always shows in full. Three items will not fit one row at this width,
+     so the mark and wordmark shrink and the demo stamp takes a row of its own. */
+  .site-header .container {
+    grid-template-columns: 1fr auto;
+    padding-bottom: 12px;
+  }
+  .site-header .brand { gap: 8px; }
+  .site-header .brand svg { width: 26px; height: 26px; }
+  .site-header .brand strong { font-size: var(--t-2); letter-spacing: -0.01em; }
+  .nav-burger { grid-column: 2; grid-row: 1; }
+  .site-header .stamp {
+    grid-column: 1 / -1; grid-row: 2;
+    width: 100%; justify-content: center;
+    height: 40px; margin-top: 12px;
+  }
+  .main-nav { grid-row: 3; margin-top: 12px; padding-bottom: 0; }
 }
