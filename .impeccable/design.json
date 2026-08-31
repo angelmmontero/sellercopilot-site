@@ -668,6 +668,17 @@
       "svg": "<svg viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><rect width=\"32\" height=\"32\" rx=\"7\" fill=\"#4f46e5\"/><rect x=\"7\" y=\"17\" width=\"4\" height=\"8\" rx=\"1.5\" fill=\"#c7d2fe\"/><rect x=\"14\" y=\"12\" width=\"4\" height=\"13\" rx=\"1.5\" fill=\"#e0e7ff\"/><rect x=\"21\" y=\"7\" width=\"4\" height=\"18\" rx=\"1.5\" fill=\"#ffffff\"/></svg>",
       "size": "30px in the header, 26px below 430px; also shipped as favicon.svg",
       "rule": "The mark keeps the application's indigo and is the only place #4f46e5 appears on the site. It is a brand object, not a palette colour: nothing else adopts indigo, and the mark is never recoloured to the paper palette."
+    },
+    "actionLabels": {
+      "source": "shared/i18n/en.ts in the SCAI-MVP repo (actionType.*)",
+      "values": [
+        "Stop Ads",
+        "Reduce Ads",
+        "Scale Ads",
+        "Fix Listing",
+        "Order Inventory"
+      ],
+      "rule": "The triage band shows one of these five action types and nothing else. The engine has no other action, and no rule may be invented for a sample: the twelve system rules live in server/services/ruleSeeder.ts."
     }
   },
   "components": [
@@ -708,7 +719,7 @@
       "kind": "custom",
       "refersTo": "triage-red",
       "description": "24px vertical margin strip with the action word rotated to read upward; red, amber (ink text), green, or settled grey. Hover extends it 6px by scaleX.",
-      "html": "<div class=\"ds-triage-row\"><div class=\"ds-triage ds-triage-red\"><span>Stop ads</span></div><div class=\"ds-triage ds-triage-amber\"><span>Reorder</span></div><div class=\"ds-triage ds-triage-green\"><span>Scale</span></div><div class=\"ds-triage ds-triage-settled\"><span>Reprice</span></div></div>",
+      "html": "<div class=\"ds-triage-row\"><div class=\"ds-triage ds-triage-red\"><span>Stop Ads</span></div><div class=\"ds-triage ds-triage-amber\"><span>Order Inventory</span></div><div class=\"ds-triage ds-triage-green\"><span>Scale Ads</span></div><div class=\"ds-triage ds-triage-settled\"><span>Fix Listing</span></div></div>",
       "css": ".ds-triage-row{display:flex;gap:24px;height:120px;background:var(--paper, #f7f5f2)}.ds-triage{position:relative;width:24px;display:flex;align-items:flex-start;justify-content:center;padding-top:12px;color:var(--white, #ffffff)}.ds-triage::after{content:\"\";position:absolute;top:0;bottom:0;left:100%;width:6px;background:inherit;transform:scaleX(0);transform-origin:left center;transition:transform 200ms cubic-bezier(0.16,1,0.3,1)}.ds-triage:hover::after{transform:scaleX(1)}.ds-triage span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:\"Archivo\",\"Helvetica Neue\",Arial,sans-serif;font-stretch:78%;font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}.ds-triage-red{background:var(--red, #c0301c)}.ds-triage-amber{background:var(--amber-fill, #e0930c);color:var(--ink, #131a16)}.ds-triage-green{background:var(--green, #2f7a4f)}.ds-triage-settled{background:var(--ink-soft, #4a5951)}"
     },
     {

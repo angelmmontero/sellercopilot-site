@@ -18,7 +18,7 @@ Deployed by Railway from this repository; pushes to `main` go live within about 
   is complete without it and with `prefers-reduced-motion`.
 - `fonts/` — self-hosted Archivo (variable) and Fragment Mono
 - `img/` — product screenshots; see `img/README.md` for the four slot filenames and sizes
-- `favicon.svg`, `CNAME`
+- `favicon.svg`
 - `PRODUCT.md` — product truth used by design work; `DESIGN.md` — the visual system
 
 ## Product screenshots
@@ -29,4 +29,4 @@ no code changes are needed.
 
 ## Deploy
 
-Push to `main`. Railway serves the repository root; the `CNAME` file binds the custom domain.
+Push to `main`. Railway serves the repository root and binds the custom domain.
