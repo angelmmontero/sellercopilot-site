@@ -679,6 +679,11 @@
         "Order Inventory"
       ],
       "rule": "The triage band shows one of these five action types and nothing else. The engine has no other action, and no rule may be invented for a sample: the twelve system rules live in server/services/ruleSeeder.ts."
+    },
+    "cornerException": {
+      "component": ".nav-signin",
+      "value": "border-radius: 999px",
+      "rule": "The world is square: 2px on stamped and stuck-on objects, 0 elsewhere. The sign-in capsule is the single exception, requested by the user, marking the exit from the marketing site into the application. It is outlined, never filled at rest, so it does not read as a primary action. Do not generalise the capsule to any other element."
     }
   },
   "components": [
