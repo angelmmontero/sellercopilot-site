@@ -351,6 +351,16 @@ h1, .section-head h2, .talk h2, .legal h1 {
   color: transparent; font-size: 0;   /* a missing file shows no alt text over the label */
 }
 
+/* One recommendation card is taller than it is wide, so `cover` would crop away
+   the evidence panel and the insight — the two things that row exists to show.
+   Contain it instead and let the frame's hatch read as the sheet it is pinned
+   to. Scoped to the slot: every other shot still fills its frame. */
+.shot[data-slot="brief-daily"] .shot-frame img {
+  object-fit: contain;
+  object-position: center;
+  padding: var(--u);
+}
+
 /* ---------- Callouts: short captioned notes beside a screenshot ---------- */
 .callouts { display: grid; align-content: start; }
 .callout {
@@ -612,10 +622,13 @@ section { padding: calc(var(--u) * 4) 0; }
 .receipt .neg { color: var(--red); }
 .receipt .pos { color: var(--green-ink); }
 .receipt .eyebrow { grid-column: 1 / -1; }
-/* The settled item recedes in ink weight and band colour, never below the contrast floor */
+/* The settled item recedes in ink weight and band colour, never below the contrast floor.
+   It is NOT struck through: this card carries a positive measured outcome (+$212, verdict
+   positive), and a line through its headline reads as void or withdrawn rather than done.
+   The "Resolved" stamp and the muted ink already say settled; the rule was one signal too
+   many, and the only one that inverted the meaning. */
 .round-settled .round-body h3 {
   color: var(--ink-soft);
-  text-decoration: line-through; text-decoration-thickness: 1.5px; text-decoration-color: var(--ink-faint);
 }
 .round-settled .round-body p { color: var(--ink-soft); }
 .round-settled .sticker { box-shadow: none; border-color: var(--ink-soft); color: var(--ink-soft); }
