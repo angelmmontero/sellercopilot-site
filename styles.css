@@ -813,7 +813,9 @@ html.js [data-rise].is-in { opacity: 1; transform: none; }
 @media (max-width: 900px) {
   /* Body and the figure step down one notch on phones; every other step is unchanged */
   :root { --t-5: 1rem; --t-figure: clamp(3.6rem, 15vw, 5.5rem); }
-  .site-header { position: static; }
+  /* The header stays sticky on phones too; the open menu scrolls rather than
+     growing past the viewport on a short screen. */
+  .main-nav { max-height: calc(100dvh - var(--u) * 3 - 2px); overflow-y: auto; }
   .site-header .container {
     grid-template-columns: 1fr auto;
     grid-template-rows: auto;
