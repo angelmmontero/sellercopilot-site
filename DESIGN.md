@@ -448,7 +448,7 @@ Rubber-stamped actions: condensed caps on a filled square, two rules tall.
 
 ### Site header (printed form header)
 - Paper background, 2px ink bottom rule, 72px tall in total (container `3u − 2px`), sticky at `top: 0` with `z-index: 50` above 900px; static below.
-- **Brand:** 30px chart-glyph SVG (white square, 20% ruling, 1.5 ink frame, 2.4 ink line, red 3.2r dot) with the wordmark (700, `--t-6`, 92%) over a sans tagline (`--t-1`, 1.2 line, `ink-soft`, hidden below 900px; the wordmark itself is hidden below 360px).
+- **Brand:** the product mark shared with the application at app.sellercopilot.ai, used verbatim: a 30px indigo `#4f46e5` rounded square (rx 7) carrying three ascending bars in `#c7d2fe`, `#e0e7ff` and `#ffffff` (26px below 430px). It is the one place indigo appears; the mark keeps its own colour so the site and the app read as one product, and the palette does not adopt it. Beside it the wordmark (700, `--t-6`, 92%; `--t-2` below 430px) sits over a sans tagline (`--t-1`, 1.2 line, `ink-soft`, hidden below 900px). The name is never hidden.
 - **Nav links:** Action voice at 0.8rem, `ink-soft`, 10px 12px padding, 2px transparent bottom border. Hover: ink text, `ink-faint` underline. Current page (`aria-current="page"`): ink text, red underline. 160ms transitions.
 - **Mobile:** two-row grid; nav scrolls horizontally with the scrollbar hidden and a 40px fade mask at its right edge; first link flush left.
 

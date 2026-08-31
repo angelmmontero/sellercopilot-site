@@ -662,6 +662,12 @@
         "detector": "0 findings across styles.css, index.html, privacy.html, security.html, 404.html"
       },
       "exceptionDetail": "The plot's lettering is authored in viewBox units (15 / 13 / 27px) and scales with the SVG: about 11 / 9.4 / 19px effective at 1440, hence the enlarged sizes below 520px."
+    },
+    "brandMark": {
+      "source": "Shared verbatim with the application at app.sellercopilot.ai (its favicon.svg and login lockup).",
+      "svg": "<svg viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><rect width=\"32\" height=\"32\" rx=\"7\" fill=\"#4f46e5\"/><rect x=\"7\" y=\"17\" width=\"4\" height=\"8\" rx=\"1.5\" fill=\"#c7d2fe\"/><rect x=\"14\" y=\"12\" width=\"4\" height=\"13\" rx=\"1.5\" fill=\"#e0e7ff\"/><rect x=\"21\" y=\"7\" width=\"4\" height=\"18\" rx=\"1.5\" fill=\"#ffffff\"/></svg>",
+      "size": "30px in the header, 26px below 430px; also shipped as favicon.svg",
+      "rule": "The mark keeps the application's indigo and is the only place #4f46e5 appears on the site. It is a brand object, not a palette colour: nothing else adopts indigo, and the mark is never recoloured to the paper palette."
     }
   },
   "components": [
