@@ -283,6 +283,21 @@ h1, .section-head h2, .talk h2, .legal h1 {
 }
 .main-nav a:not(.stamp):hover { color: var(--ink); border-bottom-color: var(--ink-faint); }
 .main-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--red); }
+/* The way into the application: darker than the section anchors and ruled off from them */
+.main-nav a.nav-signin {
+  display: inline-flex; align-items: center; gap: 7px;
+  color: var(--ink);
+  margin-left: 10px;
+  padding-left: 18px;
+  border-left: 1px solid var(--rule-major);
+}
+.main-nav a.nav-signin svg {
+  width: 13px; height: 13px; flex-shrink: 0;
+  transition: transform 160ms var(--ease-out);
+}
+.main-nav a.nav-signin:hover { color: var(--red); border-bottom-color: transparent; }
+.main-nav a.nav-signin:hover svg { transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce) { .main-nav a.nav-signin svg { transition: none; } }
 /* Menu toggle: a hidden checkbox drives the phone menu with no script; desktop never shows it */
 .nav-toggle { position: absolute; width: 1px; height: 1px; margin: -1px; opacity: 0; pointer-events: none; }
 .nav-burger { display: none; }
@@ -864,6 +879,13 @@ html.js [data-rise].is-in { opacity: 1; transform: none; }
   }
   .main-nav a:not(.stamp):hover { color: var(--red); }
   .main-nav a[aria-current="page"] { color: var(--red); }
+  /* In the phone menu it is a row like the others, closing the list */
+  .main-nav a.nav-signin {
+    margin-left: 0; padding-left: var(--u);
+    border-left: 0;
+    justify-content: space-between;
+  }
+  .main-nav a.nav-signin svg { margin-right: var(--u); }
 
   /* Headline, then the product, then the action; the strip follows */
   .hero { padding-top: calc(var(--u) * 2); }
