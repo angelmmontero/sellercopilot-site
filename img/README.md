@@ -1,15 +1,17 @@
 # Product screenshots
 
 Drop the real captures in this folder using these exact filenames. No code changes are
-needed: each slot on the landing page already points at its file, reserves the right
-box, and shows a mono `[ SCREENSHOT: … ]` label until the file exists.
+needed: each slot on the landing page already points at its file and reserves the right box.
+
+**All four slots are filled.** One of them, `inventory-view`, needs a better capture — see
+its row below.
 
 | File | Slot | Aspect | Export at (2×) | Where it appears |
 | --- | --- | --- | --- | --- |
 | `hero-app.jpg` ✅ **live** | `hero-app` | 16:10 | 1600 × 1000 | Hero, right of the headline (the primary shot; loads eagerly). The Daily Brief for one account. |
 | `brief-daily.jpg` ✅ **live** | `brief-daily` | 16:10 | 1600 × 1000 | `#brief`, the wide frame beside the three callouts. One recommendation with its evidence panel open. |
 | `product-chart.jpg` ✅ **live** | `chart-product` | 4:3 | 1600 × 1200 | `#features`, the Sales & Traffic row. Currently daily revenue stacked by product. Renders at only 489 × 367 CSS px, so a chart with a large legend loses its labels — a single-series or few-series view reads far better here. |
-| `placeholder-inventory-view.png` | `inventory-view` | 4:3 | 1600 × 1200 | `#features`, the Inventory Forecasting row. Days of supply, stockout risk, reorder date and quantity per SKU. |
+| `inventory-view.jpg` ⚠️ **live, needs replacing** | `inventory-view` | 4:3 | 1600 × 1200 | `#features`, the Inventory Forecasting row. The current capture shows unreplaced anonymiser placeholders — every Reorder Date reads `Generic Date` and the range card reads `Generic Month 1, YYYY`. Reorder date is the column this row sells, so this needs a capture with real (anonymised) dates. |
 
 Notes
 
