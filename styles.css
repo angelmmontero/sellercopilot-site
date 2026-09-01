@@ -334,6 +334,10 @@ h1, .section-head h2, .talk h2, .legal h1 {
 }
 .shot-16x10 .shot-frame { aspect-ratio: 16 / 10; }
 .shot-4x3 .shot-frame { aspect-ratio: 4 / 3; }
+/* A single recommendation card is taller than it is wide. The frame takes the
+   capture's own ratio so it hugs the image instead of leaving hatched bands down
+   both sides - the frame is a mount for the shot, not a fixed window it must fill. */
+.shot-card .shot-frame { aspect-ratio: 614 / 664; }
 .shot-placeholder {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
@@ -349,16 +353,6 @@ h1, .section-head h2, .talk h2, .legal h1 {
   display: block; width: 100%; height: 100%;
   object-fit: cover; object-position: top left;
   color: transparent; font-size: 0;   /* a missing file shows no alt text over the label */
-}
-
-/* One recommendation card is taller than it is wide, so `cover` would crop away
-   the evidence panel and the insight — the two things that row exists to show.
-   Contain it instead and let the frame's hatch read as the sheet it is pinned
-   to. Scoped to the slot: every other shot still fills its frame. */
-.shot[data-slot="brief-daily"] .shot-frame img {
-  object-fit: contain;
-  object-position: center;
-  padding: var(--u);
 }
 
 /* ---------- Callouts: short captioned notes beside a screenshot ---------- */
@@ -563,7 +557,9 @@ section { padding: calc(var(--u) * 4) 0; }
 /* ---------- The brief: the product wide, three notes narrow, then the rounds ---------- */
 .split {
   display: grid;
-  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+  /* The figure column is the narrower of the two here: its shot is a portrait card,
+     and at 8fr the frame would stand over 600px tall beside three short callouts. */
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   gap: 0 calc(var(--u) * 2);
   align-items: start;
   margin-bottom: calc(var(--u) * 2);
