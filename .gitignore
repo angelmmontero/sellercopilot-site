@@ -6,3 +6,6 @@
 .impeccable/review/
 .impeccable/questions/
 .impeccable/mocks/
+
+# high-resolution capture originals; the published PNGs are derived from them
+img/originals/
