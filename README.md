@@ -1,6 +1,6 @@
 # sellercopilot.ai
 
-Public marketing website for **SellerCopilot AI (SCAI)** — analytics and AI-powered daily
+Public marketing website for **SellerCopilot** — analytics and AI-powered daily
 recommendations for Amazon sellers.
 
 Static site (plain HTML/CSS plus one small progressive-enhancement script, no build step).

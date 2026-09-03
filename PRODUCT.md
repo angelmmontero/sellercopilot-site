@@ -29,7 +29,7 @@ justification without the marketing getting in their way.
 
 ## Product Purpose
 
-SellerCopilot AI (SCAI) connects to a seller's Amazon account through the official Selling Partner
+SellerCopilot connects to a seller's Amazon account through the official Selling Partner
 API, ingests sales, traffic, advertising, inventory, order, and financial data every day, and
 returns a prioritized daily action plan — each recommendation carried by the evidence that produced
 it. Success is the seller opening one brief each morning instead of assembling one, and taking the
@@ -42,7 +42,7 @@ against *net profit after Amazon fees, refunds, and ad spend* — per ASIN, not 
 every recommendation ships with the metric panel that justifies it. It is diagnosis with the
 evidence attached, not a dashboard the seller must interpret, and not an autopilot.
 
-Deliberately read-only: SCAI reports on campaigns and never creates, edits, pauses, or bids on
+Deliberately read-only: SellerCopilot reports on campaigns and never creates, edits, pauses, or bids on
 them. This is a positioning choice as much as a compliance one.
 
 ## Operating Context
@@ -90,7 +90,7 @@ other formal certification. None of these may appear on the site.
 
 ## Brand Commitments
 
-Name: SellerCopilot AI, short form SCAI. An Intelecommerce product. Contact:
+Name: SellerCopilot, short form SellerCopilot. An Intelecommerce product. Contact:
 hello@sellercopilot.ai.
 
 The user explicitly released every other identity constraint ("nothing is sacred"), including the
@@ -114,7 +114,7 @@ rewritten but not weakened or embellished.
    appears with the numbers that produced it. Never a verdict without its receipt.
 2. **Profit is the unit.** Revenue and ad revenue are intermediate; the product's answers are
    denominated in net profit per ASIN.
-3. **Read-only is a promise, not a limitation.** The site states plainly what SCAI will never do
+3. **Read-only is a promise, not a limitation.** The site states plainly what SellerCopilot will never do
    to a seller's account.
 4. **The seller stays in control.** Authorization is theirs to grant and revoke; the product
    recommends, the human acts.

@@ -1,4 +1,4 @@
-/* SellerCopilot AI — restraint-level motion.
+/* SellerCopilot — restraint-level motion.
    Everything here is an enhancement: with script off or reduced motion on, the page is
    complete and readable as plain HTML/CSS. */
 (function () {

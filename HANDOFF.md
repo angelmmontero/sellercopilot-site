@@ -38,7 +38,7 @@ Baseline was `0ea9985`. All commits on `main`, in order:
 | `081ac90` | Drop the header Request a demo button |
 | `fec180f` | Use the application's logo on the marketing site |
 | `2c7ac4a` | Keep the navbar sticky on phones as well as desktop |
-| `0cd93c6` | Show only real rules from the SCAI engine on the homepage |
+| `0cd93c6` | Show only real rules from the SellerCopilot engine on the homepage |
 
 ## Decisions locked (do not silently reverse)
 

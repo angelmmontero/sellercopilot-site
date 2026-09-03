@@ -1,5 +1,5 @@
 ---
-name: SellerCopilot AI
+name: SellerCopilot
 description: The morning brief as an observation chart, printed on warm near-white stock ruled every 24px and read in three type voices.
 colors:
   paper: "#f7f5f2"
@@ -238,7 +238,7 @@ components:
     textColor: "{colors.paper-dim}"
 ---
 
-# Design System: SellerCopilot AI
+# Design System: SellerCopilot
 
 ## Overview
 
