@@ -735,6 +735,9 @@ section { padding: calc(var(--u) * 4) 0; }
 .quote h3 { font-size: var(--t-8); line-height: var(--u); margin-bottom: var(--u); }
 .quote p { color: var(--ink-2); line-height: var(--u); margin-bottom: var(--u); max-width: 44ch; text-wrap: pretty; }
 .quote .note { margin: var(--u) 0 0; }
+/* The spec list carries the plan's terms where a paragraph used to. It needs
+   the same 24px below it that the paragraph had, or the button sits on it. */
+.quote .spec { margin-bottom: var(--u); max-width: 44ch; }
 .talk h2 { font-size: var(--t-head); margin-bottom: var(--u); }
 .talk > p { color: var(--ink-soft); line-height: var(--u); max-width: 30rem; text-wrap: pretty; }
 .talk .email {
