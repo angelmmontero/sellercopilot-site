@@ -238,8 +238,9 @@
       encrypted with AES-256-GCM before they are written, with the key held separately from the
       database. The database is a managed PostgreSQL service that encrypts data at rest,
       including backups.</li>
-    <li>Data is retained while the account is active and for 90 days after cancellation, after
-      which it is deleted. A seller may request deletion at any time before that.</li>
+    <li>Data is retained while the account is active and for 30 days after cancellation or after
+      access is revoked, after which it is deleted. A seller may request deletion at any time
+      before that.</li>
   </ul>
   <p>
     The <a href="/security">security overview</a> sets this out in more detail, including what
