@@ -52,7 +52,9 @@ them. This is a positioning choice as much as a compliance one.
 - Onboarding is Amazon's own Selling Partner authorization flow; access is revocable by the seller
   at any time.
 - Evaluation frequently routes through a security or compliance reviewer before purchase.
-- Sales motion is quote-based: no self-serve signup exists today. The page's action is contact.
+- Self-serve: signup, a 14-day trial and Stripe billing exist in the application. The page's
+  action is to start the trial; contact is the secondary path. (Updated 2026-10-06; the site was
+  behind the product.)
 
 ## Capabilities and Constraints
 
@@ -82,11 +84,13 @@ Constraints:
 - No buyer PII is stored.
 - Credentials encrypted at rest (AES-256-GCM); all traffic over HTTPS/TLS.
 - Per-customer data isolation at the application layer.
-- Pricing is quote-based; no public price point exists and none may be invented.
+- Pricing is public: US$79 per month with a 14-day free trial (Angel, 2026-10-06). It may be
+  stated; nothing BEYOND it may be invented, in particular no claim about whether the trial
+  requires a payment method, which has not been verified against the Stripe configuration.
 - Response commitment currently stated publicly: typically one business day.
 
-Undecided / not established: self-serve signup, free trial, published pricing tiers, SOC 2 or
-other formal certification. None of these may appear on the site.
+Undecided / not established: pricing TIERS beyond the single plan, and SOC 2 or other formal
+certification. Neither may appear on the site.
 
 ## Brand Commitments
 
