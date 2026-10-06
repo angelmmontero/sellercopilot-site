@@ -791,6 +791,79 @@ section { padding: calc(var(--u) * 4) 0; }
 .legal a { text-decoration-color: var(--rule-major); }
 .legal a:hover { text-decoration-color: var(--red); color: var(--red); }
 .legal .stamp { margin-top: var(--u); }
+/* ---------- Analytics page: inline readings and the data-source table ----------
+   A reading inside running prose: an Amazon report type or field name, set in
+   the mono face so a reviewer can tell at a glance which words are Amazon's
+   identifiers and which are ours. */
+.mono-read {
+  font-family: var(--mono);
+  font-size: 0.92em;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.legal .shot { max-width: 34rem; margin: calc(var(--u) * 1.5) 0 calc(var(--u) * 2); }
+.legal h3 {
+  font-stretch: 85%;
+  font-weight: 600;
+  font-size: var(--t-6);
+  line-height: var(--u);
+  color: var(--ink);
+  margin: calc(var(--u) * 1.5) 0 calc(var(--u) * 0.5);
+}
+
+/* The table is wider than the 68ch prose measure on purpose: three columns of
+   field names do not fit the reading measure, and this is the one block on the
+   page meant to be scanned rather than read. */
+.src-table { margin: var(--u) 0 calc(var(--u) * 2); box-shadow: inset 0 1px 0 var(--rule-major); }
+.src-head { display: none; }
+.src-row { padding: var(--u) 0; box-shadow: inset 0 -1px 0 var(--rule); }
+.src-row:last-child { box-shadow: inset 0 -1px 0 var(--rule-major); }
+.src-row > div {
+  font-size: var(--t-4);
+  line-height: var(--u);
+  color: var(--ink-2);
+  max-width: 68ch;
+}
+.src-row > div + div { margin-top: calc(var(--u) * 0.5); }
+/* On a narrow screen each cell carries its own column name, so a stacked row
+   still says which of the three things you are reading. */
+.src-row > div::before {
+  content: attr(data-col);
+  display: block;
+  font-stretch: 78%;
+  font-weight: 600;
+  font-size: var(--t-1);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  line-height: var(--u);
+}
+.src-note { font-size: var(--t-3); color: var(--ink-soft); }
+
+@media (min-width: 901px) {
+  .src-head, .src-row {
+    display: grid;
+    grid-template-columns: 16rem 1fr 1fr;
+    gap: var(--u);
+    align-items: start;
+  }
+  .src-head {
+    font-stretch: 78%;
+    font-weight: 600;
+    font-size: var(--t-1);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    line-height: var(--u);
+    padding: calc(var(--u) * 0.5) 0;
+    box-shadow: inset 0 -1px 0 var(--rule-major);
+  }
+  .src-row > div { max-width: none; }
+  .src-row > div:first-child .mono-read { font-size: var(--t-2); }
+  .src-row > div + div { margin-top: 0; }
+  .src-row > div::before { content: none; }
+}
+
 
 /* ---------- Motion: restraint-level, all of it purposeful ---------- */
 /* Without script, or with reduced motion, everything below is simply visible. */
