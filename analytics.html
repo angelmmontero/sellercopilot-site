@@ -222,6 +222,31 @@
     not have one country's fees applied to another's sales.
   </p>
 
+  <h2>How access and data handling work</h2>
+  <ul>
+    <li>A seller authorizes SellerCopilot through Amazon's standard Selling Partner
+      authorization flow. No credentials are typed into SellerCopilot.</li>
+    <li>The application reads only the data of the account that authorized it.</li>
+    <li>Authorization can be revoked by the seller at any time from Seller Central. Revocation
+      stops all further collection immediately.</li>
+    <li><strong>No buyer contact details are requested, stored or processed.</strong> No email
+      addresses, no names, no street addresses. The repeat-purchase and customer-value analytics
+      need to tell whether two orders came from the same customer, so the identity on an order is
+      a one-way digest, not a person. Alongside it the product keeps coarse location only: city,
+      state or province, postal code and country, used for aggregate geographic analysis.</li>
+    <li>All traffic is served over HTTPS/TLS. The Amazon credentials that authorize access are
+      encrypted with AES-256-GCM before they are written, with the key held separately from the
+      database. The database is a managed PostgreSQL service that encrypts data at rest,
+      including backups.</li>
+    <li>Data is retained while the account is active and for 90 days after cancellation, after
+      which it is deleted. A seller may request deletion at any time before that.</li>
+  </ul>
+  <p>
+    The <a href="/security">security overview</a> sets this out in more detail, including what
+    SellerCopilot does not claim, and the <a href="/privacy">privacy policy</a> covers the rights
+    a seller has over their data.
+  </p>
+
   <h2>Pricing</h2>
   <p>
     US$79 per month, with a 14-day free trial. The trial needs no payment to start and gives

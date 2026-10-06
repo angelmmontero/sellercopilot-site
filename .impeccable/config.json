@@ -56,6 +56,74 @@
         "value": "27px",
         "createdAt": "2026-08-30T22:46:55.647Z",
         "reason": "model: SVG user-unit lettering inside the hero plot (axis, target label, call-out); scales with the viewBox, not the page type ramp"
+      },
+      {
+        "rule": "gray-on-color",
+        "value": "*",
+        "files": [
+          "server/routes/pages/settings-products-page.ts"
+        ],
+        "reason": "pre-existing SCAI palette on lines untouched by the settings-hub change (whole-file scan triggered by a one-line edit)"
+      },
+      {
+        "rule": "gray-on-color",
+        "value": "*",
+        "files": [
+          "server/layout.ts"
+        ],
+        "createdAt": "2026-09-02T13:33:06.037Z",
+        "reason": "pre-existing SCAI sidebar palette (text-slate-600 with slate-200/blue-100 hover surfaces); restyling the app chrome is out of scope for the nav remake"
+      },
+      {
+        "rule": "gray-on-color",
+        "value": "*",
+        "files": [
+          "server/routes/pages/admin-page.ts"
+        ],
+        "createdAt": "2026-09-02T13:34:13.821Z",
+        "reason": "pre-existing SCAI palette on lines untouched by the settings-hub change"
+      },
+      {
+        "rule": "gray-on-color",
+        "value": "*",
+        "files": [
+          "server/routes/pages/admin-effectiveness-page.ts"
+        ],
+        "createdAt": "2026-09-02T13:34:13.964Z",
+        "reason": "pre-existing SCAI palette on lines untouched by the settings-hub change"
+      },
+      {
+        "rule": "ai-color-palette",
+        "value": "*",
+        "files": [
+          "server/routes/pages/settings-data-page.ts"
+        ],
+        "createdAt": "2026-09-02T13:34:14.112Z",
+        "reason": "pre-existing SCAI indigo brand palette on untouched lines"
+      },
+      {
+        "rule": "border-accent-on-rounded",
+        "value": "*",
+        "files": [
+          "server/routes/pages/admin-rules-page.ts"
+        ],
+        "createdAt": "2026-09-02T13:34:14.252Z",
+        "reason": "pre-existing card style on untouched lines"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-09-02T13:34:14.396Z",
+        "reason": "Inter is SCAI's established brand typeface on every server-rendered page; the nav remake does not restyle typography"
+      },
+      {
+        "rule": "layout-transition",
+        "value": "*",
+        "files": [
+          "server/layout.ts"
+        ],
+        "createdAt": "2026-09-02T13:34:14.540Z",
+        "reason": "sidebar collapse animates width/margin deliberately: content must reflow into the freed space (transform cannot); 200ms on explicit user click, standard pattern (VS Code/Linear/DataDoe)"
       }
     ]
   }
