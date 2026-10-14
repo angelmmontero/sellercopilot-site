@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Security — SellerCopilot</title>
-  <meta name="description" content="How SellerCopilot protects your Amazon data: encryption, account isolation, what buyer data we deliberately do not store, AI handling, and deletion on request.">
+  <meta name="description" content="How SellerCopilot protects your Amazon data: encryption, account isolation, sign-in controls, what buyer data we do not store, what AI features send, and deletion.">
   <meta name="theme-color" content="#f7f5f2">
   <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/fragment-mono.woff2" as="font" type="font/woff2" crossorigin>
@@ -37,7 +37,7 @@
 <main class="legal">
   <div class="legal-head">
     <h1>Security</h1>
-    <p class="updated">Last updated: August 27, 2026</p>
+    <p class="updated">Last updated: October 14, 2026</p>
   </div>
 
   <p>
@@ -54,19 +54,21 @@
   <h2>The buyer data we do not store</h2>
   <p>
     The most reliable way to protect personal data is not to hold it. SellerCopilot stores
-    <strong>no buyer email addresses, no buyer names, and no street addresses</strong>.
+    <strong>no buyer email addresses, no buyer names, no phone numbers and no street
+    addresses</strong>.
   </p>
   <p>
     Our repeat-purchase and customer-value analytics need to recognise that two orders came from
-    the same customer. They do not need to know who that customer is. So instead of storing an
-    identity, we derive a one-way cryptographic hash and store only that. The hash is stable
-    enough to link a customer's orders together and irreversible, so it cannot be turned back
-    into the details it came from.
+    the same customer. They do not need to know who that customer is. So when an order report
+    arrives, the first street line of the ship-to address is read in memory, combined with the
+    city, state or province, postal code and country, and turned into a hash. The hash is stored
+    and the street line is not. The same address always produces the same hash, which is what
+    links a customer's orders together.
   </p>
   <p>
-    Alongside it we retain only coarse location — city, state or province, postal code and
-    country — which we use for aggregate geographic analysis. On its own that does not identify
-    an individual.
+    Alongside the hash, each order line keeps the ship-to city, state or province, postal code
+    and country. They are used for repeat-purchase analysis and geographic breakdowns within the
+    seller's own account.
   </p>
 
   <h2>Encryption</h2>
@@ -94,9 +96,11 @@
 
   <h2>Where your data lives</h2>
   <p>
-    Application servers and the production database are hosted in the United States. We do not
-    replicate your data to other regions and we do not sell, rent, or share it with third
-    parties for their own purposes.
+    The application runs on Railway in the United States (US East) and the production database
+    on Neon, also in the United States (us-east-2). Requests reach the application through
+    Cloudflare's network, which terminates the encrypted connection at the location nearest the
+    visitor before forwarding it. We do not replicate your data to other regions and we do not
+    sell, rent, or share it with third parties for their own purposes.
   </p>
 
   <h2>Account isolation</h2>
@@ -106,18 +110,28 @@
     nothing else.
   </p>
   <p>
-    To be precise about how that is enforced: isolation is applied in the application layer, on
-    every query, rather than by database-level row security. This is a deliberate, documented
-    convention that all new code must follow, and it is the same mechanism that protects each
-    of your own Amazon marketplaces from being mixed with the others.
+    To be precise about how that is enforced, there are two layers. The application scopes every
+    query to the signed-in user's company and Amazon account. Underneath that, the database
+    enforces row-level security: the application connects as a database role that cannot bypass
+    it, and each request runs with its own company and account set, so a query that forgot its
+    filter would still return only that customer's rows. The same mechanism keeps each of your
+    own Amazon marketplaces separate from the others.
   </p>
 
   <h2>Access and authentication</h2>
   <ul>
-    <li>Sessions are stored server-side. Session cookies are HTTP-only, restricted to HTTPS, and
-      expire after seven days.</li>
-    <li>Accounts are created by invitation. New users set their own password through a
-      single-use link that expires after one hour.</li>
+    <li>Sessions are stored server-side. Session cookies are HTTP-only and restricted to HTTPS.
+      A session ends after 24 hours without activity and after seven days in any case.</li>
+    <li>A new customer can sign up on their own; the account cannot be used until the email
+      address is confirmed through a link sent to it. Team members can also be invited by link.
+      Password-reset links expire after one hour and invitation links after seven days; both are
+      single-use.</li>
+    <li>Passwords must be at least 12 characters with upper and lower case letters, a number and
+      a symbol, cannot contain the user's name or email, cannot repeat any of the last ten, and
+      must be changed after a year. Repeated failed sign-ins are rate-limited.</li>
+    <li>Two-factor authentication with an authenticator app is required for SellerCopilot staff
+      accounts with administrative access. For customer accounts it is available but optional,
+      and can be turned on from Settings.</li>
     <li>Each user can be restricted to a subset of pages, so you can give a team member the
       inventory view without giving them financial data.</li>
     <li>Access to production systems is limited to the people who operate the service.</li>
@@ -125,8 +139,9 @@
 
   <h2>How AI features handle your data</h2>
   <p>
-    SellerCopilot uses Anthropic's Claude models to generate written reports and to answer
-    questions in the assistant. Three things are worth knowing:
+    SellerCopilot uses Anthropic's Claude models to generate written reports, to explain a
+    recommendation when asked, and to answer questions in the assistant. Four things are worth
+    knowing:
   </p>
   <ul>
     <li>
@@ -134,9 +149,18 @@
       which excludes API inputs and outputs from model training.
     </li>
     <li>
-      <strong>Product names are anonymised before they leave.</strong> Audit reports replace your
-      product identifiers with neutral placeholders before the request is sent, and restore them
-      in the response. The model works on the numbers, not on your catalogue.
+      <strong>Written reports anonymise product names.</strong> The executive summary, the
+      operations report and the sales dashboard insights replace product names with neutral
+      placeholders before the request is sent, and restore them in the response. The
+      explanation on a recommendation card calls the product "this product" instead of naming
+      it, but it does include the account notes your team keeps in SellerCopilot, such as brand
+      name, key products and competitors.
+    </li>
+    <li>
+      <strong>The assistant sends product identifiers.</strong> To answer questions about
+      specific products, the assistant sends product identifiers (ASINs and SKUs), product
+      titles and the related figures with each question. It never sends buyer identities: order
+      and customer information reaches it only as counts.
     </li>
     <li>
       <strong>The assistant can only read.</strong> It answers from a fixed set of read-only
@@ -150,15 +174,20 @@
     We request only the data categories needed for the analytics described on this site, and we
     handle data obtained through Amazon's APIs in accordance with Amazon's Acceptable Use Policy
     and Data Protection Policy. You can revoke SellerCopilot's access from within Amazon
-    Seller Central at any time; revocation stops all further data collection immediately.
+    Seller Central at any time, and the advertising authorization from your Amazon Ads account.
+    After revocation, Amazon no longer returns data to us under that authorization; data already
+    stored stays until it is deleted as described below.
   </p>
 
   <h2>Deletion</h2>
   <p>
-    When an account is closed, the company record and all of its associated data — sales,
-    advertising, inventory, orders, financial transactions, reports and recommendations — are
-    permanently removed from the production database. Encrypted backups age out on the managed
-    database's retention schedule.
+    Deletion is carried out by the SellerCopilot team, not automatically. When a customer asks us
+    to delete their account, or once a cancelled subscription's 30-day retention period has
+    passed, we delete the company record and all of its associated data — sales, advertising,
+    inventory, orders, financial transactions, reports and recommendations — from the production
+    database. Before that, a cancelled account's Amazon connections are switched off so nothing
+    new is collected. Records of AI usage and cost, and the security access log, are kept
+    separately. Backups age out on the managed database's retention schedule.
   </p>
   <p>
     Retention periods, how to make a deletion request, and the rights you have over your data are

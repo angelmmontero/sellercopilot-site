@@ -37,14 +37,14 @@
 <main class="legal">
   <div class="legal-head">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: August 24, 2026</p>
+    <p class="updated">Last updated: October 14, 2026</p>
   </div>
 
   <p>
     This Privacy Policy describes how SellerCopilot ("we", "us") collects, uses,
     stores, protects, shares, and deletes information when you use the SellerCopilot
     application and the website sellercopilot.ai (together, the "Service"). SellerCopilot
-    is operated by Intelecommerce ("the Company").
+    is operated by Consultation IntelEcommerce inc., Quebec, Canada ("the Company").
   </p>
 
   <h2>1. Information we collect</h2>
@@ -58,13 +58,15 @@
       <strong>Amazon selling data.</strong> When you authorize SellerCopilot to access your
       Amazon seller account through Amazon's Selling Partner API and/or Amazon Ads API, we
       retrieve business data for the accounts and marketplaces you authorize, including: sales
-      and traffic reports, order reports, inventory reports, financial transaction events, fee
-      estimates, and advertising performance reports. We request only the data categories
-      required to provide the analytics features described on our website.
+      and traffic reports, order reports, inventory and listing reports, Buy Box and offer data,
+      Subscribe &amp; Save data, financial transaction events, and advertising performance
+      reports. We request only the data categories required to provide the analytics features
+      described on our <a href="/analytics">Analytics</a> page.
     </li>
     <li>
       <strong>Data you upload.</strong> You may optionally upload report files (for example,
-      CSV exports from your Amazon account) to supplement automated ingestion.
+      CSV exports from your Amazon account, or Amazon's Fee Preview report) to supplement
+      automated ingestion.
     </li>
     <li>
       <strong>Usage information.</strong> Standard technical logs (such as authentication
@@ -73,26 +75,30 @@
   </ul>
   <p>
     We do not sell data, do not use advertising trackers on this website, and do not collect
-    data about Amazon shoppers beyond what Amazon's reports lawfully include. Where order
-    reports include buyer-related fields, we use them solely in aggregated, pseudonymized form
-    to compute repeat-purchase analytics for your own account.
+    data about Amazon shoppers beyond what Amazon's reports lawfully include. We do not store
+    buyer names, email addresses, phone numbers or street addresses. To compute repeat-purchase
+    analytics for your own account, the first street line of an order's ship-to address is read
+    in memory and turned into a hash together with the city, state or province, postal code and
+    country; the hash and those location fields are stored, the street line is not.
   </p>
 
   <h2>2. How we use information</h2>
   <ul>
     <li>To provide the Service: dashboards, forecasts, daily recommendations, and reports about your own Amazon business.</li>
-    <li>To generate AI-powered analyses of your business data. Product identifiers may be anonymized before being processed by our AI provider, and AI outputs are used only to serve your account.</li>
+    <li>To generate AI-powered analyses of your business data. Written reports replace product names with placeholders before they are sent to our AI provider; the assistant sends product identifiers and titles so it can answer questions about specific products. Our <a href="/security">Security page</a> sets out what each feature sends. AI outputs are used only to serve your account.</li>
     <li>To operate, secure, and improve the Service (authentication, error diagnosis, support).</li>
-    <li>To communicate with you about your account (for example, invitations and password resets).</li>
+    <li>To communicate with you about your account (for example, email confirmation, invitations and password resets).</li>
+    <li>To manage your subscription and billing.</li>
   </ul>
   <p>We do not use your data to train machine-learning models, and we never use one customer's data to provide services to another customer.</p>
 
   <h2>3. How we store and protect information</h2>
   <p>
-    Data is transmitted over encrypted connections and held in access-controlled PostgreSQL
-    databases in the United States. Amazon API credentials are encrypted at rest, passwords are
-    stored only as salted hashes, and every query is scoped to your own company account so your
-    data is never visible to another customer. Information received through Amazon's APIs is
+    Data is transmitted over encrypted connections and held in an access-controlled PostgreSQL
+    database in the United States. Amazon API credentials are encrypted at rest, passwords are
+    stored only as salted hashes, and every query is scoped to your own company account, by the
+    application and by row-level security in the database, so your data is never visible to
+    another customer. Information received through Amazon's APIs is
     handled in accordance with Amazon's Acceptable Use Policy and Data Protection Policy.
   </p>
   <p>
@@ -108,9 +114,11 @@
     instructions:
   </p>
   <ul>
-    <li><strong>Cloud hosting and database providers</strong> — to run the application and store data.</li>
-    <li><strong>AI processing provider</strong> — to generate the AI analyses described above.</li>
-    <li><strong>Transactional email provider</strong> — to deliver account emails such as invitations and password resets.</li>
+    <li><strong>Cloud hosting and database providers</strong> (Railway, Neon) — to run the application and store data.</li>
+    <li><strong>Network and security provider</strong> (Cloudflare) — to deliver the website and the application securely and protect them from abuse.</li>
+    <li><strong>AI processing provider</strong> (Anthropic) — to generate the AI analyses described above.</li>
+    <li><strong>Transactional email provider</strong> (Resend) — to deliver account emails such as email confirmation, invitations and password resets.</li>
+    <li><strong>Payment processor</strong> (Stripe) — to process subscription payments. Stripe receives your email address and payment details directly; we do not receive or store full card numbers.</li>
   </ul>
   <p>
     We may also disclose information if required by law, or to protect the rights, safety, or
@@ -119,10 +127,11 @@
 
   <h2>5. Data retention and deletion</h2>
   <ul>
-    <li>We retain your data for as long as your account is active, so the Service can provide historical analytics and trends, and for <strong>30 days after you cancel or revoke our access</strong>, after which it is deleted. That period matches Amazon's Data Protection Policy, which requires information obtained through the Selling Partner API to be deleted within 30 days of an account being closed or access being withdrawn.</li>
-    <li>You may revoke SellerCopilot's access to your Amazon account at any time from Amazon Seller Central; automated ingestion for that account stops immediately.</li>
+    <li>We retain your data for as long as your account is active, so the Service can provide historical analytics and trends.</li>
+    <li>After you cancel your subscription, your Amazon connections are switched off so no new data is collected, and our team deletes your account's data once a <strong>30-day retention period</strong> has passed. Deletion is carried out by a person, not automatically.</li>
     <li>You may request deletion of your account and associated data at any time by contacting us. Upon a verified request, we delete the account's data from our production systems.</li>
-    <li>When an account is closed, its business data is purged from our databases.</li>
+    <li>You may revoke SellerCopilot's access to your Amazon account at any time from Amazon Seller Central, and to your advertising data from your Amazon Ads account. After you revoke, Amazon no longer returns data to us under that authorization. Revoking does not by itself delete data we already hold; contact us to have it deleted.</li>
+    <li>Records of AI usage and cost and our security access log are kept separately and are not part of account deletion.</li>
   </ul>
 
   <h2>6. Your rights</h2>
@@ -135,9 +144,11 @@
 
   <h2>7. International transfers</h2>
   <p>
-    Our infrastructure providers may store or process data in the United States and Canada.
-    Where data is transferred across borders, we rely on our providers' safeguards and
-    contractual commitments consistent with applicable data-protection regulations.
+    Your data is stored and processed in the United States. Requests reach the Service through
+    Cloudflare's global network, which may process them at the location nearest you. The
+    Company is based in Canada. Where data is transferred across borders, we rely on our
+    providers' safeguards and contractual commitments consistent with applicable
+    data-protection regulations.
   </p>
 
   <h2>8. Children's privacy</h2>

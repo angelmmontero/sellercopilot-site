@@ -41,7 +41,7 @@
 <main class="legal">
   <div class="legal-head">
     <h1>Analytics</h1>
-    <p class="updated">Last updated: October 6, 2026</p>
+    <p class="updated">Last updated: October 14, 2026</p>
   </div>
 
   <p>
@@ -53,15 +53,18 @@
   <h2>What the product does</h2>
   <p>
     SellerCopilot is a subscription analytics application for Amazon selling partners. It
-    connects to a seller's own selling account through Amazon's Selling Partner API, ingests
-    that account's sales, traffic, advertising, inventory, order and financial data once a day,
-    and produces a daily brief: a short written account of what changed in the business and
+    connects to a seller's own selling account through Amazon's Selling Partner API and to the
+    seller's advertising account through the Amazon Ads API. It ingests that account's sales,
+    traffic, advertising, order and financial data every day, refreshes listing and inventory
+    status through the day, and produces a daily brief: a short written account of what changed in the business and
     what to do about it, with the figures that produced each recommendation attached.
   </p>
   <p>
     The product covers Amazon Seller Central accounts. A seller authorizes the application to
-    their own selling account and sees only their own data. Nothing is pooled, benchmarked or
-    compared across customers.
+    their own selling account and sees only their own data. No customer sees another customer's
+    data, and one customer's data is never used to produce another customer's analysis. The
+    SellerCopilot team reviews how accurate recommendations have been across accounts, in
+    aggregate, to improve the rules; that review is internal and is never shown to customers.
   </p>
   <p>
     SellerCopilot reads. It does not create, edit, pause or bid on advertising campaigns, and it
@@ -92,7 +95,7 @@
   <h3>How recommendations are generated</h3>
   <p>
     Recommendations come from a rule engine, not from a model guessing. Each account is
-    provisioned with nineteen pre-configured rules. Every rule is a stated condition over the
+    provisioned with twenty-one pre-configured rules. Every rule is a stated condition over the
     account's own metrics, evaluated for each ASIN once a day, against the seller's targets for
     TACOS, click-through rate, conversion rate and days of stock. Those targets can be
     overridden per product, and the rules themselves can be edited, disabled or added to.
@@ -106,7 +109,7 @@
     <li><span class="mono-read">Stop ads: severe loss and extreme TACOS.</span> The ASIN is losing money per unit and advertising spend is far above its target share of sales.</li>
     <li><span class="mono-read">Fix listing: low conversion despite good click-through.</span> Shoppers are clicking at or above target and buying below it, which points at the detail page rather than at the campaign.</li>
     <li><span class="mono-read">Scale ads: efficient with room to grow.</span> Spend is converting inside target and stock supports more volume.</li>
-    <li><span class="mono-read">Order inventory: high demand stockout risk.</span> Days of supply at the measured velocity fall short of the reorder lead time.</li>
+    <li><span class="mono-read">Order inventory: high demand stockout risk.</span> Seven days of supply or less at the measured sales velocity, on a product that is selling.</li>
     <li><span class="mono-read">Listing suppressed by Amazon.</span> The listing is not buyable at all, which no amount of repricing fixes.</li>
     <li><span class="mono-read">Nobody holds the Buy Box.</span> No seller owns it, which usually means the price sits above Amazon's threshold.</li>
   </ul>
@@ -118,10 +121,38 @@
     (fourteen for ads being scaled) and compared with the estimate.
   </p>
   <p>
-    Written reports and an assistant that answers questions about the account's own figures are
-    generated with Anthropic's Claude models. Product names are replaced with neutral
-    placeholders before any request leaves, and restored in the response. How that works is set
-    out on the <a href="/security">security page</a>.
+    Written reports, short explanations of a recommendation, and an assistant that answers
+    questions about the account's own figures are generated with Anthropic's Claude models. The
+    written reports replace product names with neutral placeholders before the request is sent
+    and restore them in the response. The assistant does not: to answer questions about specific
+    products it sends product identifiers (ASINs and SKUs) and product titles with the figures.
+    What each feature sends is set out on the <a href="/security">security page</a>.
+  </p>
+
+  <h2 id="brand-analytics">Brand Analytics: what the role is used for</h2>
+  <p>
+    SellerCopilot requests Amazon's Brand Analytics role for one report:
+    <span class="mono-read">GET_SALES_AND_TRAFFIC_REPORT</span>. Amazon lists Brand Analytics as the only role that grants
+    it. SellerCopilot requests it once for each day, broken down by child ASIN, and it is the
+    source of the traffic and conversion figures the product is built around.
+  </p>
+  <p>The fields SellerCopilot reads from it, and what uses each one:</p>
+  <ul>
+    <li><span class="mono-read">sessions</span> and <span class="mono-read">unitsOrdered</span>. Conversion rate is computed from these two (units ordered divided by sessions) for every ASIN. It drives the listing rules, for example <span class="mono-read">Fix listing: low conversion despite good click-through</span>, and the conversion figures on the sales dashboard. Units ordered is also the sales velocity behind the inventory forecast.</li>
+    <li><span class="mono-read">orderedProductSales</span>. Revenue per ASIN and per day: the starting point of per-product profit, of TACOS, and of every advertising rule (stop, reduce and scale ads).</li>
+    <li><span class="mono-read">totalOrderItems</span>. Order counts and average order value on the sales dashboard.</li>
+    <li><span class="mono-read">buyBoxPercentage</span>. The seller's own Buy Box share over time, weighted by sessions. It drives <span class="mono-read">Buy Box lost: check price and account health</span> and <span class="mono-read">Reduce ads: advertising without the Buy Box</span>, and is how the outcome of a Buy Box recommendation is measured.</li>
+    <li><span class="mono-read">pageViews</span>. Available to the assistant when a seller asks about page views. No rule uses it.</li>
+  </ul>
+  <p>
+    The report also returns per-device and B2B breakdowns, <span class="mono-read">unitSessionPercentage</span>,
+    <span class="mono-read">unitsRefunded</span> and <span class="mono-read">refundRate</span>. SellerCopilot stores those as Amazon returns them, and no feature
+    uses them today.
+  </p>
+  <p>
+    Every recommendation built on these figures is computed after each daily ingestion and its
+    outcome is measured against the same report afterwards, which is why the daily, ASIN-level
+    grain matters.
   </p>
 
   <h2>Amazon data sources, and what each one is used for</h2>
@@ -138,107 +169,136 @@
     </div>
 
     <div class="src-row" role="row">
-      <div role="cell" data-col="Amazon data source"><span class="mono-read">GET_SALES_AND_TRAFFIC_REPORT</span><br><span class="src-note">Reports API, by ASIN and day</span></div>
-      <div role="cell" data-col="Metrics used"><span class="mono-read">sessions</span>, <span class="mono-read">browserSessions</span>, <span class="mono-read">mobileAppSessions</span>, <span class="mono-read">pageViews</span>, <span class="mono-read">pageViewsPercentage</span>, <span class="mono-read">unitSessionPercentage</span>, <span class="mono-read">unitsOrdered</span>, <span class="mono-read">orderedProductSales</span>, <span class="mono-read">totalOrderItems</span>, <span class="mono-read">buyBoxPercentage</span>, <span class="mono-read">unitsRefunded</span>, <span class="mono-read">refundRate</span>, and the B2B variant of each</div>
-      <div role="cell" data-col="What the product does with it">Traffic and conversion analysis per ASIN. Conversion rate comes from <span class="mono-read">unitSessionPercentage</span>, click-through from sessions against advertising impressions, and the comparison of both against the seller's targets is what triggers the listing and advertising rules. Refunds and returns correct the revenue figure.</div>
+      <div role="cell" data-col="Amazon data source"><span class="mono-read">GET_SALES_AND_TRAFFIC_REPORT</span><br><span class="src-note">Reports API, by child ASIN and day. Brand Analytics role.</span></div>
+      <div role="cell" data-col="Metrics used"><span class="mono-read">sessions</span>, <span class="mono-read">unitsOrdered</span>, <span class="mono-read">orderedProductSales</span>, <span class="mono-read">totalOrderItems</span>, <span class="mono-read">buyBoxPercentage</span>, <span class="mono-read">pageViews</span> (see <a href="#brand-analytics">above</a>)</div>
+      <div role="cell" data-col="What the product does with it">Traffic, conversion and revenue per ASIN. Conversion rate is units ordered divided by sessions. Compared with the seller's targets, it triggers the listing rules; revenue feeds profit, TACOS and the advertising rules; Buy Box share feeds the Buy Box rules.</div>
     </div>
 
     <div class="src-row" role="row">
-      <div role="cell" data-col="Amazon data source"><span class="mono-read">/finances/v0/financialEvents</span><br><span class="src-note">Finances API, settlement detail</span></div>
-      <div role="cell" data-col="Metrics used"><span class="mono-read">ShipmentEvent</span>, <span class="mono-read">RefundEvent</span>, <span class="mono-read">ServiceFeeEvent</span>, <span class="mono-read">AdjustmentEvent</span> and <span class="mono-read">ProductAdsPaymentEvent</span>, including their fee and charge components: FBA fulfilment fees, referral fees, promotion rebates, refund commissions and storage fees</div>
-      <div role="cell" data-col="What the product does with it">Profitability. Amazon's own settlement records are the only accurate source of what a sale actually earned after fees, so net profit per ASIN is built from these rather than estimated from price. They also reconcile each payout.</div>
+      <div role="cell" data-col="Amazon data source"><span class="mono-read">/finances/v0/financialEvents</span><br><span class="src-note">Finances API, financial events</span></div>
+      <div role="cell" data-col="Metrics used"><span class="mono-read">ShipmentEvent</span>, <span class="mono-read">RefundEvent</span>, <span class="mono-read">ServiceFeeEvent</span>, <span class="mono-read">AdjustmentEvent</span> and <span class="mono-read">ProductAdsPaymentEvent</span>, with their charge, fee and promotion components (principal, tax, shipping, commission, refund commission, FBA fulfilment fees, promotion rebates and other fees)</div>
+      <div role="cell" data-col="What the product does with it">The financial dashboard: a transaction-level view of sales, refunds, promotions, Amazon fees, adjustments and advertising charges over time. These records are not used in the per-product profit described below.</div>
     </div>
 
     <div class="src-row" role="row">
-      <div role="cell" data-col="Amazon data source"><span class="mono-read">GET_LEDGER_SUMMARY_VIEW_DATA</span><br><span class="mono-read">GET_LEDGER_DETAIL_VIEW_DATA</span><br><span class="src-note">Reports API, FBA inventory ledger</span></div>
-      <div role="cell" data-col="Metrics used">Ending balance per FNSKU and MSKU, with <span class="mono-read">receipts</span>, <span class="mono-read">found</span>, <span class="mono-read">lost</span>, <span class="mono-read">damaged</span> and <span class="mono-read">disposed</span> movements, by disposition and location</div>
-      <div role="cell" data-col="What the product does with it">Inventory forecasting. Stock on hand is compared with sales velocity derived from units ordered to produce days of supply, stockout dates and recommended reorder quantities. Ledger movements explain a balance change that sales alone do not account for.</div>
+      <div role="cell" data-col="Amazon data source"><span class="mono-read">GET_LEDGER_SUMMARY_VIEW_DATA</span><br><span class="src-note">Reports API, FBA inventory ledger, daily by country</span></div>
+      <div role="cell" data-col="Metrics used">Ending balance and in-transit units per MSKU and disposition, with <span class="mono-read">receipts</span>, <span class="mono-read">customer shipments</span>, <span class="mono-read">customer returns</span>, <span class="mono-read">lost</span>, <span class="mono-read">damaged</span> and <span class="mono-read">disposed</span> movements</div>
+      <div role="cell" data-col="What the product does with it">Inventory forecasting. Sellable stock is compared with sales velocity derived from units ordered to produce days of supply, a reorder date and a stock status per product. The movements are available to the assistant.</div>
     </div>
 
     <div class="src-row" role="row">
-      <div role="cell" data-col="Amazon data source"><span class="mono-read">/inventory/v1/summaries</span><br><span class="src-note">FBA Inventory API</span></div>
-      <div role="cell" data-col="Metrics used"><span class="mono-read">fulfillableQuantity</span>, plus inbound and reserved quantities per SKU</div>
-      <div role="cell" data-col="What the product does with it">Current sellable stock, refreshed through the day. The ledger settles too slowly to tell a seller they are out of stock right now, which is the one case where the advice has to change today.</div>
+      <div role="cell" data-col="Amazon data source"><span class="mono-read">/fba/inventory/v1/summaries</span><br><span class="src-note">FBA Inventory API, every six hours</span></div>
+      <div role="cell" data-col="Metrics used"><span class="mono-read">fulfillableQuantity</span>, inbound (working, shipped and receiving) and reserved quantities per SKU</div>
+      <div role="cell" data-col="What the product does with it">Current sellable stock. The ledger settles too slowly to tell a seller they are out of stock right now: an out-of-stock product stands down the Buy Box rules, and on-hand plus inbound stock is compared with Subscribe &amp; Save demand.</div>
     </div>
 
     <div class="src-row" role="row">
-      <div role="cell" data-col="Amazon data source"><span class="mono-read">/pricing/v0/itemOffers</span><br><span class="src-note">Product Pricing API</span></div>
-      <div role="cell" data-col="Metrics used"><span class="mono-read">IsBuyBoxWinner</span>, <span class="mono-read">LandedPrice</span>, <span class="mono-read">IsFulfilledByAmazon</span> and the offering seller id</div>
+      <div role="cell" data-col="Amazon data source"><span class="mono-read">/batches/products/pricing/v0/itemOffers</span><br><span class="src-note">Product Pricing API (getItemOffersBatch), hourly</span></div>
+      <div role="cell" data-col="Metrics used"><span class="mono-read">IsBuyBoxWinner</span>, <span class="mono-read">MyOffer</span>, <span class="mono-read">IsFulfilledByAmazon</span>, <span class="mono-read">SellerId</span>, listing price plus shipping, and the Buy Box landed price</div>
       <div role="cell" data-col="What the product does with it">Buy Box ownership. Whether nobody holds it, a third party holds it, or Amazon Retail holds it leads to a different recommendation, because the remedy differs in each case. The seller's own share over time comes from <span class="mono-read">buyBoxPercentage</span> above.</div>
     </div>
 
     <div class="src-row" role="row">
-      <div role="cell" data-col="Amazon data source"><span class="mono-read">GET_MERCHANT_LISTINGS_ALL_DATA</span><br><span class="src-note">Reports API, catalog</span></div>
-      <div role="cell" data-col="Metrics used">Listing status per SKU, with price, quantity, ASIN and SKU</div>
-      <div role="cell" data-col="What the product does with it">Listing health, and the catalog itself. A suppressed or incomplete listing cannot win the Buy Box or convert traffic, so it is reported as its own finding instead of being diagnosed as a conversion problem. This report is also how new ASINs and SKUs enter the account.</div>
+      <div role="cell" data-col="Amazon data source"><span class="mono-read">GET_MERCHANT_LISTINGS_ALL_DATA</span><br><span class="src-note">Reports API, listings, every six hours</span></div>
+      <div role="cell" data-col="Metrics used">Listing status, SKU, ASIN, item name, quantity and fulfilment channel</div>
+      <div role="cell" data-col="What the product does with it">Listing health. A suppressed or incomplete listing cannot win the Buy Box or convert traffic, so it is reported as its own finding instead of being diagnosed as a conversion problem. The item name is used for products that have no name yet.</div>
     </div>
 
     <div class="src-row" role="row">
       <div role="cell" data-col="Amazon data source"><span class="mono-read">GET_FLAT_FILE_ALL_ORDERS_DATA_BY_ORDER_DATE_GENERAL</span><br><span class="src-note">Reports API, order history</span></div>
-      <div role="cell" data-col="Metrics used">Order id, purchase date, ASIN, SKU, quantity, item price, and ship-to city, state, postal code and country</div>
-      <div role="cell" data-col="What the product does with it">Repeat purchase and customer value analysis: repeat rate, median days to a second order, lifetime value by entry product, monthly cohorts and cross-product purchase paths. This needs to tell whether two orders came from the same customer, and nothing more than that. What is and is not retained is set out on the <a href="/privacy">privacy policy</a>.</div>
+      <div role="cell" data-col="Metrics used">Order id, purchase date, ASIN, SKU, quantity, item price and promotion discount, product name, item status (cancelled lines are skipped), and ship-to city, state or province, postal code and country. The first street line is read in memory only to compute a digest, and is not stored.</div>
+      <div role="cell" data-col="What the product does with it">Repeat purchase and customer value analysis: repeat rate, median days to a second order, lifetime value by entry product, monthly cohorts and cross-product purchase paths. This needs to tell whether two orders came from the same customer, and nothing more than that. How that works is set out under <a href="#data-handling">access and data handling</a> below.</div>
     </div>
 
     <div class="src-row" role="row">
       <div role="cell" data-col="Amazon data source"><span class="mono-read">spAdvertisedProduct</span><br><span class="src-note">Amazon Ads API v3, Sponsored Products</span></div>
-      <div role="cell" data-col="Metrics used"><span class="mono-read">impressions</span>, <span class="mono-read">clicks</span>, <span class="mono-read">cost</span>, <span class="mono-read">sales7d</span>, <span class="mono-read">purchases7d</span>, <span class="mono-read">unitsSoldClicks7d</span>, <span class="mono-read">unitsSoldSameSku7d</span>, <span class="mono-read">unitsSoldOtherSku7d</span>, by advertised ASIN and campaign</div>
-      <div role="cell" data-col="What the product does with it">Advertising efficiency joined to profit. Ad spend is subtracted from the settlement-based net profit for the same ASIN, which is what makes a recommendation to stop or scale a campaign defensible. The same-SKU and other-SKU splits separate direct sales from halo sales, so a campaign that looks unprofitable on its own advertised ASIN is not stopped when it is selling the rest of the catalog.</div>
+      <div role="cell" data-col="Metrics used"><span class="mono-read">impressions</span>, <span class="mono-read">clicks</span>, <span class="mono-read">cost</span>, <span class="mono-read">sales7d</span>, <span class="mono-read">purchases7d</span> and <span class="mono-read">unitsSoldClicks7d</span>, by day, advertised ASIN, campaign and ad group</div>
+      <div role="cell" data-col="What the product does with it">Advertising efficiency joined to profit. Click-through rate is clicks divided by impressions from this report. Ad spend is subtracted from the net profit of the same ASIN, and TACOS, ACOS and ROAS are measured against the seller's targets, which is what makes a recommendation to stop, reduce or scale spend defensible. Campaign and ad-group breakdowns are available to the assistant.</div>
+    </div>
+
+    <div class="src-row" role="row">
+      <div role="cell" data-col="Amazon data source"><span class="mono-read">/v2/profiles</span><br><span class="src-note">Amazon Ads API, at connection</span></div>
+      <div role="cell" data-col="Metrics used">Profile id, country and marketplace of each advertising profile</div>
+      <div role="cell" data-col="What the product does with it">Selecting the advertising profile that matches the connected marketplace when the seller authorizes Amazon Ads. Only the chosen profile id is kept.</div>
+    </div>
+
+    <div class="src-row" role="row">
+      <div role="cell" data-col="Amazon data source"><span class="mono-read">listOffers</span><br><span class="mono-read">listOfferMetrics</span><br><span class="mono-read">getSellingPartnerMetrics</span><br><span class="src-note">Replenishment API 2022-11-07, Subscribe &amp; Save, daily</span></div>
+      <div role="cell" data-col="Metrics used">Per offer: subscriptions, eligibility, enrolment and discount settings, delivery conditions (including Amazon's low-inventory flag) and forecast deliveries. Per offer and account: shipped subscription units and revenue, active subscriptions, deliveries missed because of stock-outs, revenue lost to them, and next-30-day forecasts; subscriber retention and average revenue at account level</div>
+      <div role="cell" data-col="What the product does with it">The Subscribe &amp; Save page, and two rules that warn before a stock-out breaks subscriptions: Amazon's own low-inventory flag on subscription deliveries, and FBA stock below the next 30 days of forecast subscription deliveries.</div>
+    </div>
+
+    <div class="src-row" role="row">
+      <div role="cell" data-col="Amazon data source"><span class="mono-read">/sellers/v1/marketplaceParticipations</span><br><span class="src-note">Sellers API</span></div>
+      <div role="cell" data-col="Metrics used">The list of marketplaces the authorization covers; only its length is read</div>
+      <div role="cell" data-col="What the product does with it">Confirming that an authorization works. Nothing from the response is stored.</div>
     </div>
   </div>
 
   <p>
-    Ingestion runs once a day on a schedule the seller sets, in their own time zone, with a
-    rolling window per source: ten days for sales and traffic, eight for advertising, seven for
-    orders. Amazon restates recent figures as they settle, and a rolling window is how the
-    application picks up those corrections instead of keeping the first number it saw.
+    The main ingestion runs once a day on a schedule the seller sets, in their own time zone,
+    with a rolling window per source: ten days for sales and traffic, three for the inventory
+    ledger, seven for orders and financial events, eight for advertising. Listing and inventory
+    status refresh every six hours and Buy Box ownership every hour. A weekly pass re-reads a
+    longer window. Amazon restates recent figures as they settle, and a rolling window is how
+    the application picks up those corrections instead of keeping the first number it saw.
   </p>
 
-  <h2>Profitability and the per-SKU P&amp;L</h2>
+  <h2>Profitability per product</h2>
   <p>
     Seller Central reports revenue well and profit poorly. It will tell a seller what an ASIN
-    sold. It will not tell them what that ASIN earned after every fee, refund, promotion and
-    advertising cost that attached to it.
+    sold. It will not tell them what that ASIN earned after Amazon's fees, the cost of the goods
+    and the advertising that attached to it.
   </p>
-  <p>Net profit per ASIN is built by taking ordered product sales and deducting:</p>
+  <p>Net profit per ASIN is computed by taking ordered product sales and deducting:</p>
   <ul>
-    <li>FBA fulfilment and referral fees, taken per unit from Amazon's settlement records and stamped onto each day's sales as they were at the time, so a fee change does not silently rewrite last quarter's margin.</li>
+    <li>FBA fulfilment and referral fees per unit sold. These are Amazon's fee estimates for each product, loaded from the Fee Preview report the seller uploads for each marketplace, or entered for a listing. They are written onto each day's sales when the day is ingested, and refreshed when Amazon restates the day.</li>
     <li>Cost of goods, entered by the seller per product.</li>
-    <li>Refunds and refund commissions.</li>
-    <li>Promotion rebates and other transaction-level charges.</li>
     <li>Sponsored Products spend for the same ASIN over the same period.</li>
   </ul>
   <p>
-    The result is a per-SKU profit and loss the seller can read down to the transaction, plus
-    TACOS and ACOS measured against their own target rather than a generic benchmark. It is
-    presented daily, weekly and monthly, with period-over-period and year-over-year comparison,
-    and it is the figure every advertising recommendation is computed against. This is the
-    deliberate difference from a dashboard that reports revenue: an ASIN with growing sales and
-    a negative margin is a problem, and it only looks like one once the fees are in.
+    Refunds, promotions, storage and other Amazon fees, and Sponsored Brands or Sponsored
+    Display spend are not deducted from this figure. Amazon's financial events, which do carry
+    them, appear on the financial dashboard instead.
+  </p>
+  <p>
+    The result is a per-product profit figure, plus TACOS and ACOS measured against the seller's
+    own target rather than a generic benchmark. It is presented daily, weekly and monthly, with
+    period-over-period and year-over-year comparison, and it is the figure the advertising
+    recommendations are computed against. This is the deliberate difference from a dashboard
+    that reports revenue: an ASIN with growing sales and a negative margin is a problem, and it
+    only looks like one once the fees are in.
   </p>
   <p>
     Fee estimates are held per marketplace, so an account selling in more than one country does
     not have one country's fees applied to another's sales.
   </p>
 
-  <h2>How access and data handling work</h2>
+  <h2 id="data-handling">How access and data handling work</h2>
   <ul>
-    <li>A seller authorizes SellerCopilot through Amazon's standard Selling Partner
-      authorization flow. No credentials are typed into SellerCopilot.</li>
+    <li>A seller connects SellerCopilot through Amazon's Selling Partner authorization flow, and
+      through Amazon Ads authorization for advertising data.</li>
     <li>The application reads only the data of the account that authorized it.</li>
-    <li>Authorization can be revoked by the seller at any time from Seller Central. Revocation
-      stops all further collection immediately.</li>
-    <li><strong>No buyer contact details are requested, stored or processed.</strong> No email
-      addresses, no names, no street addresses. The repeat-purchase and customer-value analytics
-      need to tell whether two orders came from the same customer, so the identity on an order is
-      a one-way digest, not a person. Alongside it the product keeps coarse location only: city,
-      state or province, postal code and country, used for aggregate geographic analysis.</li>
+    <li>Authorization can be revoked by the seller at any time from Seller Central, and the
+      advertising authorization from the seller's Amazon Ads account. After revocation, Amazon no
+      longer returns data to SellerCopilot under that authorization. Revoking does not by itself
+      delete data already stored; see retention below.</li>
+    <li><strong>No buyer names, email addresses, phone numbers or street addresses are
+      stored.</strong> The repeat-purchase and customer-value analytics need to tell whether two
+      orders came from the same customer. To do that, the first street line of the ship-to
+      address is read in memory, combined with the city, state or province, postal code and
+      country, and turned into a digest (a hash) that is stored in its place; the street line
+      itself is never written down. What is stored with each order line is the digest and the
+      ship-to city, state or province, postal code and country.</li>
     <li>All traffic is served over HTTPS/TLS. The Amazon credentials that authorize access are
       encrypted with AES-256-GCM before they are written, with the key held separately from the
       database. The database is a managed PostgreSQL service that encrypts data at rest,
       including backups.</li>
-    <li>Data is retained while the account is active and for 30 days after cancellation or after
-      access is revoked, after which it is deleted. A seller may request deletion at any time
-      before that.</li>
+    <li>Data is retained while the account is active. After a subscription is cancelled, the
+      account's Amazon connections are switched off and its data is deleted by the SellerCopilot
+      team once a 30-day retention period has passed. Deletion is carried out by a person, not
+      automatically. A seller can ask for their account and its data to be deleted at any
+      time.</li>
   </ul>
   <p>
     The <a href="/security">security overview</a> sets this out in more detail, including what
@@ -254,7 +314,8 @@
 
   <h2>Questions</h2>
   <p>
-    For anything this page does not answer, including from a security or compliance reviewer:
+    For anything this page does not answer, including from a security or compliance reviewer,
+    write to
     <a href="mailto:hello@sellercopilot.ai">hello@sellercopilot.ai</a>. See also the
     <a href="/security">security overview</a> and the <a href="/privacy">privacy policy</a>.
   </p>
