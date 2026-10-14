@@ -106,7 +106,7 @@
   <h2>Account isolation</h2>
   <p>
     Every record belonging to your business carries your company identifier, and every query the
-    application makes is scoped to the company of the signed-in user. You see your data and
+    application makes for a customer is scoped to that customer's company. You see your data and
     nothing else.
   </p>
   <p>
@@ -115,7 +115,7 @@
     enforces row-level security: requests made for a signed-in customer run as a database role
     that cannot bypass it, with that customer's company and account set, so a query that forgot
     its filter would still return only that account's rows. A separate administrative connection
-    is used for sign-in, billing and audited support work. The same mechanism keeps each of your
+    is used for sign-in and account security, billing, saving Amazon credentials, looking up which company and Amazon accounts a user belongs to, finding the accounts that scheduled jobs run for, AI usage accounting and SellerCopilot staff tools, among them a staff-only comparison of recommendation outcomes across customers; that connection is not restricted by row-level security. The same mechanism keeps each of your
     own Amazon marketplaces separate from the others.
   </p>
 

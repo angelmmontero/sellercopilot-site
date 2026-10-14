@@ -98,7 +98,7 @@
   <p>
     Recommendations come from a rule engine, not from a model guessing. Each account is
     provisioned with twenty-one pre-configured rules. Every rule is a stated condition over the
-    account's own metrics, evaluated for each ASIN once a day, against the seller's targets for
+    account's own metrics, evaluated for each ASIN against the seller's targets for
     TACOS, click-through rate, conversion rate and days of stock. Those targets can be
     overridden per product, and the rules themselves can be edited, disabled or added to.
   </p>
@@ -127,7 +127,7 @@
     assistant that answers questions about the account's own figures are generated with
     Anthropic's Claude models. The operations report and the sales dashboard insights replace
     product names with neutral placeholders before the request is sent and restore them in the
-    response; the executive summary sends only totals. The assistant does not anonymise: to answer questions about specific
+    response; the executive summary sends only totals and unnamed product lines. The assistant does not anonymise: to answer questions about specific
     products it sends product identifiers (ASINs and SKUs) and product titles with the figures.
     What each feature sends is set out on the <a href="/security">security page</a>.
   </p>
@@ -280,8 +280,10 @@
     only looks like one once the fees are in.
   </p>
   <p>
-    Fee Preview estimates are held per marketplace, so fees from one country's Fee Preview are
-    never applied to another country's sales.
+    Fee Preview estimates are held per marketplace, and each upload is applied to the sales of the
+    marketplace it was uploaded for. Where a marketplace has no estimate for a product, a fee from a
+    Fee Preview report uploaded before estimates were held per marketplace can be used instead, and
+    that report may have been for another marketplace.
   </p>
 
   <h2 id="data-handling">How access and data handling work</h2>
