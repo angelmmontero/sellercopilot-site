@@ -62,13 +62,15 @@
   <p>
     The product covers Amazon Seller Central accounts. A seller authorizes the application to
     their own selling account and sees only their own data. No customer sees another customer's
-    data, and one customer's data is never used to produce another customer's analysis. The
-    SellerCopilot team reviews how accurate recommendations have been across accounts, in
-    aggregate, to improve the rules; that review is internal and is never shown to customers.
+    data, and no customer's analysis is computed from another customer's figures. The
+    SellerCopilot team reviews how accurate recommendations have been across accounts to improve
+    the rules; that review is internal and is never shown to customers.
   </p>
   <p>
     SellerCopilot reads. It does not create, edit, pause or bid on advertising campaigns, and it
-    does not change prices, listings or inventory. Recommendations are for the seller to act on.
+    does not change prices, listings or inventory. Amazon Ads authorization is granted with
+    Amazon's campaign-management scope; SellerCopilot uses it only to request reports.
+    Recommendations are for the seller to act on.
   </p>
 
   <h2>The daily brief</h2>
@@ -106,10 +108,10 @@
     in the product:
   </p>
   <ul>
-    <li><span class="mono-read">Stop ads: severe loss and extreme TACOS.</span> The ASIN is losing money per unit and advertising spend is far above its target share of sales.</li>
-    <li><span class="mono-read">Fix listing: low conversion despite good click-through.</span> Shoppers are clicking at or above target and buying below it, which points at the detail page rather than at the campaign.</li>
-    <li><span class="mono-read">Scale ads: efficient with room to grow.</span> Spend is converting inside target and stock supports more volume.</li>
-    <li><span class="mono-read">Order inventory: high demand stockout risk.</span> Seven days of supply or less at the measured sales velocity, on a product that is selling.</li>
+    <li><span class="mono-read">Stop ads — severe loss + extreme TACOS.</span> The ASIN is losing money per unit and advertising spend is far above its target share of sales.</li>
+    <li><span class="mono-read">Fix listing — low CVR despite good CTR.</span> Shoppers are clicking at or above target and buying below it, which points at the detail page rather than at the campaign.</li>
+    <li><span class="mono-read">Scale ads — efficient with room to grow.</span> Spend is converting inside target and stock supports more volume.</li>
+    <li><span class="mono-read">Order inventory — high demand stockout risk.</span> Seven days of supply or less at the measured sales velocity, on a product that is selling.</li>
     <li><span class="mono-read">Listing suppressed by Amazon.</span> The listing is not buyable at all, which no amount of repricing fixes.</li>
     <li><span class="mono-read">Nobody holds the Buy Box.</span> No seller owns it, which usually means the price sits above Amazon's threshold.</li>
   </ul>
@@ -121,10 +123,11 @@
     (fourteen for ads being scaled) and compared with the estimate.
   </p>
   <p>
-    Written reports, short explanations of a recommendation, and an assistant that answers
-    questions about the account's own figures are generated with Anthropic's Claude models. The
-    written reports replace product names with neutral placeholders before the request is sent
-    and restore them in the response. The assistant does not: to answer questions about specific
+    Written reports, short explanations of a recommendation or of the monthly scorecard, and an
+    assistant that answers questions about the account's own figures are generated with
+    Anthropic's Claude models. The operations report and the sales dashboard insights replace
+    product names with neutral placeholders before the request is sent and restore them in the
+    response; the executive summary sends only totals. The assistant does not anonymise: to answer questions about specific
     products it sends product identifiers (ASINs and SKUs) and product titles with the figures.
     What each feature sends is set out on the <a href="/security">security page</a>.
   </p>
@@ -133,25 +136,26 @@
   <p>
     SellerCopilot requests Amazon's Brand Analytics role for one report:
     <span class="mono-read">GET_SALES_AND_TRAFFIC_REPORT</span>. Amazon lists Brand Analytics as the only role that grants
-    it. SellerCopilot requests it once for each day, broken down by child ASIN, and it is the
-    source of the traffic and conversion figures the product is built around.
+    it. SellerCopilot requests it one day at a time, broken down by child ASIN, and requests recent
+    days again as Amazon settles them (see the cadence below). It is the source of the traffic
+    and conversion figures the product is built around.
   </p>
   <p>The fields SellerCopilot reads from it, and what uses each one:</p>
   <ul>
-    <li><span class="mono-read">sessions</span> and <span class="mono-read">unitsOrdered</span>. Conversion rate is computed from these two (units ordered divided by sessions) for every ASIN. It drives the listing rules, for example <span class="mono-read">Fix listing: low conversion despite good click-through</span>, and the conversion figures on the sales dashboard. Units ordered is also the sales velocity behind the inventory forecast.</li>
-    <li><span class="mono-read">orderedProductSales</span>. Revenue per ASIN and per day: the starting point of per-product profit, of TACOS, and of every advertising rule (stop, reduce and scale ads).</li>
+    <li><span class="mono-read">sessions</span> and <span class="mono-read">unitsOrdered</span>. Conversion rate is computed from these two (units ordered divided by sessions) for every ASIN. It drives the listing rules, for example <span class="mono-read">Fix listing — low CVR despite good CTR</span>, and the conversion figures on the sales dashboard. Units ordered is also the sales velocity behind the inventory forecast.</li>
+    <li><span class="mono-read">orderedProductSales</span>. Revenue per ASIN and per day: the starting point of per-product profit, of TACOS, and of the profit- and TACOS-based advertising rules (stop, reduce and scale ads).</li>
     <li><span class="mono-read">totalOrderItems</span>. Order counts and average order value on the sales dashboard.</li>
-    <li><span class="mono-read">buyBoxPercentage</span>. The seller's own Buy Box share over time, weighted by sessions. It drives <span class="mono-read">Buy Box lost: check price and account health</span> and <span class="mono-read">Reduce ads: advertising without the Buy Box</span>, and is how the outcome of a Buy Box recommendation is measured.</li>
+    <li><span class="mono-read">buyBoxPercentage</span>. The seller's own Buy Box share over time, weighted by sessions. It drives <span class="mono-read">Buy Box lost — check price and account health</span> and <span class="mono-read">Reduce ads — advertising without the Buy Box</span>, and is how the outcome of a Buy Box recommendation is measured.</li>
     <li><span class="mono-read">pageViews</span>. Available to the assistant when a seller asks about page views. No rule uses it.</li>
   </ul>
   <p>
-    The report also returns per-device and B2B breakdowns, <span class="mono-read">unitSessionPercentage</span>,
-    <span class="mono-read">unitsRefunded</span> and <span class="mono-read">refundRate</span>. SellerCopilot stores those as Amazon returns them, and no feature
-    uses them today.
+    The report also returns per-device session and page-view breakdowns and
+    <span class="mono-read">unitSessionPercentage</span>. SellerCopilot stores those as Amazon returns them, and no feature uses
+    them today. Its B2B and refund fields are not stored.
   </p>
   <p>
-    Every recommendation built on these figures is computed after each daily ingestion and its
-    outcome is measured against the same report afterwards, which is why the daily, ASIN-level
+    Every recommendation built on these figures is computed from the latest ingested day when the
+    seller opens the brief, and its outcome is measured against the same report afterwards, which is why the daily, ASIN-level
     grain matters.
   </p>
 
@@ -213,7 +217,7 @@
     <div class="src-row" role="row">
       <div role="cell" data-col="Amazon data source"><span class="mono-read">spAdvertisedProduct</span><br><span class="src-note">Amazon Ads API v3, Sponsored Products</span></div>
       <div role="cell" data-col="Metrics used"><span class="mono-read">impressions</span>, <span class="mono-read">clicks</span>, <span class="mono-read">cost</span>, <span class="mono-read">sales7d</span>, <span class="mono-read">purchases7d</span> and <span class="mono-read">unitsSoldClicks7d</span>, by day, advertised ASIN, campaign and ad group</div>
-      <div role="cell" data-col="What the product does with it">Advertising efficiency joined to profit. Click-through rate is clicks divided by impressions from this report. Ad spend is subtracted from the net profit of the same ASIN, and TACOS, ACOS and ROAS are measured against the seller's targets, which is what makes a recommendation to stop, reduce or scale spend defensible. Campaign and ad-group breakdowns are available to the assistant.</div>
+      <div role="cell" data-col="What the product does with it">Advertising efficiency joined to profit. Click-through rate is clicks divided by impressions from this report. Ad spend is subtracted from the net profit of the same ASIN, and TACOS is measured against the seller's target, with ACOS and ROAS reported alongside it. That is what makes a recommendation to stop, reduce or scale spend defensible. Campaign and ad-group breakdowns are available to the assistant.</div>
     </div>
 
     <div class="src-row" role="row">
@@ -231,7 +235,7 @@
     <div class="src-row" role="row">
       <div role="cell" data-col="Amazon data source"><span class="mono-read">/sellers/v1/marketplaceParticipations</span><br><span class="src-note">Sellers API</span></div>
       <div role="cell" data-col="Metrics used">The list of marketplaces the authorization covers; only its length is read</div>
-      <div role="cell" data-col="What the product does with it">Confirming that an authorization works. Nothing from the response is stored.</div>
+      <div role="cell" data-col="What the product does with it">An administrator-only check, run against SellerCopilot's own test authorization, that the application's Amazon access works. Nothing from the response is stored, and it is never run against a customer's authorization.</div>
     </div>
   </div>
 
@@ -240,7 +244,8 @@
     with a rolling window per source: ten days for sales and traffic, three for the inventory
     ledger, seven for orders and financial events, eight for advertising. Listing and inventory
     status refresh every six hours and Buy Box ownership every hour. A weekly pass re-reads a
-    longer window. Amazon restates recent figures as they settle, and a rolling window is how
+    longer window. The brief and its recommendations are computed from the latest ingested day
+    when the seller opens it. Amazon restates recent figures as they settle, and a rolling window is how
     the application picks up those corrections instead of keeping the first number it saw.
   </p>
 
@@ -252,26 +257,31 @@
   </p>
   <p>Net profit per ASIN is computed by taking ordered product sales and deducting:</p>
   <ul>
-    <li>FBA fulfilment and referral fees per unit sold. These are Amazon's fee estimates for each product, loaded from the Fee Preview report the seller uploads for each marketplace, or entered for a listing. They are written onto each day's sales when the day is ingested, and refreshed when Amazon restates the day.</li>
+    <li>FBA fulfilment and referral fees per unit sold, from Amazon's Fee Preview report, which the seller uploads for each marketplace. Each day's sales carry the fee that applied when the day was last ingested.</li>
     <li>Cost of goods, entered by the seller per product.</li>
     <li>Sponsored Products spend for the same ASIN over the same period.</li>
   </ul>
   <p>
     Refunds, promotions, storage and other Amazon fees, and Sponsored Brands or Sponsored
     Display spend are not deducted from this figure. Amazon's financial events, which do carry
-    them, appear on the financial dashboard instead.
+    them, appear on the financial dashboard instead. Without an uploaded Fee Preview report, no
+    Amazon fees are deducted.
   </p>
   <p>
-    The result is a per-product profit figure, plus TACOS and ACOS measured against the seller's
-    own target rather than a generic benchmark. It is presented daily, weekly and monthly, with
-    period-over-period and year-over-year comparison, and it is the figure the advertising
-    recommendations are computed against. This is the deliberate difference from a dashboard
+    The recommendations apply the same deductions over the brief's fourteen-day window, using
+    the FBA and referral fees entered for each listing in the product settings.
+  </p>
+  <p>
+    The result is a per-product profit figure, plus TACOS measured against the seller's own
+    target rather than a generic benchmark, with ACOS and ROAS reported alongside it. It is
+    presented daily, weekly and monthly, with period-over-period and year-over-year comparison.
+    This is the deliberate difference from a dashboard
     that reports revenue: an ASIN with growing sales and a negative margin is a problem, and it
     only looks like one once the fees are in.
   </p>
   <p>
-    Fee estimates are held per marketplace, so an account selling in more than one country does
-    not have one country's fees applied to another's sales.
+    Fee Preview estimates are held per marketplace, so fees from one country's Fee Preview are
+    never applied to another country's sales.
   </p>
 
   <h2 id="data-handling">How access and data handling work</h2>
@@ -279,10 +289,10 @@
     <li>A seller connects SellerCopilot through Amazon's Selling Partner authorization flow, and
       through Amazon Ads authorization for advertising data.</li>
     <li>The application reads only the data of the account that authorized it.</li>
-    <li>Authorization can be revoked by the seller at any time from Seller Central, and the
-      advertising authorization from the seller's Amazon Ads account. After revocation, Amazon no
+    <li>Authorization can be revoked by the seller at any time from Seller Central, and the advertising authorization from the Amazon account that granted it. After revocation, Amazon no
       longer returns data to SellerCopilot under that authorization. Revoking does not by itself
-      delete data already stored; see retention below.</li>
+      delete data already stored, and SellerCopilot does not detect a revocation automatically:
+      a seller who revokes access can ask us to delete the account's data.</li>
     <li><strong>No buyer names, email addresses, phone numbers or street addresses are
       stored.</strong> The repeat-purchase and customer-value analytics need to tell whether two
       orders came from the same customer. To do that, the first street line of the ship-to
@@ -294,11 +304,11 @@
       encrypted with AES-256-GCM before they are written, with the key held separately from the
       database. The database is a managed PostgreSQL service that encrypts data at rest,
       including backups.</li>
-    <li>Data is retained while the account is active. After a subscription is cancelled, the
-      account's Amazon connections are switched off and its data is deleted by the SellerCopilot
-      team once a 30-day retention period has passed. Deletion is carried out by a person, not
-      automatically. A seller can ask for their account and its data to be deleted at any
-      time.</li>
+    <li>Data is retained while the account is active. When a subscription is cancelled, a 30-day
+      retention period starts so the account can be resumed. Shortly before it ends, the account's
+      Amazon connections are switched off, and the SellerCopilot team then deletes the account's
+      data. Deletion is carried out by a person, not automatically. A seller can ask for their
+      account and its data to be deleted at any time.</li>
   </ul>
   <p>
     The <a href="/security">security overview</a> sets this out in more detail, including what
@@ -308,8 +318,8 @@
 
   <h2>Pricing</h2>
   <p>
-    US$79 per month, with a 14-day free trial. One subscription covers the selling account and
-    every marketplace in it. See <a href="/#pricing">pricing</a> for what is included.
+    US$79 per month, with a 14-day free trial. One subscription covers the company account and
+    every Amazon marketplace connected to it. See <a href="/#pricing">pricing</a> for what is included.
   </p>
 
   <h2>Questions</h2>
