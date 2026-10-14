@@ -180,19 +180,22 @@
     handle data obtained through Amazon's APIs in accordance with Amazon's Acceptable Use Policy
     and Data Protection Policy. You can revoke SellerCopilot's access from within Amazon
     Seller Central at any time, and its advertising access from the Amazon account that granted
-    it. After revocation, Amazon no longer returns data to us under that authorization. Revoking
-    does not by itself delete data already stored, and we do not detect a revocation
-    automatically: tell us and we will delete the account's data.
+    it. After revocation, Amazon no longer returns data to us under that authorization. We notice
+    the revocation the next time we request data from Amazon and Amazon refuses: collection for
+    that Amazon account stops, and its data is deleted within 30 days unless you reconnect it.
+    Removing the connection in SellerCopilot's settings has the same effect.
   </p>
 
   <h2>Deletion</h2>
   <p>
     Deletion is carried out by the SellerCopilot team, not automatically. When a customer asks us
-    to delete their account, or when a cancelled subscription's 30-day retention period ends, we
-    delete the company record and all of its associated data — sales, advertising,
-    inventory, orders, financial transactions, reports and recommendations — from the production
-    database. Shortly before a cancelled subscription's retention period ends, the account's
-    Amazon connections are switched off so nothing new is collected. Records of AI usage and
+    to delete their account, or within the 30-day retention period that follows the end of a
+    subscription or of a trial without a payment method, we delete the company record and all of
+    its associated data — sales, advertising, inventory, orders, financial transactions, reports
+    and recommendations — from the production database. When an Amazon authorization is revoked,
+    that Amazon account's data is deleted within 30 days in the same way, and the company and its
+    users remain. In each case the affected Amazon connections are switched off first, so nothing
+    new is collected. Records of AI usage and
     cost are kept for accounting, and the security access log (the email and IP address used for
     sign-ins and administrative actions) is kept for 13 months; neither is part of account
     deletion. Backups age out on the managed database's retention schedule.

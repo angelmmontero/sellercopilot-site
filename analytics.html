@@ -290,9 +290,12 @@
       through Amazon Ads authorization for advertising data.</li>
     <li>The application reads only the data of the account that authorized it.</li>
     <li>Authorization can be revoked by the seller at any time from Seller Central, and the advertising authorization from the Amazon account that granted it. After revocation, Amazon no
-      longer returns data to SellerCopilot under that authorization. Revoking does not by itself
-      delete data already stored, and SellerCopilot does not detect a revocation automatically:
-      a seller who revokes access can ask us to delete the account's data.</li>
+      longer returns data to SellerCopilot under that authorization. SellerCopilot notices the
+      revocation the next time it requests data from Amazon and Amazon refuses: collection for
+      that Amazon account stops, and its data is deleted within 30 days unless the seller
+      reconnects it. Removing the connection in SellerCopilot's settings has the same effect.
+      Revoking only the advertising authorization stops advertising collection; that data is
+      deleted with the account, or on request.</li>
     <li><strong>No buyer names, email addresses, phone numbers or street addresses are
       stored.</strong> The repeat-purchase and customer-value analytics need to tell whether two
       orders came from the same customer. To do that, the first street line of the ship-to
@@ -304,11 +307,12 @@
       encrypted with AES-256-GCM before they are written, with the key held separately from the
       database. The database is a managed PostgreSQL service that encrypts data at rest,
       including backups.</li>
-    <li>Data is retained while the account is active. When a subscription is cancelled, a 30-day
-      retention period starts so the account can be resumed. Shortly before it ends, the account's
-      Amazon connections are switched off, and the SellerCopilot team then deletes the account's
-      data. Deletion is carried out by a person, not automatically. A seller can ask for their
-      account and its data to be deleted at any time.</li>
+    <li>Data is retained while the account has a trial or a subscription. When a subscription
+      ends, or a free trial ends without a payment method, the account's Amazon connections are
+      switched off so nothing new is collected, and a 30-day retention period starts so the
+      account can be resumed. Before those 30 days are up, the SellerCopilot team deletes the
+      account's data. Deletion is carried out by a person, not automatically. A seller can ask for
+      their account and its data to be deleted at any time.</li>
   </ul>
   <p>
     The <a href="/security">security overview</a> sets this out in more detail, including what
